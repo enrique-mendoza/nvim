@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. Clone into `$HOME/.config/` directory.
+1. Clone into `$HOME/.config/nvim` directory.
 
    ```bash
    git clone git@github.com:enrique-mendoza/nvim.git ~
