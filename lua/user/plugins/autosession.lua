@@ -36,12 +36,13 @@ function M.config()
   -- auto_session.setup(opts)
 
   require("auto-session").setup {
-    log_level = vim.log.levels.ERROR,
-    auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
-    auto_session_use_git_branch = false,
-    auto_session_root_dir = vim.fn.stdpath "data" .. "/sessions/",
-    auto_session_enable_last_session = false,
-    bypass_session_save_file_types = { "alpha" },
+    log_level = "error",
+    suppressed_dirs = { "~/", "~/Downloads", "/" },
+    use_git_branch = false,
+    root_dir = vim.fn.stdpath "data" .. "/sessions/",
+    enable_last_session = false,
+    bypass_save_filetypes = { "alpha" },
+    lazy_support = true,
 
     -- ⚠️ This will only work if Telescope.nvim is installed
     -- The following are already the default values, no need to provide them if these are already the settings you want.
