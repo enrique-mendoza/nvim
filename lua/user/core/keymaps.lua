@@ -25,16 +25,16 @@ keymap("n", "g#", "g#zz", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
-keymap("v", "J", ":m '>+1<CR>gv=gv")
-keymap("v", "K", ":m '<-2<CR>gv=gv")
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
+-- keymap("n", "n", "nzzzv", opts)
+-- keymap("n", "N", "Nzzzv", opts)
 
-keymap("n", "d", '"_d')
-keymap("v", "d", '"_d')
+keymap("n", "d", '"_d', opts)
+keymap("v", "d", '"_d', opts)
 
-keymap("x", "p", [["_dP]])
+keymap("x", "p", [["_dP]], opts)
 
 keymap({"n", "v"}, "<leader>y", '"+y')
 
