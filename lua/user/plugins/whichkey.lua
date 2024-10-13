@@ -663,6 +663,21 @@ function M.config()
       "<cmd>lua require'neotest'.run.run()<cr>",
       desc = "Test Nearest",
     },
+    -- ui
+    {
+      "<leader>u",
+      group = "UI",
+    },
+    {
+      "<leader>us",
+      "<cmd>Screenkey toggle<cr>",
+      desc = "Screenkey toggle",
+    },
+    {
+      "<leader>up",
+      "<cmd>Precognition toggle<cr>",
+      desc = "Precognition toggle",
+    },
     -- vertical split
     {
       "<leader>v",
