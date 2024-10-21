@@ -670,7 +670,8 @@ function M.config()
     },
     {
       "<leader>us",
-      "<cmd>Screenkey toggle<cr>",
+      -- "<cmd>Screenkey toggle<cr>"
+      "<cmd>ShowkeysToggle<cr>",
       desc = "Screenkey toggle",
     },
     {
