@@ -19,6 +19,19 @@ function M.config()
     cmdline = {
       view = "cmdline_popup"
     },
+    {
+      filter = {
+        event = 'msg_show',
+        any = {
+          { find = '%d+L, %d+B' },
+          { find = '; after #%d+' },
+          { find = '; before #%d+' },
+          { find = '%d fewer lines' },
+          { find = '%d more lines' },
+        },
+      },
+      opts = { skip = true },
+    },
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
@@ -46,6 +59,8 @@ function M.config()
       lsp_doc_border = true, -- add a border to hover docs and signature help
     },
   }
+
+  vim.opt.shortmess:append 'IWs'
 end
 
 return M

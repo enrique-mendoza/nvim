@@ -13,6 +13,12 @@ function M.config()
     end
     return require "notify"(msg, ...)
   end
+
+  require("notify").setup({
+    timeout = 10000,
+    render = "compact",
+    fps = 144
+  })
 end
 
 return M

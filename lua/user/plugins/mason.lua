@@ -10,6 +10,7 @@ local M = {
 M.execs = {
   "astro",
   "bashls",
+  "clangd",
   "cssls",
   "html",
   "jdtls",

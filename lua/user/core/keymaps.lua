@@ -1,5 +1,6 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local discipline = require("user.plugins.discipline")
 
 keymap("n", "<Space>", "", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
@@ -53,3 +54,5 @@ keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 -- keymap({ "n" }, "<s-l>", "<cmd>tabn<cr>", opts)
 
 keymap('t', '<C-;>', '<C-\\><C-n>', opts)
+
+discipline.cowboy()

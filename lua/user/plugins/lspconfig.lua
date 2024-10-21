@@ -71,6 +71,7 @@ function M.config()
   local servers = {
     "astro",
     "bashls",
+    "clangd",
     "cssls",
     "eslint",
     "html",
