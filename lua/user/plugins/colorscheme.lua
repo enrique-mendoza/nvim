@@ -1,9 +1,9 @@
-local M = require("user.themes.catppuccin")
+local M = require("user.themes.eldritch")
 
 function M.config()
-  require("catppuccin").setup({})
+  require("eldritch").setup({})
 
-  vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "eldritch"
 end
 
 return M
