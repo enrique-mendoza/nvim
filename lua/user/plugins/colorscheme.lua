@@ -1,9 +1,11 @@
-local M = require("user.themes.catppuccin")
+local M = require("user.themes.tokyonight")
 
 function M.config()
-  require("catppuccin").setup({})
+  require("tokyonight").setup({
+    style = "night"
+  })
 
-  vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "tokyonight"
 end
 
 return M
