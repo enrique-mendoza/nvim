@@ -1,5 +1,6 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local discipline = require("user.plugins.discipline")
 
 keymap("n", "<Space>", "", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
@@ -36,6 +37,7 @@ keymap("v", "d", '"_d', opts)
 
 keymap("x", "p", [["_dP]], opts)
 
+keymap({"n", "v"}, "<leader>y", '"+y"')
 
 keymap("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
 keymap("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
