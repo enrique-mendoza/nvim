@@ -5,6 +5,9 @@ local opts = { noremap = true, silent = true }
 keymap("n", "<Space>", "", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
+-- escape and clear hlsearch
+keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
+
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
 keymap("n", "<m-k>", "<C-w>k", opts)

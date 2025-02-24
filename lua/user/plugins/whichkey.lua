@@ -103,12 +103,6 @@ function M.config()
       hidden = true,
     },
     {
-      "<leader>N",
-      "<cmd>nohlsearch<CR>",
-      desc = "NOHL",
-      hidden = true,
-    },
-    {
       "<leader>w",
       "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
       desc = "Wrap",
