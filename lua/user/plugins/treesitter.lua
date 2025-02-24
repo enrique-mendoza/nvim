@@ -11,7 +11,7 @@ function M.config()
       "lua",
       "markdown",
       "markdown_inline",
-      "python"
+      "python",
     },
     highlight = { enable = true },
     indent = { enable = true },

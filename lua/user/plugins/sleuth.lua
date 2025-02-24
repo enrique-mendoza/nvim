@@ -3,7 +3,6 @@ local M = {
   "MaxMEllon/vim-jsx-pretty",
 }
 
-function M.config()
-end
+function M.config() end
 
 return M

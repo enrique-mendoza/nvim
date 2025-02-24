@@ -7,7 +7,7 @@ local M = {
 }
 
 function M.config()
-  local builtin = require("statuscol.builtin")
+  local builtin = require "statuscol.builtin"
 
   local cfg = {
     setopt = true,

@@ -1,13 +1,13 @@
 local M = {
   "NStefan002/screenkey.nvim",
   lazy = false,
-  version = "*", -- or branch = "dev", to use the latest commit
+  version = "*", -- Or branch = "dev", to use the latest commit
 }
 
 function M.config()
   require("screenkey").setup {
     win_opts = {
-      row = 0, --vim.o.lines - vim.o.cmdheight - 1,
+      row = 0, -- vim.o.lines - vim.o.cmdheight - 1,
       col = vim.o.columns - 1,
       relative = "editor",
       anchor = "SE",
@@ -69,8 +69,8 @@ function M.config()
     },
   }
 
-  -- run screenkey off rip
-  vim.cmd("Screenkey")
+  -- Run screenkey off rip
+  vim.cmd "Screenkey"
 end
 
 return M

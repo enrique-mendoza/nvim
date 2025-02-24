@@ -10,7 +10,7 @@ function M.config()
 
   local branch = {
     "branch",
-    icon =""
+    icon = "",
   }
 
   local diff = {
@@ -51,9 +51,9 @@ function M.config()
   local mode = {
     "mode",
     icons_enabled = true,
-    -- fmt = 
-      -- function() return icons.misc.Neovim end, -- neovim icon 
-      -- function(res) return res:sub(1,1) end -- get first mode char
+    -- fmt =
+    -- function() return icons.misc.Neovim end, -- neovim icon
+    -- function(res) return res:sub(1,1) end -- get first mode char
   }
 
   require("lualine").setup {

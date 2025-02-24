@@ -1,10 +1,10 @@
 local M = {
   "folke/drop.nvim",
-  opts = {}
+  opts = {},
 }
 
 function M.config()
-  require("drop").setup({})
+  require("drop").setup {}
 end
 
 return M

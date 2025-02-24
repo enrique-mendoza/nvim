@@ -29,7 +29,7 @@ function M.config()
             "switch_statement",
             "switch_case",
             "switch_body",
-            "switch_default"
+            "switch_default",
           },
 
           ["tsx"] = {
@@ -46,7 +46,7 @@ function M.config()
             "switch_statement",
             "switch_case",
             "switch_body",
-            "switch_default"
+            "switch_default",
           },
           ["rust"] = { "let_declaration", "const_declaration" },
         },

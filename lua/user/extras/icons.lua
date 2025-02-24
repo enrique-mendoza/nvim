@@ -157,6 +157,6 @@ return {
     Archlinux = "",
     Archcraft = "",
     Rocket = "󱓞",
-    Neovim = ""
+    Neovim = "",
   },
 }
