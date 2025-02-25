@@ -146,6 +146,9 @@ return {
     Debug = "",
     Trace = "✎",
   },
+  lang = {
+    Java = "",
+  },
   misc = {
     Robot = "󰚩 ",
     Squirrel = " ",

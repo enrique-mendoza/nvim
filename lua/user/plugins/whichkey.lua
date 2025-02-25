@@ -6,6 +6,7 @@ local M = {
 function M.config()
   local icon = require "user.extras.icons"
   local snacks = require "snacks"
+  local springboot = require "springboot-nvim"
   local wk = require "which-key"
 
   -- Setup
@@ -129,19 +130,29 @@ function M.config()
       desc = "Move Right",
     },
     {
-      "<leader>aN",
-      "<cmd>tabnew %<cr>",
-      desc = "New Tab",
+      "<leader>an",
+      "<cmd>:tabn<CR>",
+      desc = "Next Tab",
     },
     {
-      "<leader>an",
-      "<cmd>$tabnew<cr>",
-      desc = "New Empty Tab",
+      "<leader>ap",
+      "<cmd>:tabp<CR>",
+      desc = "Previous Tab",
     },
     {
       "<leader>ao",
       "<cmd>tabonly<cr>",
       desc = "Only",
+    },
+    {
+      "<leader>at",
+      "<cmd>tabnew %<cr>",
+      desc = "New Tab",
+    },
+    {
+      "<leader>aT",
+      "<cmd>$tabnew<cr>",
+      desc = "New Empty Tab",
     },
     -- Buffers
     {
@@ -400,6 +411,35 @@ function M.config()
       end,
       desc = "Git Stash",
     },
+    -- Java
+    {
+      "<leader>j",
+      group = "Java",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>js",
+      springboot.boot_run,
+      desc = "Run Spring Boot",
+    },
+    {
+      "<leader>jc",
+      springboot.generate_class,
+      desc = "Generate Class",
+    },
+    {
+      "<leader>je",
+      springboot.generate_enum,
+      desc = "Generate Enum",
+    },
+    {
+      "<leader>ji",
+      springboot.generate_interface,
+      desc = "Generate Interface",
+    },
     -- LSP
     {
       "<leader>l",
@@ -440,7 +480,7 @@ function M.config()
       desc = "Goto Declaration",
     },
     {
-      "<leader>lr",
+      "<leader>lo",
       function()
         snacks.picker.lsp_references()
       end,
@@ -505,7 +545,7 @@ function M.config()
       function()
         snacks.picker.lsp_type_definitions()
       end,
-      desc = "Goto T[y]pe Definition",
+      desc = "Goto Type Definition",
     },
     -- Nav
     {
