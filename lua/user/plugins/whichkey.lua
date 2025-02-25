@@ -317,11 +317,45 @@ function M.config()
       group = "Git",
     },
     {
+      "<leader>gB",
+      function()
+        snacks.gitbrowse()
+      end,
+      desc = "Git Browse",
+      mode = { "n", "v" },
+    },
+    {
       "<leader>gb",
       function()
         snacks.picker.git_branches()
       end,
       desc = "Git Branches",
+    },
+    {
+      "<leader>gd",
+      function()
+        snacks.picker.git_diff()
+      end,
+      desc = "Git Diff (Hunks)",
+    },
+    {
+      "<leader>gF",
+      "<cmd>Fugit2<cr>",
+      desc = "Git Fugit2",
+    },
+    {
+      "<leader>gf",
+      function()
+        snacks.picker.git_log_file()
+      end,
+      desc = "Git Log File",
+    },
+    {
+      "<leader>gg",
+      function()
+        snacks.lazygit()
+      end,
+      desc = "Lazygit",
     },
     {
       "<leader>gl",
@@ -338,6 +372,21 @@ function M.config()
       desc = "Git Log Line",
     },
     {
+      "<leader>gn",
+      "<cmd>Neogit<CR>",
+      desc = "Neogit",
+    },
+    {
+      "<leader>go",
+      "<cmd>lua require 'gitsigns'.blame_line()<cr>",
+      desc = "Blame",
+    },
+    {
+      "<leader>gO",
+      "<cmd>GitLink!<cr>",
+      desc = "Git link",
+    },
+    {
       "<leader>gs",
       function()
         snacks.picker.git_status()
@@ -350,35 +399,6 @@ function M.config()
         snacks.picker.git_stash()
       end,
       desc = "Git Stash",
-    },
-    {
-      "<leader>gd",
-      function()
-        snacks.picker.git_diff()
-      end,
-      desc = "Git Diff (Hunks)",
-    },
-    {
-      "<leader>gf",
-      function()
-        snacks.picker.git_log_file()
-      end,
-      desc = "Git Log File",
-    },
-    {
-      "<leader>gB",
-      function()
-        snacks.gitbrowse()
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>gg",
-      function()
-        snacks.lazygit()
-      end,
-      desc = "Lazygit",
     },
     -- LSP
     {
@@ -671,7 +691,7 @@ function M.config()
       desc = "Quickfix List",
     },
     {
-      '<leader>sr',
+      "<leader>sr",
       function()
         snacks.picker.registers()
       end,
