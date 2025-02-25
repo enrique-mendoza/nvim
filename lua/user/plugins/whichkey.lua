@@ -488,12 +488,12 @@ function M.config()
       desc = "References",
     },
     {
-      "<leader>li",
+      "<leader>lI",
       "<cmd>LspInfo<cr>",
       desc = "Info",
     },
     {
-      "<leader>lI",
+      "<leader>li",
       function()
         snacks.picker.lsp_implementations()
       end,
