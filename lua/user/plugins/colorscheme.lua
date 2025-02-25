@@ -1,12 +1,11 @@
-local M = require "user.themes.tokyonight"
+local M = require "user.themes.eldritch"
 
 function M.config()
-  require("tokyonight").setup {
-    style = "night",
-    lualine_bold = true,
+  require("eldritch").setup {
+    palette = "darker"
   }
 
-  vim.cmd.colorscheme "tokyonight"
+  vim.cmd.colorscheme "eldritch"
 end
 
 return M
