@@ -72,12 +72,6 @@ function M.config()
   -- Icons
   require("mini.icons").setup {}
 
-  -- Sessions
-  require("mini.sessions").setup {
-    autoread = true,
-    file = ".session.vim"
-  }
-
   -- Surround
   require("mini.surround").setup {}
 

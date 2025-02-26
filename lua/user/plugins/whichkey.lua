@@ -6,7 +6,7 @@ local M = {
 function M.config()
   local flash = require "flash"
   local icon = require "user.extras.icons"
-  local sessions = require "mini.sessions"
+  local persistence = require "persistence"
   local snacks = require "snacks"
   local springboot = require "springboot-nvim"
   local wk = require "which-key"
@@ -669,24 +669,36 @@ function M.config()
     },
     {
       "<leader>qd",
-      function()
-        sessions.select "delete"
-      end,
+      "<cmd>Autosession delete<CR>",
       desc = "Delete Session",
+    },
+    {
+      "<leader>qf",
+      function()
+        persistence.select()
+      end,
+      desc = "Select Session",
     },
     {
       "<leader>qr",
       function()
-        sessions.read()
+        persistence.load()
       end,
-      desc = "Read Session",
+      desc = "Restore Session",
+    },
+    {
+      "<leader>qR",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
     },
     {
       "<leader>qs",
       function()
-        sessions.select()
+        persistence.stop()
       end,
-      desc = "Select Session",
+      desc = "Don't Save Current Session",
     },
     {
       "<leader>qq",
