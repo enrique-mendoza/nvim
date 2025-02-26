@@ -153,6 +153,20 @@ function M.config()
       desc = "Previous Tab",
     },
     {
+      "<leader>bs",
+      function()
+        snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
+    {
+      "<leader>bS",
+      function()
+        snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
+    {
       "<leader>bt",
       "<cmd>tabnew %<cr>",
       desc = "New Tab",
@@ -245,7 +259,7 @@ function M.config()
       end,
       desc = "File Explorer",
       icon = {
-        icon = "", -- TODO: replace icon
+        icon = icon.ui.Tree,
         color = "green",
       },
     },
