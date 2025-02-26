@@ -5,6 +5,7 @@ local M = {
 
 function M.config()
   local icon = require "user.extras.icons"
+  local sessions = require "mini.sessions"
   local snacks = require "snacks"
   local springboot = require "springboot-nvim"
   local wk = require "which-key"
@@ -886,6 +887,31 @@ function M.config()
       "<leader>q",
       "<cmd>confirm q<CR>",
       desc = "Quit",
+    },
+    {
+      "<leader>z",
+      group = "Sessions",
+    },
+    {
+      "<leader>zd",
+      function()
+        sessions.select "delete"
+      end,
+      desc = "Delete Session",
+    },
+    {
+      "<leader>zr",
+      function()
+        sessions.read()
+      end,
+      desc = "Read Session",
+    },
+    {
+      "<leader>zs",
+      function()
+        sessions.select()
+      end,
+      desc = "Select Session",
     },
   }
 end
