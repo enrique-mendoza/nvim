@@ -161,5 +161,6 @@ return {
     Archcraft = "",
     Rocket = "󱓞",
     Neovim = "",
+    Kangaroo = "󱕘",
   },
 }

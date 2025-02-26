@@ -440,6 +440,55 @@ function M.config()
       springboot.generate_interface,
       desc = "Generate Interface",
     },
+    -- Motions
+    {
+      "<leader>m",
+      group = "Motions",
+      icon = {
+        icon = icon.misc.Kangaroo,
+        color = "green",
+      },
+    },
+    {
+      "<leader>ms",
+      function()
+        require("flash").jump()
+      end,
+      desc = "Flash",
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>mS",
+      function()
+        require("flash").treesitter()
+      end,
+      desc = "Flash Treesitter",
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>mr",
+      function()
+        require("flash").remote()
+      end,
+      desc = "Remote Flash",
+      mode = "o",
+    },
+    {
+      "<leader>mR",
+      function()
+        require("flash").treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      mode = { "o", "x" },
+    },
+    {
+      "<leader>mt",
+      function()
+        require("flash").toggle()
+      end,
+      desc = "Toggle Flash Search",
+      mode = { "c" },
+    },
     -- LSP
     {
       "<leader>l",
