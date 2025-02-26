@@ -7,6 +7,7 @@ local M = {
 function M.config()
   -- Autopairs
   require("mini.pairs").setup {}
+
   -- Files
   require("mini.files").setup {
     -- Customization of shown content
@@ -73,6 +74,9 @@ function M.config()
 
   -- Surround
   require("mini.surround").setup {}
+
+  -- Statusline
+  require("mini.statusline").setup {}
 end
 
 return M
