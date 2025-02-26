@@ -48,20 +48,31 @@ function M.config()
   -- Keys
   -- Icon colors: azure, blue, cyan, green, grey, orange, purple, red, yellow
   wk.add {
-    -- Commands
+    -- Hidden Commands
     {
-      "<c-/>",
-      function()
-        snacks.terminal()
-      end,
-      desc = "Toggle Terminal",
+      "<leader>h",
+      "<cmd>split<CR>",
+      desc = "HSplit",
+      hidden = true,
     },
     {
-      "<c-_>",
-      function()
-        snacks.terminal()
-      end,
-      desc = "which_key_ignore",
+      "<leader>v",
+      "<cmd>vsplit<CR>",
+      desc = "VSplit",
+      hidden = true,
+    },
+    {
+      "<leader>/",
+      "<Plug>(comment_toggle_linewise_current)",
+      desc = "Comment",
+      hidden = true,
+    },
+    {
+      "<leader>/",
+      "<Plug>(comment_toggle_linewise_visual)",
+      mode = "v",
+      desc = "Comment",
+      hidden = true,
     },
     {
       "]]",
@@ -80,29 +91,18 @@ function M.config()
       mode = { "n", "t" },
     },
     {
-      "<leader>/",
-      "<Plug>(comment_toggle_linewise_current)",
-      desc = "Comment",
-      hidden = true,
+      "<c-/>",
+      function()
+        snacks.terminal()
+      end,
+      desc = "Toggle Terminal",
     },
     {
-      "<leader>/",
-      "<Plug>(comment_toggle_linewise_visual)",
-      mode = "v",
-      desc = "Comment",
-      hidden = true,
-    },
-    {
-      "<leader>h",
-      "<cmd>split<CR>",
-      desc = "HSplit",
-      hidden = true,
-    },
-    {
-      "<leader>v",
-      "<cmd>vsplit<CR>",
-      desc = "VSplit",
-      hidden = true,
+      "<c-_>",
+      function()
+        snacks.terminal()
+      end,
+      desc = "which_key_ignore",
     },
     {
       "<leader>w",
@@ -110,55 +110,15 @@ function M.config()
       desc = "Wrap",
       hidden = true,
     },
-    -- Tab
-    {
-      "<leader>a",
-      group = "Tab",
-    },
-    {
-      "<leader>aa",
-      "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-      desc = "Find Tabs",
-    },
-    {
-      "<leader>ah",
-      "<cmd>-tabmove<cr>",
-      desc = "Move Left",
-    },
-    {
-      "<leader>al",
-      "<cmd>+tabmove<cr>",
-      desc = "Move Right",
-    },
-    {
-      "<leader>an",
-      "<cmd>:tabn<CR>",
-      desc = "Next Tab",
-    },
-    {
-      "<leader>ap",
-      "<cmd>:tabp<CR>",
-      desc = "Previous Tab",
-    },
-    {
-      "<leader>ao",
-      "<cmd>tabonly<cr>",
-      desc = "Only",
-    },
-    {
-      "<leader>at",
-      "<cmd>tabnew %<cr>",
-      desc = "New Tab",
-    },
-    {
-      "<leader>aT",
-      "<cmd>$tabnew<cr>",
-      desc = "New Empty Tab",
-    },
-    -- Buffers
+    -- Buffers & Tabs
     {
       "<leader>b",
-      group = "Buffers",
+      group = "Buffers/Tabs",
+    },
+    {
+      "<leader>ba",
+      "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+      desc = "Find Tabs",
     },
     {
       "<leader>bd",
@@ -167,7 +127,42 @@ function M.config()
       end,
       desc = "Delete Buffer",
     },
-    -- Dap
+    {
+      "<leader>bh",
+      "<cmd>-tabmove<cr>",
+      desc = "Move Left",
+    },
+    {
+      "<leader>bl",
+      "<cmd>+tabmove<cr>",
+      desc = "Move Right",
+    },
+    {
+      "<leader>bn",
+      "<cmd>:tabn<CR>",
+      desc = "Next Tab",
+    },
+    {
+      "<leader>bo",
+      "<cmd>tabonly<cr>",
+      desc = "Only",
+    },
+    {
+      "<leader>bp",
+      "<cmd>:tabp<CR>",
+      desc = "Previous Tab",
+    },
+    {
+      "<leader>bt",
+      "<cmd>tabnew %<cr>",
+      desc = "New Tab",
+    },
+    {
+      "<leader>bT",
+      "<cmd>$tabnew<cr>",
+      desc = "New Empty Tab",
+    },
+    -- Debug
     {
       "<leader>d",
       group = "Debug",
@@ -178,14 +173,14 @@ function M.config()
       desc = "Step Back",
     },
     {
-      "<leader>dC",
-      "<cmd>lua require'dap'.run_to_cursor()<cr>",
-      desc = "Run To Cursor",
-    },
-    {
       "<leader>dc",
       "<cmd>lua require'dap'.continue()<cr>",
       desc = "Continue",
+    },
+    {
+      "<leader>dC",
+      "<cmd>lua require'dap'.run_to_cursor()<cr>",
+      desc = "Run To Cursor",
     },
     {
       "<leader>dd",
@@ -233,14 +228,14 @@ function M.config()
       desc = "Toggle Breakpoint",
     },
     {
-      "<leader>dU",
-      "<cmd>lua require'dapui'.toggle({reset = true})<cr>",
-      desc = "Toggle UI",
-    },
-    {
       "<leader>du",
       "<cmd>lua require'dap'.step_out()<cr>",
       desc = "Step Out",
+    },
+    {
+      "<leader>dU",
+      "<cmd>lua require'dapui'.toggle({reset = true})<cr>",
+      desc = "Toggle UI",
     },
     -- File Explorer
     {
@@ -250,7 +245,7 @@ function M.config()
       end,
       desc = "File Explorer",
       icon = {
-        icon = "",
+        icon = "", -- TODO: replace icon
         color = "green",
       },
     },
@@ -267,20 +262,6 @@ function M.config()
       desc = "Buffers",
     },
     {
-      "<leader>fb",
-      function()
-        snacks.picker.grep_buffers()
-      end,
-      desc = "Grep Open Buffers",
-    },
-    {
-      "<leader>fc",
-      function()
-        snacks.picker.files { cwd = vim.fn.stdpath "config" }
-      end,
-      desc = "Find Config File",
-    },
-    {
       "<leader>ff",
       function()
         snacks.picker.files()
@@ -289,13 +270,6 @@ function M.config()
     },
     {
       "<leader>fg",
-      function()
-        snacks.picker.grep()
-      end,
-      desc = "Grep",
-    },
-    {
-      "<leader>fG",
       function()
         snacks.picker.git_files()
       end,
@@ -315,18 +289,17 @@ function M.config()
       end,
       desc = "Recent",
     },
-    {
-      "<leader>fw",
-      function()
-        snacks.picker.grep_word()
-      end,
-      desc = "Visual selection or word",
-      mode = { "n", "x" },
-    },
     -- Git
     {
       "<leader>g",
       group = "Git",
+    },
+    {
+      "<leader>gb",
+      function()
+        snacks.picker.git_branches()
+      end,
+      desc = "Git Branches",
     },
     {
       "<leader>gB",
@@ -337,13 +310,6 @@ function M.config()
       mode = { "n", "v" },
     },
     {
-      "<leader>gb",
-      function()
-        snacks.picker.git_branches()
-      end,
-      desc = "Git Branches",
-    },
-    {
       "<leader>gd",
       function()
         snacks.picker.git_diff()
@@ -351,16 +317,16 @@ function M.config()
       desc = "Git Diff (Hunks)",
     },
     {
-      "<leader>gF",
-      "<cmd>Fugit2<cr>",
-      desc = "Git Fugit2",
-    },
-    {
       "<leader>gf",
       function()
         snacks.picker.git_log_file()
       end,
       desc = "Git Log File",
+    },
+    {
+      "<leader>gF",
+      "<cmd>Fugit2<cr>",
+      desc = "Git Fugit2",
     },
     {
       "<leader>gg",
@@ -412,84 +378,6 @@ function M.config()
       end,
       desc = "Git Stash",
     },
-    -- Java
-    {
-      "<leader>j",
-      group = "Java",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>js",
-      springboot.boot_run,
-      desc = "Run Spring Boot",
-    },
-    {
-      "<leader>jc",
-      springboot.generate_class,
-      desc = "Generate Class",
-    },
-    {
-      "<leader>je",
-      springboot.generate_enum,
-      desc = "Generate Enum",
-    },
-    {
-      "<leader>ji",
-      springboot.generate_interface,
-      desc = "Generate Interface",
-    },
-    -- Motions
-    {
-      "<leader>m",
-      group = "Motions",
-      icon = {
-        icon = icon.misc.Kangaroo,
-        color = "green",
-      },
-    },
-    {
-      "<leader>ms",
-      function()
-        require("flash").jump()
-      end,
-      desc = "Flash",
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>mS",
-      function()
-        require("flash").treesitter()
-      end,
-      desc = "Flash Treesitter",
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>mr",
-      function()
-        require("flash").remote()
-      end,
-      desc = "Remote Flash",
-      mode = "o",
-    },
-    {
-      "<leader>mR",
-      function()
-        require("flash").treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      mode = { "o", "x" },
-    },
-    {
-      "<leader>mt",
-      function()
-        require("flash").toggle()
-      end,
-      desc = "Toggle Flash Search",
-      mode = { "c" },
-    },
     -- LSP
     {
       "<leader>l",
@@ -518,16 +406,47 @@ function M.config()
       desc = "Goto Definition",
     },
     {
-      "<leader>lf",
-      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-      desc = "Format",
-    },
-    {
       "<leader>lD",
       function()
         snacks.picker.lsp_declarations()
       end,
       desc = "Goto Declaration",
+    },
+    {
+      "<leader>lf",
+      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
+      desc = "Format",
+    },
+    {
+      "<leader>li",
+      function()
+        snacks.picker.lsp_implementations()
+      end,
+      desc = "Goto Implementation",
+    },
+    {
+      "<leader>lI",
+      "<cmd>LspInfo<cr>",
+      desc = "LSP Info",
+    },
+    {
+      "<leader>ll",
+      "<cmd>lua vim.lsp.codelens.run()<cr>",
+      desc = "CodeLens Action",
+    },
+    {
+      "<leader>lm",
+      "<cmd>Navbuddy<cr>",
+      desc = "Nav",
+      icon = {
+        icon = icon.misc.CircuitBoard,
+        color = "blue",
+      },
+    },
+    {
+      "<leader>lM",
+      "<cmd>Mason<cr>",
+      desc = "Mason Info",
     },
     {
       "<leader>lo",
@@ -538,26 +457,9 @@ function M.config()
       desc = "References",
     },
     {
-      "<leader>lI",
-      "<cmd>LspInfo<cr>",
-      desc = "Info",
-    },
-    {
-      "<leader>li",
-      function()
-        snacks.picker.lsp_implementations()
-      end,
-      desc = "Goto Implementation",
-    },
-    {
-      "<leader>lm",
-      "<cmd>Mason<cr>",
-      desc = "Mason Info",
-    },
-    {
-      "<leader>ll",
-      "<cmd>lua vim.lsp.codelens.run()<cr>",
-      desc = "CodeLens Action",
+      "<leader>lq",
+      "<cmd>lua vim.diagnostic.setloclist()<cr>",
+      desc = "Quickfix",
     },
     {
       "<leader>lr",
@@ -586,35 +488,64 @@ function M.config()
       desc = "LSP Workspace Symbols",
     },
     {
-      "<leader>lq",
-      "<cmd>lua vim.diagnostic.setloclist()<cr>",
-      desc = "Quickfix",
-    },
-    {
-      "<leader>ly",
+      "<leader>lt",
       function()
         snacks.picker.lsp_type_definitions()
       end,
       desc = "Goto Type Definition",
     },
-    -- Nav
     {
-      "<leader>o",
-      "<cmd>Navbuddy<cr>",
-      desc = "Nav",
+      "<leader>lj",
+      group = "Java",
       icon = {
-        icon = icon.misc.CircuitBoard,
-        color = "blue",
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>ljc",
+      springboot.generate_class,
+      desc = "Generate Class",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>lje",
+      springboot.generate_enum,
+      desc = "Generate Enum",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>lji",
+      springboot.generate_interface,
+      desc = "Generate Interface",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>ljs",
+      springboot.boot_run,
+      desc = "Run Spring Boot",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
       },
     },
     -- Plugins
     {
       "<leader>p",
+      group = "Plugins",
       icon = {
         icon = " ",
-        color = "azure",
+        color = "purple",
       },
-      group = "Plugins",
     },
     {
       "<leader>pc",
@@ -642,31 +573,55 @@ function M.config()
       desc = "Profile",
     },
     {
-      "<leader>pS",
-      "<cmd>Lazy clear<cr>",
-      desc = "Status",
-    },
-    {
       "<leader>ps",
       "<cmd>Lazy sync<cr>",
       desc = "Sync",
+    },
+    {
+      "<leader>pS",
+      "<cmd>Lazy clear<cr>",
+      desc = "Status",
     },
     {
       "<leader>pu",
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
+    -- Sessions & Quit
+    {
+      "<leader>q",
+      group = "Sessions/Quit",
+    },
+    {
+      "<leader>qd",
+      function()
+        sessions.select "delete"
+      end,
+      desc = "Delete Session",
+    },
+    {
+      "<leader>qr",
+      function()
+        sessions.read()
+      end,
+      desc = "Read Session",
+    },
+    {
+      "<leader>qs",
+      function()
+        sessions.select()
+      end,
+      desc = "Select Session",
+    },
+    {
+      "<leader>qq",
+      "<cmd>confirm q<CR>",
+      desc = "Quit",
+    },
     -- Search
     {
       "<leader>s",
       group = "Search",
-    },
-    {
-      "<leader>s/",
-      function()
-        snacks.picker.search_history()
-      end,
-      desc = "Search History",
     },
     {
       "<leader>sa",
@@ -681,6 +636,13 @@ function M.config()
         snacks.picker.lines()
       end,
       desc = "Buffer Lines",
+    },
+    {
+      "<leader>sB",
+      function()
+        snacks.picker.grep_buffers()
+      end,
+      desc = "Grep Open Buffers",
     },
     {
       "<leader>sc",
@@ -709,6 +671,13 @@ function M.config()
         snacks.picker.diagnostics_buffer()
       end,
       desc = "Buffer Diagnostics",
+    },
+    {
+      "<leader>sg",
+      function()
+        snacks.picker.grep()
+      end,
+      desc = "Grep",
     },
     {
       "<leader>sh",
@@ -781,13 +750,6 @@ function M.config()
       desc = "Quickfix List",
     },
     {
-      "<leader>sr",
-      function()
-        snacks.picker.registers()
-      end,
-      desc = "Registers",
-    },
-    {
       "<leader>sR",
       function()
         snacks.picker.resume()
@@ -800,6 +762,32 @@ function M.config()
         snacks.picker.undo()
       end,
       desc = "Undo History",
+    },
+    {
+      "<leader>sw",
+      function()
+        snacks.picker.grep_word()
+      end,
+      desc = "Visual selection or word",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>s",
+      group = "Search",
+    },
+    {
+      '<leader>s"',
+      function()
+        snacks.picker.registers()
+      end,
+      desc = "Registers",
+    },
+    {
+      "<leader>s/",
+      function()
+        snacks.picker.search_history()
+      end,
+      desc = "Search History",
     },
     -- Tests
     {
@@ -881,37 +869,6 @@ function M.config()
         snacks.zen.zoom()
       end,
       desc = "Toggle Zoom",
-    },
-    -- Quit
-    {
-      "<leader>q",
-      "<cmd>confirm q<CR>",
-      desc = "Quit",
-    },
-    {
-      "<leader>z",
-      group = "Sessions",
-    },
-    {
-      "<leader>zd",
-      function()
-        sessions.select "delete"
-      end,
-      desc = "Delete Session",
-    },
-    {
-      "<leader>zr",
-      function()
-        sessions.read()
-      end,
-      desc = "Read Session",
-    },
-    {
-      "<leader>zs",
-      function()
-        sessions.select()
-      end,
-      desc = "Select Session",
     },
   }
 end
