@@ -4,6 +4,7 @@ local M = {
 }
 
 function M.config()
+  local flash = require "flash"
   local icon = require "user.extras.icons"
   local sessions = require "mini.sessions"
   local snacks = require "snacks"
@@ -290,6 +291,18 @@ function M.config()
       desc = "Find Git Files",
     },
     {
+      "<leader>fk",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
       "<leader>fp",
       function()
         snacks.picker.projects()
@@ -302,6 +315,54 @@ function M.config()
         snacks.picker.recent()
       end,
       desc = "Recent",
+    },
+    {
+      "<leader>fR",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
+      "<leader>fs",
+      function()
+        flash.toggle()
+      end,
+      desc = "Toggle Flash Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "c" },
+    },
+    {
+      "<leader>ft",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>fT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
     },
     -- Git
     {

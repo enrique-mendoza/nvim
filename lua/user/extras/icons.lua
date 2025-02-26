@@ -162,5 +162,7 @@ return {
     Rocket = "󱓞",
     Neovim = "",
     Kangaroo = "󱕘",
+    Lightning = "󱐋",
+    Flame = ""
   },
 }
