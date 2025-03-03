@@ -64,7 +64,7 @@ local config = {
   settings = {
     java = {
       -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-      home = "/usr/lib/jvm/java-17-amazon-corretto/",
+      home = "/usr/lib/jvm/java-21-amazon-corretto/",
       eclipse = {
         downloadSources = true,
       },
