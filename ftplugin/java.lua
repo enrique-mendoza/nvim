@@ -162,6 +162,90 @@ local config = {
 config["on_attach"] = function(client, bufnr)
   jdtls.setup_dap { hotcodereplace = "auto" }
   require("jdtls.dap").setup_dap_main_class_configs()
+
+  -- Allow yourself to run JdtCompile as a Vim command
+  vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+  -- Allow yourself/register to run JdtUpdateConfig as a Vim command
+  vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
+  -- Allow yourself/register to run JdtBytecode as a Vim command
+  vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
+  -- Allow yourself/register to run JdtShell as a Vim command
+  vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
+
+  require("which-key").add {
+    {
+      "<leader>ljC",
+      function()
+        jdtls.extract_constant()
+      end,
+      desc = "Extract Constant",
+      mode = "n",
+    },
+    {
+      "<leader>ljC",
+      function()
+        jdtls.extract_constant(true)
+      end,
+      desc = "Extract Constant",
+      mode = "v",
+    },
+    {
+      "<leader>ljn",
+      function()
+        jdtls.test_nearest_method()
+      end,
+      desc = "Test Nearest Class",
+      mode = "n",
+    },
+    {
+      "<leader>ljn",
+      function()
+        jdtls.test_nearest_method(true)
+      end,
+      desc = "Test Nearest Class",
+      mode = "v",
+    },
+    {
+      "<leader>ljo",
+      function()
+        jdtls.organize_imports()
+      end,
+      desc = "Organize Imports",
+    },
+    {
+      "<leader>ljt",
+      function()
+        jdtls.test_class()
+      end,
+      desc = "Test Class",
+    },
+    {
+      "<leader>lju",
+      "<cmd>JdtUpdateConfig<cr>",
+      desc = "Update Config",
+    },
+    {
+      "<leader>ljU",
+      "<cmd>JdtUpdateDebugConfig<cr>",
+      desc = "Update Debug Config",
+    },
+    {
+      "<leader>ljv",
+      function()
+        jdtls.extract_variable()
+      end,
+      desc = "Extract Variable",
+      mode = "n",
+    },
+    {
+      "<leader>ljv",
+      function()
+        jdtls.extract_variable(true)
+      end,
+      desc = "Extract Variable",
+      mode = "v",
+    },
+  }
 end
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
