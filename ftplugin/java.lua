@@ -172,9 +172,29 @@ config["on_attach"] = function(client, bufnr)
   -- Allow yourself/register to run JdtShell as a Vim command
   vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
+  local icon = require "user.extras.icons"
+  local springboot = require "springboot-nvim"
+
   require("which-key").add {
     {
-      "<leader>ljC",
+      "<leader>j",
+      group = "Java",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>jc",
+      springboot.generate_class,
+      desc = "Generate Class",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>jC",
       function()
         jdtls.extract_constant()
       end,
@@ -182,7 +202,7 @@ config["on_attach"] = function(client, bufnr)
       mode = "n",
     },
     {
-      "<leader>ljC",
+      "<leader>jC",
       function()
         jdtls.extract_constant(true)
       end,
@@ -190,7 +210,35 @@ config["on_attach"] = function(client, bufnr)
       mode = "v",
     },
     {
-      "<leader>ljn",
+      "<leader>je",
+      springboot.generate_enum,
+      desc = "Generate Enum",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>ji",
+      springboot.generate_interface,
+      desc = "Generate Interface",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>jm",
+      "<cmd>Maven<CR>",
+      desc = "Maven Command",
+    },
+    {
+      "<leader>jM",
+      "<cmd>MavenExec<CR>",
+      desc = "Input Maven Command",
+    },
+    {
+      "<leader>jn",
       function()
         jdtls.test_nearest_method()
       end,
@@ -198,7 +246,7 @@ config["on_attach"] = function(client, bufnr)
       mode = "n",
     },
     {
-      "<leader>ljn",
+      "<leader>jn",
       function()
         jdtls.test_nearest_method(true)
       end,
@@ -206,31 +254,40 @@ config["on_attach"] = function(client, bufnr)
       mode = "v",
     },
     {
-      "<leader>ljo",
+      "<leader>jo",
       function()
         jdtls.organize_imports()
       end,
       desc = "Organize Imports",
     },
     {
-      "<leader>ljt",
+      "<leader>js",
+      springboot.boot_run,
+      desc = "Run Spring Boot",
+      icon = {
+        icon = icon.lang.Java,
+        color = "red",
+      },
+    },
+    {
+      "<leader>jt",
       function()
         jdtls.test_class()
       end,
       desc = "Test Class",
     },
     {
-      "<leader>lju",
+      "<leader>ju",
       "<cmd>JdtUpdateConfig<cr>",
       desc = "Update Config",
     },
     {
-      "<leader>ljU",
+      "<leader>jU",
       "<cmd>JdtUpdateDebugConfig<cr>",
       desc = "Update Debug Config",
     },
     {
-      "<leader>ljv",
+      "<leader>jv",
       function()
         jdtls.extract_variable()
       end,
@@ -238,7 +295,7 @@ config["on_attach"] = function(client, bufnr)
       mode = "n",
     },
     {
-      "<leader>ljv",
+      "<leader>jv",
       function()
         jdtls.extract_variable(true)
       end,

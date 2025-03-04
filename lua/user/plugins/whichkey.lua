@@ -8,7 +8,6 @@ function M.config()
   local icon = require "user.extras.icons"
   local persistence = require "persistence"
   local snacks = require "snacks"
-  local springboot = require "springboot-nvim"
   local wk = require "which-key"
 
   -- Setup
@@ -510,18 +509,18 @@ function M.config()
       desc = "CodeLens Action",
     },
     {
-      "<leader>lm",
+      "<leader>lM",
+      "<cmd>Mason<cr>",
+      desc = "Mason Info",
+    },
+    {
+      "<leader>ln",
       "<cmd>Navbuddy<cr>",
       desc = "Nav",
       icon = {
         icon = icon.misc.CircuitBoard,
         color = "blue",
       },
-    },
-    {
-      "<leader>lM",
-      "<cmd>Mason<cr>",
-      desc = "Mason Info",
     },
     {
       "<leader>lo",
@@ -568,50 +567,6 @@ function M.config()
         snacks.picker.lsp_type_definitions()
       end,
       desc = "Goto Type Definition",
-    },
-    {
-      "<leader>lj",
-      group = "Java",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>ljc",
-      springboot.generate_class,
-      desc = "Generate Class",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>lje",
-      springboot.generate_enum,
-      desc = "Generate Enum",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>lji",
-      springboot.generate_interface,
-      desc = "Generate Interface",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>ljs",
-      springboot.boot_run,
-      desc = "Run Spring Boot",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
     },
     -- Plugins
     {
