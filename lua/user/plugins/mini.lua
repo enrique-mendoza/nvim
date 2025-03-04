@@ -5,6 +5,12 @@ local M = {
 }
 
 function M.config()
+  -- AI
+  require("mini.ai").setup {}
+
+  -- Align
+  require("mini.align").setup {}
+
   -- Autopairs
   require("mini.pairs").setup {}
 
