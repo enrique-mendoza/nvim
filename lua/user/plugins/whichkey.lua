@@ -385,10 +385,23 @@ function M.config()
     },
     {
       "<leader>gd",
+      "<cmd>DiffviewOpen<cr>",
+      desc = "Git Diff",
+      icon = {
+        icon = " ",
+        color = "orange"
+      }
+    },
+    {
+      "<leader>gD",
       function()
         snacks.picker.git_diff()
       end,
       desc = "Git Diff (Hunks)",
+      icon = {
+        icon = " ",
+        color = "orange"
+      }
     },
     {
       "<leader>gf",
@@ -408,6 +421,15 @@ function M.config()
         snacks.lazygit()
       end,
       desc = "Lazygit",
+    },
+    {
+      "<leader>gH",
+      "<cmd>DiffviewFileHistory<cr>",
+      desc = "Git Diff File History",
+      icon = {
+        icon = " ",
+        color = "orange"
+      }
     },
     {
       "<leader>gl",
@@ -436,7 +458,7 @@ function M.config()
     {
       "<leader>gO",
       "<cmd>GitLink!<cr>",
-      desc = "Git link",
+      desc = "Git Link",
     },
     {
       "<leader>gs",
