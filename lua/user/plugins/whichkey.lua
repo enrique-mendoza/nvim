@@ -545,14 +545,6 @@ function M.config()
       },
     },
     {
-      "<leader>lo",
-      function()
-        snacks.picker.lsp_references()
-      end,
-      nowait = true,
-      desc = "References",
-    },
-    {
       "<leader>lq",
       "<cmd>lua vim.diagnostic.setloclist()<cr>",
       desc = "Quickfix",
@@ -589,6 +581,14 @@ function M.config()
         snacks.picker.lsp_type_definitions()
       end,
       desc = "Goto Type Definition",
+    },
+    {
+      "<leader>lu",
+      function()
+        snacks.picker.lsp_references()
+      end,
+      nowait = true,
+      desc = "References",
     },
     -- Plugins
     {
