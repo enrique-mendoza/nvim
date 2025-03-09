@@ -36,6 +36,15 @@ local M = {
     {
       "hrsh7th/cmp-nvim-lua",
     },
+    {
+      "andersevenrud/cmp-tmux",
+    },
+    {
+      "tamago324/cmp-zsh",
+    },
+    {
+      "Shougo/deol.nvim",
+    },
   },
 }
 
