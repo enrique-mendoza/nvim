@@ -1,7 +1,5 @@
-local M = {
+return {
   "cdmill/neomodern.nvim",
   lazy = false,
   priority = 1000,
 }
-
-return M

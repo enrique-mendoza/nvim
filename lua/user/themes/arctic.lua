@@ -1,4 +1,4 @@
-local M = {
+return {
   "rockyzhang24/arctic.nvim",
   dependencies = { "rktjmp/lush.nvim" },
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -6,5 +6,3 @@ local M = {
   branch = "main",
   priority = 1000,
 }
-
-return M
