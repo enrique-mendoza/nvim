@@ -18,8 +18,14 @@ function M.config()
       formatting.prettier,
       formatting.black,
       formatting.shfmt,
-      formatting.google_java_format,
-      formatting.clang_format,
+      formatting.google_java_format.with {
+        -- AOSP (Android Open Source Project) style,
+        -- which uses 4 spaces per indentation level instead of the default 2 spaces.
+        extra_args = { "--aosp" },
+      },
+      formatting.clang_format.with {
+        disabled_filetypes = { "java" },
+      },
 
       -- diagnostics.shellcheck,
 

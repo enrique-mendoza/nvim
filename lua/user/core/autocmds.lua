@@ -109,3 +109,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste relativenumber",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  command = "setlocal expandtab shiftwidth=8 tabstop=8",
+})
