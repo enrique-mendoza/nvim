@@ -8,84 +8,129 @@ local M = {
 function M.config()
   local icons = require "user.extras.icons"
 
-  local branch = {
-    "branch",
-    icon = "",
-  }
+  -- Custom Lualine component to show attached language server
+  local clients_lsp = function()
+    local clients = vim.lsp.get_clients()
 
-  local diff = {
-    "diff",
-    colored = true,
-    symbols = { added = icons.git.LineAdded, modified = icons.git.LineModified, removed = icons.git.LineRemoved }, -- Changes the symbols used by the diff.
-  }
+    if next(clients) == nil then
+      return ""
+    end
 
-  local diagnostics = {
-    "diagnostics",
-    sections = { "error", "warn" },
-    colored = true, -- Displays diagnostics status in color if set to true.
-    always_visible = true, -- Show diagnostics even if there are none.
-  }
+    local c = {}
 
-  local filetype = {
-    function()
-      local filetype = vim.bo.filetype
-      local upper_case_filetypes = {
-        "json",
-        "jsonc",
-        "yaml",
-        "toml",
-        "css",
-        "scss",
-        "html",
-        "xml",
-      }
+    for _, client in pairs(clients) do
+      table.insert(c, client.name)
+    end
 
-      if vim.tbl_contains(upper_case_filetypes, filetype) then
-        return filetype:upper()
-      end
+    -- "|"
+    return icons.statusline.Lsp .. table.concat(c, " ~ ")
+  end
 
-      return filetype
-    end,
-  }
+  local cwd = function()
+    local name = vim.uv.cwd()
 
-  local mode = {
-    "mode",
-    icons_enabled = true,
-    -- fmt =
-    -- function() return icons.misc.Neovim end, -- neovim icon
-    -- function(res) return res:sub(1,1) end -- get first mode char
-  }
+    return name:match "([^/\\]+)[/\\]*$" or name
+  end
 
   require("lualine").setup {
     options = {
-      -- component_separators = { left = "", right = "" },
-      -- section_separators = { left = "", right = "" },
-      -- component_separators = { left = "", right = "" },
-      -- section_separators = { left = "", right = "" },
-      component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      component_separators = "",
+      section_separators = {
+        left = icons.statusline.RoundDividerRight,
+        right = icons.statusline.RoundDividerLeft,
+      },
+      disabled_filetypes = { "alpha", "Outline" },
       ignore_focus = { "NvimTree" },
       theme = "auto",
     },
     sections = {
-      -- lualine_a = { {"branch", icon =""} },
-      -- lualine_b = { diff },
-      -- lualine_c = { "diagnostics" },
-      -- lualine_x = { copilot },
-      -- lualine_y = { "filetype" },
-      -- lualine_z = { "progress" },
-      -- lualine_a = { "mode" },
-      lualine_a = { mode },
-      -- lualine_b = { "branch" },
-      lualine_b = { branch },
-      lualine_c = { diff },
-      -- lualine_x = { diff, "copilot", filetype },
-      lualine_x = { diagnostics, "filetype" },
-      lualine_y = { "progress" },
-      lualine_z = {},
+      lualine_a = {
+        {
+          "mode",
+          icon = icons.statusline.Mode,
+        },
+      },
+      lualine_b = {
+        {
+          "filetype",
+          icon_only = true,
+          padding = {
+            left = 1,
+            right = 0,
+          },
+        },
+        {
+          "filename",
+          padding = {
+            left = 0,
+            right = 1,
+          },
+        },
+      },
+      lualine_c = {
+        {
+          "branch",
+          icon = icons.statusline.git.Branch,
+          padding = {
+            left = 2,
+            right = 0,
+          },
+        },
+        {
+          "diff",
+          symbols = {
+            added = icons.statusline.git.LineAdded,
+            modified = icons.statusline.git.LineModified,
+            removed = icons.statusline.git.LineRemoved,
+          },
+          colored = true,
+        },
+      },
+      lualine_x = {
+        {
+          "diagnostics",
+          symbols = {
+            error = icons.statusline.diagnostics.Error,
+            warn = icons.statusline.diagnostics.Warning,
+            info = icons.statusline.diagnostics.Information,
+            hint = icons.statusline.diagnostics.Hint,
+          },
+          colored = true,
+          update_in_insert = true,
+        },
+        clients_lsp,
+      },
+      lualine_y = {
+        {
+          cwd,
+          icon = icons.statusline.Cwd,
+        },
+      },
+      lualine_z = {
+        {
+          "location",
+          separator = {
+            left = icons.statusline.RoundDividerLeft,
+            right = "",
+          },
+          padding = {
+            left = 0,
+            right = 1,
+          },
+          icon = icons.statusline.Location,
+        },
+      },
+    },
+    inactive_sections = {
+      lualine_a = { "filename" },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = { "location" },
     },
     -- extensions = { "quickfix", "man", "fugitive", "oil" },
-    extensions = { "quickfix", "man", "fugitive" },
+    extensions = { "quickfix", "man", "fugitive", "toggleterm", "trouble" },
   }
 end
 

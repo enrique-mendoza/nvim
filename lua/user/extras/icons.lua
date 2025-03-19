@@ -149,6 +149,32 @@ return {
   lang = {
     Java = "",
   },
+  statusline = {
+    DefaultDividerLeft = "",
+    DefaultDividerRight = "",
+    RoundDividerLeft = "",
+    RoundDividerRight = "",
+    BlockDividerLeft = "█",
+    BlockDividerRight = "█",
+    ArrowDividerLeft = "",
+    ArrowDividerRight = "",
+    Mode = "",
+    git = {
+      Branch = "",
+      LineAdded = " ", --  
+      LineModified = " ",
+      LineRemoved = " ",
+    },
+    diagnostics = {
+      Error = "  ",
+      Warning = "  ",
+      Information = "󰋼  ",
+      Hint = "󰛩  ",
+    },
+    Lsp = "  ", --  
+    Cwd = "󰉋", -- 󰉖 , 󰉋 ,  
+    Location = "",
+  },
   misc = {
     Robot = "󰚩 ",
     Squirrel = " ",
@@ -163,6 +189,6 @@ return {
     Neovim = "",
     Kangaroo = "󱕘",
     Lightning = "󱐋",
-    Flame = ""
+    Flame = "",
   },
 }
