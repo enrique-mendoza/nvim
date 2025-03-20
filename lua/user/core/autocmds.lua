@@ -112,5 +112,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
-  command = "setlocal expandtab shiftwidth=8 tabstop=8",
+  command = "setlocal expandtab shiftwidth=4 tabstop=4",
 })
