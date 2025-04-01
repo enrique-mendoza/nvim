@@ -1,11 +1,9 @@
-local M = require "user.themes.tokyonight"
+local M = require "user.themes.astrotheme"
 
 function M.config()
-  require("tokyonight").setup {
-    style = "night"
-  }
+  require("astrotheme").setup {}
 
-  vim.cmd.colorscheme "tokyonight"
+  vim.cmd.colorscheme "astrodark"
 end
 
 return M
