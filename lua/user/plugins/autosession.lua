@@ -1,7 +1,7 @@
 local M = {
   "rmagatti/auto-session",
   dependencies = {
-    'nvim-telescope/telescope.nvim', -- Only needed if you want to use sesssion lens
+    "nvim-telescope/telescope.nvim", -- Only needed if you want to use sesssion lens
   },
 }
 
@@ -41,7 +41,7 @@ function M.config()
     use_git_branch = false,
     root_dir = vim.fn.stdpath "data" .. "/sessions/",
     enable_last_session = false,
-    bypass_save_filetypes = { "alpha" },
+    bypass_save_filetypes = { "alpha", "dashboard" },
     lazy_support = true,
 
     -- ⚠️ This will only work if Telescope.nvim is installed

@@ -12,6 +12,11 @@ function M.config()
         italic = false,
       },
     },
+    integration = {
+      lualine = {
+        enabled = false, -- disabled for mini.statusline
+      },
+    },
   }
 
   vim.api.nvim_create_autocmd({ "Colorscheme" }, {

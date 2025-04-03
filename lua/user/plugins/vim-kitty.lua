@@ -1,5 +1,5 @@
 local M = {
-  "fladson/vim-kitty"
+  "fladson/vim-kitty",
 }
 
 return M

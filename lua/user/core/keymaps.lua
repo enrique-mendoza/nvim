@@ -1,9 +1,12 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local discipline = require("user.plugins.discipline")
+-- local discipline = require("user.plugins.discipline")
 
 keymap("n", "<Space>", "", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
+
+-- escape and clear hlsearch
+keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
 
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
@@ -37,7 +40,7 @@ keymap("v", "d", '"_d', opts)
 
 keymap("x", "p", [["_dP]], opts)
 
-keymap({"n", "v"}, "<leader>y", '"+y')
+keymap({ "n", "v" }, "<leader>y", '"+y"')
 
 keymap("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
 keymap("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
@@ -53,6 +56,13 @@ keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 -- keymap({ "n" }, "<s-h>", "<cmd>tabp<cr>", opts)
 -- keymap({ "n" }, "<s-l>", "<cmd>tabn<cr>", opts)
 
-keymap('t', '<C-;>', '<C-\\><C-n>', opts)
+keymap("t", "<C-;>", "<C-\\><C-n>", opts)
 
-discipline.cowboy()
+-- put your cursor to same position while yanking
+keymap("n", "p", function()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.cmd "put"
+  vim.api.nvim_win_set_cursor(0, { row + 1, col })
+end)
+
+-- discipline.cowboy()

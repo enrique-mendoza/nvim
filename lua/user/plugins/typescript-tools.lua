@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  local lspconfig = require("user.plugins.lspconfig")
+  local lspconfig = require "user.plugins.lspconfig"
 
   require("typescript-tools").setup {
     on_attach = function(client, bufnr)
@@ -15,7 +15,7 @@ function M.config()
     end,
     capabilities = lspconfig.common_capabilities(),
     settings = {
-      -- spawn additional tsserver instance to calculate diagnostics on it
+      -- Spawn additional tsserver instance to calculate diagnostics on it
       separate_diagnostic_server = true,
       expose_as_code_action = "all",
       -- tsserver_plugins = {},

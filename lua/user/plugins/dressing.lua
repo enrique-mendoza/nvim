@@ -97,7 +97,6 @@ function M.config()
           ["<C-c>"] = "Close",
           ["<CR>"] = "Confirm",
         },
-
       },
     },
   }

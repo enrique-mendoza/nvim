@@ -37,7 +37,7 @@ function M.config()
   }
 
   require("mason-nvim-dap").setup {
-    ensure_installed = M.dap_execs
+    ensure_installed = M.dap_execs,
   }
 end
 

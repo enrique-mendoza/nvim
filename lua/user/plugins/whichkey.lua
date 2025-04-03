@@ -4,9 +4,13 @@ local M = {
 }
 
 function M.config()
-  local wk = require("which-key")
+  local flash = require "flash"
+  local icon = require "user.extras.icons"
+  local persistence = require "persistence"
+  local snacks = require "snacks"
+  local wk = require "which-key"
 
-  -- setup
+  -- Setup
   wk.setup {
     preset = "helix",
     plugins = {
@@ -29,7 +33,7 @@ function M.config()
     win = {
       border = "rounded",
       no_overlap = false,
-      padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+      padding = { 1, 2 }, -- Extra window padding [top/bottom, right/left]
       title = false,
       title_pos = "center",
       zindex = 1000,
@@ -41,12 +45,22 @@ function M.config()
       filetypes = { "TelescopePrompt" },
     },
   }
-
-  -- keys
-  -- icon colors
-  -- azure, blue, cyan, green, grey, orange, purple, red, yellow
+  -- Keys
+  -- Icon colors: azure, blue, cyan, green, grey, orange, purple, red, yellow
   wk.add {
-    -- comment
+    -- Hidden Commands
+    {
+      "<leader>h",
+      "<cmd>split<CR>",
+      desc = "HSplit",
+      hidden = true,
+    },
+    {
+      "<leader>v",
+      "<cmd>vsplit<CR>",
+      desc = "VSplit",
+      hidden = true,
+    },
     {
       "<leader>/",
       "<Plug>(comment_toggle_linewise_current)",
@@ -60,103 +74,109 @@ function M.config()
       desc = "Comment",
       hidden = true,
     },
-    -- new terminal
     {
-      "<leader>;",
-      "<cmd>tabnew | terminal<CR>",
-      desc = "Term",
-      icon = {
-        icon = " ",
-        color = "green",
-      },
-    },
-    -- AI 
-    -- {
-    --   "<leader>a",
-    --   group = "AI",
-    --   icon = {
-    --     icon = " ",
-    --     color = "blue",
-    --   },
-    -- },
-    -- {
-    --   "<leader>aa",
-    --   "<cmd>GpChatToggle vsplit<cr>",
-    --   desc = "Toggle Chat",
-    -- },
-    -- {
-    --   "<leader>an",
-    --   "<cmd>GpChatNew vsplit<cr>",
-    --   desc = "New Chat",
-    -- },
-    -- {
-    --   "<leader>af",
-    --   "<cmd>GpChatFinder<cr>",
-    --   desc = "New Chat",
-    -- },
-    -- {
-    --   "<leader>ar",
-    --   "<cmd>GpChatRespond<cr>",
-    --   desc = "Respond",
-    -- },
-    -- {
-    --   "<leader>aw",
-    --   "<cmd>GpRewrite<cr>",
-    --   desc = "Rewrite",
-    --   mode = { "n", "v" },
-    -- },
-    -- {
-    --   "<leader>ap",
-    --   "<cmd>GpAppend<cr>",
-    --   desc = "Append",
-    --   mode = { "n", "v" },
-    -- },
-    -- tabs
-    {
-      "<leader>a",
-      group = "Tab",
+      "]]",
+      function()
+        snacks.words.jump(vim.v.count1)
+      end,
+      desc = "Next Reference",
+      mode = { "n", "t" },
     },
     {
-      "<leader>aa",
+      "[[",
+      function()
+        snacks.words.jump(-vim.v.count1)
+      end,
+      desc = "Prev Reference",
+      mode = { "n", "t" },
+    },
+    {
+      "<c-/>",
+      function()
+        snacks.terminal()
+      end,
+      desc = "Toggle Terminal",
+    },
+    {
+      "<c-_>",
+      function()
+        snacks.terminal()
+      end,
+      desc = "which_key_ignore",
+    },
+    {
+      "<leader>w",
+      "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
+      desc = "Wrap",
+      hidden = true,
+    },
+    -- Buffers & Tabs
+    {
+      "<leader>b",
+      group = "Buffers/Tabs",
+    },
+    {
+      "<leader>ba",
       "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
       desc = "Find Tabs",
     },
     {
-      "<leader>ah",
+      "<leader>bd",
+      function()
+        snacks.bufdelete()
+      end,
+      desc = "Delete Buffer",
+    },
+    {
+      "<leader>bh",
       "<cmd>-tabmove<cr>",
       desc = "Move Left",
     },
     {
-      "<leader>al",
+      "<leader>bl",
       "<cmd>+tabmove<cr>",
       desc = "Move Right",
     },
     {
-      "<leader>aN",
+      "<leader>bn",
+      "<cmd>:tabn<CR>",
+      desc = "Next Tab",
+    },
+    {
+      "<leader>bo",
+      "<cmd>tabonly<cr>",
+      desc = "Only",
+    },
+    {
+      "<leader>bp",
+      "<cmd>:tabp<CR>",
+      desc = "Previous Tab",
+    },
+    {
+      "<leader>bs",
+      function()
+        snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
+    {
+      "<leader>bS",
+      function()
+        snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
+    {
+      "<leader>bt",
       "<cmd>tabnew %<cr>",
       desc = "New Tab",
     },
     {
-      "<leader>an",
+      "<leader>bT",
       "<cmd>$tabnew<cr>",
       desc = "New Empty Tab",
     },
-    {
-      "<leader>ao",
-      "<cmd>tabonly<cr>",
-      desc = "Only",
-    },
-    -- buffers
-    {
-      "<leader>b",
-      group = "Buffers",
-    },
-    {
-      "<leader>bb",
-      "<cmd>Telescope buffers previewer=false<cr>",
-      desc = "Find",
-    },
-    -- dap
+    -- Debug
     {
       "<leader>d",
       group = "Debug",
@@ -167,14 +187,14 @@ function M.config()
       desc = "Step Back",
     },
     {
-      "<leader>dC",
-      "<cmd>lua require'dap'.run_to_cursor()<cr>",
-      desc = "Run To Cursor",
-    },
-    {
       "<leader>dc",
       "<cmd>lua require'dap'.continue()<cr>",
       desc = "Continue",
+    },
+    {
+      "<leader>dC",
+      "<cmd>lua require'dap'.run_to_cursor()<cr>",
+      desc = "Run To Cursor",
     },
     {
       "<leader>dd",
@@ -222,128 +242,150 @@ function M.config()
       desc = "Toggle Breakpoint",
     },
     {
-      "<leader>dU",
-      "<cmd>lua require'dapui'.toggle({reset = true})<cr>",
-      desc = "Toggle UI",
-    },
-    {
       "<leader>du",
       "<cmd>lua require'dap'.step_out()<cr>",
       desc = "Step Out",
     },
-    -- tree
+    {
+      "<leader>dU",
+      "<cmd>lua require'dapui'.toggle({reset = true})<cr>",
+      desc = "Toggle UI",
+    },
+    -- File Explorer
     {
       "<leader>e",
-      "<cmd>NvimTreeToggle<CR>",
-      desc = "Explorer",
+      function()
+        snacks.explorer()
+      end,
+      desc = "File Explorer",
       icon = {
-        icon = "",
-        color = "green"
-      }
+        icon = icon.ui.Tree,
+        color = "green",
+      },
     },
-    -- find
+    -- Find
     {
       "<leader>f",
       group = "Find",
     },
     {
       "<leader>fb",
-      "<cmd>Telescope git_branches<cr>",
-      desc = "Checkout branch",
-    },
-    {
-      "<leader>fC",
-      "<cmd>Telescope commands<cr>",
-      desc = "Commands",
-    },
-    {
-      "<leader>fc",
-      "<cmd>Telescope colorscheme<cr>",
-      desc = "Colorscheme",
+      function()
+        snacks.picker.buffers()
+      end,
+      desc = "Buffers",
     },
     {
       "<leader>ff",
-      "<cmd>Telescope find_files<cr>",
-      desc = "Find files",
+      function()
+        snacks.picker.files()
+      end,
+      desc = "Find Files",
     },
     {
-      "<leader>fH",
-      "<cmd>Telescope highlights<cr>",
-      desc = "Highlights",
-    },
-    {
-      "<leader>fh",
-      "<cmd>Telescope help_tags<cr>",
-      desc = "Help",
-    },
-    {
-      "<leader>fi",
-      "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>",
-      desc = "Media",
+      "<leader>fg",
+      function()
+        snacks.picker.git_files()
+      end,
+      desc = "Find Git Files",
     },
     {
       "<leader>fk",
-      "<cmd>Telescope keymaps<cr>",
-      desc = "Keymaps",
-    },
-    {
-      "<leader>fl",
-      "<cmd>Telescope resume<cr>",
-      desc = "Last Search",
-    },
-    {
-      "<leader>fM",
-      "<cmd>Telescope man_pages<cr>",
-      desc = "Man Pages",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
     {
       "<leader>fp",
-      "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+      function()
+        snacks.picker.projects()
+      end,
       desc = "Projects",
     },
     {
-      "<leader>fR",
-      "<cmd>Telescope registers<cr>",
-      desc = "Registers",
+      "<leader>fr",
+      function()
+        snacks.picker.recent()
+      end,
+      desc = "Recent",
     },
     {
-      "<leader>fr",
-      "<cmd>Telescope oldfiles<cr>",
-      desc = "Recent File",
+      "<leader>fR",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
     },
     {
       "<leader>fs",
-      "<cmd>Telescope grep_string<cr>",
-      desc = "Find String",
+      function()
+        flash.toggle()
+      end,
+      desc = "Toggle Flash Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "c" },
     },
     {
       "<leader>ft",
-      "<cmd>Telescope live_grep<cr>",
-      desc = "Find Text",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
-    -- git
+    {
+      "<leader>fT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
+    },
+    -- Git
     {
       "<leader>g",
       group = "Git",
     },
     {
       "<leader>gb",
-      "<cmd>Telescope git_branches<cr>",
-      desc = "Checkout branch",
+      function()
+        snacks.picker.git_branches()
+      end,
+      desc = "Git Branches",
     },
     {
-      "<leader>gC",
-      "<cmd>Telescope git_bcommits<cr>",
-      desc = "Checkout commit(for current file)",
-    },
-    {
-      "<leader>gc",
-      "<cmd>Telescope git_commits<cr>",
-      desc = "Checkout commit",
+      "<leader>gB",
+      function()
+        snacks.gitbrowse()
+      end,
+      desc = "Git Browse",
+      mode = { "n", "v" },
     },
     {
       "<leader>gd",
-      "<cmd>Gitsigns diffthis HEAD<cr>",
+      "<cmd>DiffviewOpen<cr>",
       desc = "Git Diff",
       icon = {
         icon = " ",
@@ -351,90 +393,100 @@ function M.config()
       }
     },
     {
+      "<leader>gD",
+      function()
+        snacks.picker.git_diff()
+      end,
+      desc = "Git Diff (Hunks)",
+      icon = {
+        icon = " ",
+        color = "orange"
+      }
+    },
+    {
       "<leader>gf",
+      function()
+        snacks.picker.git_log_file()
+      end,
+      desc = "Git Log File",
+    },
+    {
+      "<leader>gF",
       "<cmd>Fugit2<cr>",
       desc = "Git Fugit2",
     },
     {
       "<leader>gg",
+      function()
+        snacks.lazygit()
+      end,
+      desc = "Lazygit",
+    },
+    {
+      "<leader>gH",
+      "<cmd>DiffviewFileHistory<cr>",
+      desc = "Git Diff File History",
+      icon = {
+        icon = " ",
+        color = "orange"
+      }
+    },
+    {
+      "<leader>gl",
+      function()
+        snacks.picker.git_log()
+      end,
+      desc = "Git Log",
+    },
+    {
+      "<leader>gL",
+      function()
+        snacks.picker.git_log_line()
+      end,
+      desc = "Git Log Line",
+    },
+    {
+      "<leader>gn",
       "<cmd>Neogit<CR>",
       desc = "Neogit",
     },
     {
-      "<leader>gj",
-      "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>",
-      desc = "Next Hunk",
-    },
-    {
-      "<leader>gk",
-      "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>",
-      desc = "Prev Hunk",
-    },
-    {
-      "<leader>gl",
+      "<leader>go",
       "<cmd>lua require 'gitsigns'.blame_line()<cr>",
       desc = "Blame",
     },
     {
-      "<leader>go",
-      "<cmd>Telescope git_status<cr>",
-      desc = "Open changed file",
-    },
-    {
-      "<leader>gp",
-      "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",
-      desc = "Preview Hunk",
-    },
-    {
-      "<leader>gR",
-      "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",
-      desc = "Reset Buffer",
-    },
-    {
-      "<leader>gr",
-      "<cmd>lua require 'gitsigns'.reset_hunk()<cr>",
-      desc = "Reset Hunk",
+      "<leader>gO",
+      "<cmd>GitLink!<cr>",
+      desc = "Git Link",
     },
     {
       "<leader>gs",
-      "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",
-      desc = "Stage Hunk",
+      function()
+        snacks.picker.git_status()
+      end,
+      desc = "Git Status",
     },
     {
-      "<leader>gu",
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      desc = "Undo Stage Hunk",
+      "<leader>gS",
+      function()
+        snacks.picker.git_stash()
+      end,
+      desc = "Git Stash",
     },
-    {
-      "<leader>gY",
-      "<cmd>GitLink blame<cr>",
-      desc = "Git link blame",
-    },
-    {
-      "<leader>gy",
-      "<cmd>GitLink!<cr>",
-      desc = "Git link",
-    },
-    -- hsplit
-    {
-      "<leader>h",
-      "<cmd>split<CR>",
-      desc = "HSplit",
-      hidden = true,
-    },
-    -- lsp
+    -- LSP
     {
       "<leader>l",
       group = "LSP",
       icon = {
-        icon = " ",
+        icon = icon.ui.Code,
         color = "blue",
       },
     },
     {
       "<leader>la",
       "<cmd>lua vim.lsp.buf.code_action()<cr>",
-      desc = "Code Action"
+      desc = "Code Action",
     },
     {
       "<leader>la",
@@ -443,45 +495,54 @@ function M.config()
       mode = { "v" },
     },
     {
-      "<leader>le",
-      "<cmd>Telescope quickfix<cr>",
-      desc = "Telescope Quickfix",
+      "<leader>ld",
+      function()
+        snacks.picker.lsp_definitions()
+      end,
+      desc = "Goto Definition",
+    },
+    {
+      "<leader>lD",
+      function()
+        snacks.picker.lsp_declarations()
+      end,
+      desc = "Goto Declaration",
     },
     {
       "<leader>lf",
       "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
       desc = "Format",
     },
-
     {
-      "<leader>lh",
-      "<cmd>lua require('user.plugins.lspconfig').toggle_inlay_hints()<cr>",
-      desc = "Hints",
+      "<leader>li",
+      function()
+        snacks.picker.lsp_implementations()
+      end,
+      desc = "Goto Implementation",
     },
     {
       "<leader>lI",
-      "<cmd>Mason<cr>",
-      desc = "Mason Info"
-    },
-    {
-      "<leader>li",
       "<cmd>LspInfo<cr>",
-      desc = "Info",
-    },
-    {
-      "<leader>lj",
-      "<cmd>lua vim.diagnostic.goto_next()<cr>",
-      desc = "Next Diagnostic",
-    },
-    {
-      "<leader>lk",
-      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-      desc = "Prev Diagnostic",
+      desc = "LSP Info",
     },
     {
       "<leader>ll",
       "<cmd>lua vim.lsp.codelens.run()<cr>",
       desc = "CodeLens Action",
+    },
+    {
+      "<leader>lM",
+      "<cmd>Mason<cr>",
+      desc = "Mason Info",
+    },
+    {
+      "<leader>ln",
+      "<cmd>Navbuddy<cr>",
+      desc = "Nav",
+      icon = {
+        icon = icon.misc.CircuitBoard,
+        color = "blue",
+      },
     },
     {
       "<leader>lq",
@@ -494,64 +555,49 @@ function M.config()
       desc = "Rename",
     },
     {
-      "<leader>lS",
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      desc = "Workspace Symbols",
+      "<leader>lR",
+      function()
+        snacks.rename.rename_file()
+      end,
+      desc = "Rename File",
     },
     {
       "<leader>ls",
-      "<cmd>Telescope lsp_document_symbols<cr>",
-      desc = "Document Symbols",
-    },
-    -- nohlsearch 
-    {
-      "<leader>N",
-      "<cmd>nohlsearch<CR>",
-      desc = "NOHL",
-      hidden = true,
-    },
-    -- notes
-    {
-      "<leader>n",
-      icon = {
-        icon = "󰠮 ",
-        color = "azure",
-      },
-      group = "Notes",
+      function()
+        snacks.picker.lsp_symbols()
+      end,
+      desc = "LSP Symbols",
     },
     {
-      "<leader>nf",
-      "<cmd>Notes find<cr>",
-      desc = "Find notes by title"
+      "<leader>lS",
+      function()
+        snacks.picker.lsp_workspace_symbols()
+      end,
+      desc = "LSP Workspace Symbols",
     },
     {
-      "<leader>ng",
-      "<cmd>Notes get<cr>",
-      desc = "Get a list of all notes"
+      "<leader>lt",
+      function()
+        snacks.picker.lsp_type_definitions()
+      end,
+      desc = "Goto Type Definition",
     },
     {
-      "<leader>nw",
-      "<cmd>Notes write<cr>",
-      desc = "Write a new note"
+      "<leader>lu",
+      function()
+        snacks.picker.lsp_references()
+      end,
+      nowait = true,
+      desc = "References",
     },
-    -- nav
-    {
-      "<leader>o",
-      "<cmd>Navbuddy<cr>",
-      desc = "Nav",
-      icon = {
-        icon = "",
-        color = "blue"
-      }
-    },
-    -- plugins
+    -- Plugins
     {
       "<leader>p",
+      group = "Plugins",
       icon = {
         icon = " ",
-        color = "azure",
+        color = "purple",
       },
-      group = "Plugins",
     },
     {
       "<leader>pc",
@@ -579,61 +625,235 @@ function M.config()
       desc = "Profile",
     },
     {
-      "<leader>pS",
-      "<cmd>Lazy clear<cr>",
-      desc = "Status",
-    },
-    {
       "<leader>ps",
       "<cmd>Lazy sync<cr>",
       desc = "Sync",
+    },
+    {
+      "<leader>pS",
+      "<cmd>Lazy clear<cr>",
+      desc = "Status",
     },
     {
       "<leader>pu",
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
+    -- Sessions & Quit
+    {
+      "<leader>q",
+      group = "Sessions/Quit",
+    },
+    {
+      "<leader>qd",
+      "<cmd>Autosession delete<CR>",
+      desc = "Delete Session",
+    },
+    {
+      "<leader>qf",
+      function()
+        persistence.select()
+      end,
+      desc = "Select Session",
+    },
+    {
+      "<leader>qr",
+      function()
+        persistence.load()
+      end,
+      desc = "Restore Session",
+    },
+    {
+      "<leader>qR",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
+    },
+    {
+      "<leader>qs",
+      function()
+        persistence.stop()
+      end,
+      desc = "Don't Save Current Session",
+    },
+    {
+      "<leader>qq",
+      "<cmd>confirm q<CR>",
+      desc = "Quit",
+    },
+    -- Search
     {
       "<leader>s",
-      group = "Sessions",
+      group = "Search",
     },
     {
       "<leader>sa",
-      function() require("persistence").load() end,
-      desc = "Restore Session"
+      function()
+        snacks.picker.autocmds()
+      end,
+      desc = "Autocmds",
+    },
+    {
+      "<leader>sb",
+      function()
+        snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+    },
+    {
+      "<leader>sB",
+      function()
+        snacks.picker.grep_buffers()
+      end,
+      desc = "Grep Open Buffers",
+    },
+    {
+      "<leader>sc",
+      function()
+        snacks.picker.command_history()
+      end,
+      desc = "Command History",
+    },
+    {
+      "<leader>sC",
+      function()
+        snacks.picker.commands()
+      end,
+      desc = "Commands",
     },
     {
       "<leader>sd",
-      "<cmd>Autosession delete<CR>",
-      desc = "Delete Session"
+      function()
+        snacks.picker.diagnostics()
+      end,
+      desc = "Diagnostics",
     },
     {
-      "<leader>sf",
-      function() require("persistence").select() end,
-      desc = "Select Session"
+      "<leader>sD",
+      function()
+        snacks.picker.diagnostics_buffer()
+      end,
+      desc = "Buffer Diagnostics",
+    },
+    {
+      "<leader>sg",
+      function()
+        snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
+    {
+      "<leader>sh",
+      function()
+        snacks.picker.help()
+      end,
+      desc = "Help Pages",
+    },
+    {
+      "<leader>sH",
+      function()
+        snacks.picker.highlights()
+      end,
+      desc = "Highlights",
+    },
+    {
+      "<leader>si",
+      function()
+        snacks.picker.icons()
+      end,
+      desc = "Icons",
+    },
+    {
+      "<leader>sj",
+      function()
+        snacks.picker.jumps()
+      end,
+      desc = "Jumps",
+    },
+    {
+      "<leader>sk",
+      function()
+        snacks.picker.keymaps()
+      end,
+      desc = "Keymaps",
     },
     {
       "<leader>sl",
-      function() require("persistence").load({ last = true }) end,
-      desc = "Restore Last Session"
+      function()
+        snacks.picker.loclist()
+      end,
+      desc = "Location List",
     },
     {
-      "<leader>ss",
-      function() require("persistence").stop() end,
-      desc = "Don't Save Current Session"
-    },
-    -- treesitter
-    {
-      "<leader>T",
-      group = "Treesitter",
+      "<leader>sm",
+      function()
+        snacks.picker.marks()
+      end,
+      desc = "Marks",
     },
     {
-      "<leader>Ti",
-      "<cmd>TSConfigInfo<CR>",
-      desc = "Info",
-      hidden = true,
+      "<leader>sM",
+      function()
+        snacks.picker.man()
+      end,
+      desc = "Man Pages",
     },
-    -- tests
+    {
+      "<leader>sp",
+      function()
+        snacks.picker.lazy()
+      end,
+      desc = "Search for Plugin Spec",
+    },
+    {
+      "<leader>sq",
+      function()
+        snacks.picker.qflist()
+      end,
+      desc = "Quickfix List",
+    },
+    {
+      "<leader>sR",
+      function()
+        snacks.picker.resume()
+      end,
+      desc = "Resume",
+    },
+    {
+      "<leader>su",
+      function()
+        snacks.picker.undo()
+      end,
+      desc = "Undo History",
+    },
+    {
+      "<leader>sw",
+      function()
+        snacks.picker.grep_word()
+      end,
+      desc = "Visual selection or word",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>s",
+      group = "Search",
+    },
+    {
+      '<leader>s"',
+      function()
+        snacks.picker.registers()
+      end,
+      desc = "Registers",
+    },
+    {
+      "<leader>s/",
+      function()
+        snacks.picker.search_history()
+      end,
+      desc = "Search History",
+    },
+    -- Tests
     {
       "<leader>t",
       group = "Test",
@@ -663,55 +883,56 @@ function M.config()
       "<cmd>lua require'neotest'.run.run()<cr>",
       desc = "Test Nearest",
     },
-    -- ui
+    -- UI
     {
       "<leader>u",
       group = "UI",
     },
     {
-      "<leader>us",
+      "<leader>uc",
+      function()
+        snacks.picker.colorschemes()
+      end,
+      desc = "Colorschemes",
+    },
+    {
+      "<leader>uh",
+      function()
+        snacks.notifier.show_history()
+      end,
+      desc = "Notification History",
+    },
+    {
+      "<leader>uk",
       -- "<cmd>Screenkey toggle<cr>"
       "<cmd>ShowkeysToggle<cr>",
       desc = "Screenkey toggle",
+    },
+    {
+      "<leader>un",
+      function()
+        snacks.notifier.hide()
+      end,
+      desc = "Dismiss All Notifications",
     },
     {
       "<leader>up",
       "<cmd>Precognition toggle<cr>",
       desc = "Precognition toggle",
     },
-    -- vertical split
     {
-      "<leader>v",
-      "<cmd>vsplit<CR>",
-      desc = "VSplit",
-      hidden = true,
+      "<leader>uz",
+      function()
+        snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
     },
-    -- quit
     {
-      "<leader>q",
-      "<cmd>confirm q<CR>",
-      desc = "Quit",
-    },
-    -- wrap
-    {
-      "<leader>w",
-      "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
-      desc = "Wrap",
-      hidden = true,
-    },
-    -- celullar
-    {
-      "<leader>y",
-      "<cmd>CellularAutomaton make_it_rain<CR>",
-      desc = "Rain",
-      hidden = true,
-    },
-    -- zen-mode
-    {
-      "<leader>z",
-      "<cmd>ZenMode<CR>",
-      desc = "ZenMode",
-      hidden = true,
+      "<leader>uZ",
+      function()
+        snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
     },
   }
 end

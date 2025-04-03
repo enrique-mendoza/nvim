@@ -63,6 +63,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.java" },
+  callback = function()
+    vim.lsp.codelens.refresh()
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
@@ -93,12 +100,17 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 
 -- Switching between numbers and relative numbers
 vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = '*',
-  command = "set norelativenumber"
+  pattern = "*",
+  command = "set norelativenumber",
 })
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = '*',
-  command = "set nopaste relativenumber"
+  pattern = "*",
+  command = "set nopaste relativenumber",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  command = "setlocal expandtab shiftwidth=4 tabstop=4",
 })

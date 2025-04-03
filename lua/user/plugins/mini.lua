@@ -1,9 +1,20 @@
 local M = {
-  "echasnovski/mini.files",
+  "echasnovski/mini.nvim",
+  version = false,
   event = "VeryLazy",
 }
 
 function M.config()
+  -- AI
+  require("mini.ai").setup {}
+
+  -- Align
+  require("mini.align").setup {}
+
+  -- Autopairs
+  require("mini.pairs").setup {}
+
+  -- Files
   require("mini.files").setup {
     -- Customization of shown content
     content = {
@@ -63,6 +74,15 @@ function M.config()
   local opts = { noremap = true, silent = true }
 
   keymap("n", "-", ":lua MiniFiles.open()<cr>", opts)
+
+  -- Icons
+  require("mini.icons").setup {}
+
+  -- Surround
+  require("mini.surround").setup {}
+
+  -- Statusline
+  -- require("mini.statusline").setup {}
 end
 
 return M
