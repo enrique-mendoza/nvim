@@ -78,6 +78,9 @@ function M.config()
   -- Icons
   require("mini.icons").setup {}
 
+  -- Splitjoin
+  require("mini.splitjoin").setup {}
+
   -- Surround
   require("mini.surround").setup {}
 
