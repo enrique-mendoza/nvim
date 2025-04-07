@@ -79,7 +79,12 @@ function M.config()
   require("mini.icons").setup {}
 
   -- Splitjoin
-  require("mini.splitjoin").setup {}
+  require("mini.splitjoin").setup {
+    mappings = { toggle = "" }, -- Disable default mapping
+  }
+
+  keymap({ "n", "x" }, "sj", ":lua MiniSplitjoin.join()<cr>", opts)
+  keymap({ "n", "x" }, "sk", ":lua MiniSplitjoin.split()<cr>", opts)
 
   -- Surround
   require("mini.surround").setup {}
