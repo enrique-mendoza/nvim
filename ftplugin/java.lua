@@ -64,7 +64,7 @@ local config = {
   settings = {
     java = {
       -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-      home = "/usr/lib/jvm/java-21-amazon-corretto/",
+      home = "/Users/kike/.sdkman/candidates/java/21.0.6-tem/",
       eclipse = {
         downloadSources = true,
       },
@@ -78,19 +78,19 @@ local config = {
           -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
           {
             name = "JavaSE-1.8",
-            path = "/usr/lib/jvm/java-8-amazon-corretto/",
+            path = "/Users/kike/.sdkman/candidates/java/8.0.412-tem/",
           },
           {
             name = "JavaSE-11",
-            path = "/usr/lib/jvm/java-11-amazon-corretto/",
+            path = "/Users/kike/.sdkman/candidates/java/11.0.22-tem/",
           },
           {
             name = "JavaSE-17",
-            path = "/usr/lib/jvm/java-17-amazon-corretto/",
+            path = "/Users/kike/.sdkman/candidates/java/17.0.12-tem/",
           },
           {
             name = "JavaSE-21",
-            path = "/usr/lib/jvm/java-21-amazon-corretto/",
+            path = "/Users/kike/.sdkman/candidates/java/21.0.6-tem/",
           },
         },
       },
