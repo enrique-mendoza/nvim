@@ -200,7 +200,7 @@ function M.config()
     window = {
       completion = {
         border = "rounded",
-        winhighlight = "Normal:CmpMenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None,FloatBorder:CmpBorder",
         col_offset = -3,
         side_padding = 1,
         scrollbar = false,
@@ -208,7 +208,7 @@ function M.config()
       },
       documentation = {
         border = "rounded",
-        winhighlight = "Normal:CmpDoc,FloatBorder:FloatBorder,Search:None",
+        winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder",
       },
     },
     experimental = {
