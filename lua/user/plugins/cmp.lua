@@ -200,7 +200,7 @@ function M.config()
     window = {
       completion = {
         border = "rounded",
-        winhighlight = "Normal:CmpMenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
         col_offset = -3,
         side_padding = 1,
         scrollbar = false,
