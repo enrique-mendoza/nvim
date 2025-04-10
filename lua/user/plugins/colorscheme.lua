@@ -1,4 +1,4 @@
-local M = require "user.themes.onedarkpro"
+local M = require "user.themes.eldritch"
 
 -- local function syncOs()
 --   local hr = tonumber(os.date("%H", os.time()))
@@ -13,9 +13,9 @@ local M = require "user.themes.onedarkpro"
 -- end
 
 function M.config()
-  require("onedarkpro").setup {}
+  require("eldritch").setup {}
 
-  vim.cmd.colorscheme "onedark"
+  vim.cmd.colorscheme "eldritch"
 end
 
 return M
