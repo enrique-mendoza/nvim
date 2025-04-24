@@ -1,4 +1,4 @@
-local M = require "user.themes.eldritch"
+local M = require "user.themes.tokyonight"
 
 -- local function syncOs()
 --   local hr = tonumber(os.date("%H", os.time()))
@@ -13,9 +13,11 @@ local M = require "user.themes.eldritch"
 -- end
 
 function M.config()
-  require("eldritch").setup {}
+  require("tokyonight").setup {
+    style = "day"
+  }
 
-  vim.cmd.colorscheme "eldritch"
+  vim.cmd.colorscheme "tokyonight"
 end
 
 return M
