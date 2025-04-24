@@ -90,7 +90,7 @@ function M.config()
   require("mini.surround").setup {}
 
   -- Statusline
-  -- require("mini.statusline").setup {}
+  require("mini.statusline").setup {}
 end
 
 return M
