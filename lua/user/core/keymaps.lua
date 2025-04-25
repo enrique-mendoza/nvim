@@ -65,4 +65,26 @@ keymap("n", "p", function()
   vim.api.nvim_win_set_cursor(0, { row + 1, col })
 end)
 
+-- search within visual selection - this is magic
+keymap("x", "/", "<Esc>/\\%V")
+
+-- duplicate line and comment the first line
+keymap("n", "ycc", "yygccp", { remap = true })
+
+-- make j and k movements with multiple save to jumplist
+-- for example jump 12 lines down with "12j" and go back to where you ran that motion with C-o
+keymap("n", "j", function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. "j"
+  end
+  return "j"
+end, { expr = true })
+
+keymap("n", "k", function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. "k"
+  end
+  return "k"
+end, { expr = true })
+
 -- discipline.cowboy()
