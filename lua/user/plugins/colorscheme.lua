@@ -1,4 +1,4 @@
-local M = require "user.themes.tokyonight"
+local M = require "user.themes.catppuccin"
 
 -- local function syncOs()
 --   local hr = tonumber(os.date("%H", os.time()))
@@ -13,11 +13,12 @@ local M = require "user.themes.tokyonight"
 -- end
 
 function M.config()
-  require("tokyonight").setup {
-    style = "day"
+  require("catppuccin").setup {
+    flavour = "frappe", -- latte, frappe, macchiato, mocha
   }
 
-  vim.cmd.colorscheme "tokyonight"
+  vim.opt.background = "dark"
+  vim.cmd.colorscheme "catppuccin"
 end
 
 return M
