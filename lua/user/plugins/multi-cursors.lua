@@ -1,24 +1,29 @@
 local M = {
-  "jake-stewart/multicursor.nvim",
-  branch = "1.0",
+  "smoka7/multicursors.nvim",
+  event = "VeryLazy",
+  dependencies = {
+    "nvimtools/hydra.nvim",
+  },
+  cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
 }
 
 function M.config()
-  local mc = require "multicursor-nvim"
-  mc.setup {}
-
-  -- Mappings defined in a keymap layer only apply when there are
-  -- multiple cursors. This lets you have overlapping mappings.
-  mc.addKeymapLayer(function(layerSet)
-    -- Enable and clear cursors using escape.
-    layerSet("n", "<esc>", function()
-      if not mc.cursorsEnabled() then
-        mc.enableCursors()
-      else
-        mc.clearCursors()
-      end
-    end)
-  end)
+  require("multicursors").setup {
+    hint_config = {
+      float_opts = {
+        border = "rounded",
+      },
+      position = "bottom-right",
+    },
+    generate_hints = {
+      normal = true,
+      insert = true,
+      extend = true,
+      config = {
+        column_count = 1,
+      },
+    },
+  }
 end
 
 return M
