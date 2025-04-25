@@ -302,6 +302,18 @@ function M.config()
       mode = { "n", "x", "o" },
     },
     {
+      "<leader>fm",
+      "<cmd>MCstart<CR>",
+      desc = "Multi Cursors",
+      mode = "n",
+    },
+    {
+      "<leader>fm",
+      "<cmd>MCvisual<CR>",
+      desc = "Multi Cursors",
+      mode = "v",
+    },
+    {
       "<leader>fp",
       function()
         snacks.picker.projects()
@@ -389,8 +401,8 @@ function M.config()
       desc = "Git Diff",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gD",
@@ -400,8 +412,8 @@ function M.config()
       desc = "Git Diff (Hunks)",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gf",
@@ -428,8 +440,8 @@ function M.config()
       desc = "Git Diff File History",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gl",
