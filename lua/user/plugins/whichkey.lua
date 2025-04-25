@@ -9,7 +9,6 @@ function M.config()
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"
-  local mc = require "multicursors"
 
   -- Setup
   wk.setup {
@@ -306,6 +305,18 @@ function M.config()
         color = "orange",
       },
       mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>fm",
+      "<cmd>MCstart<CR>",
+      desc = "Multi Cursors",
+      mode = "n",
+    },
+    {
+      "<leader>fm",
+      "<cmd>MCvisual<CR>",
+      desc = "Multi Cursors",
+      mode = "v",
     },
     {
       "<leader>fp",
