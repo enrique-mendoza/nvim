@@ -9,6 +9,7 @@ function M.config()
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"
+  local mc = require "multicursor-nvim"
 
   -- Setup
   wk.setup {
@@ -175,6 +176,81 @@ function M.config()
       "<leader>bT",
       "<cmd>$tabnew<cr>",
       desc = "New Empty Tab",
+    },
+    -- Cursors
+    {
+      "<leader>c",
+      group = "Cursors",
+    },
+    {
+      "<leader>cc",
+      function()
+        mc.clearCursors()
+      end,
+      desc = "Clear Cursors",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cN",
+      function()
+        mc.matchAddCursor(-1)
+      end,
+      desc = "Add Cursor Up",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cn",
+      function()
+        mc.matchAddCursor(1)
+      end,
+      desc = "Add Cursor Down",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cS",
+      function()
+        mc.searchSkipCursor(-1)
+      end,
+      desc = "Add Cursor Up",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cs",
+      function()
+        mc.searchSkipCursor(1)
+      end,
+      desc = "Add Cursor Down",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>ck",
+      mc.prevCursor,
+      desc = "Next Cursor",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cj",
+      mc.nextCursor,
+      desc = "Prev Cursor",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cr",
+      mc.restoreCursors,
+      desc = "Restore Cursors",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>ct",
+      mc.toggleCursor,
+      desc = "Toggle Multi Cursors",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>cx",
+      mc.deleteCursor,
+      desc = "Delete Main Cursor",
+      mode = { "n", "x" },
     },
     -- Debug
     {
@@ -389,8 +465,8 @@ function M.config()
       desc = "Git Diff",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gD",
@@ -400,8 +476,8 @@ function M.config()
       desc = "Git Diff (Hunks)",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gf",
@@ -428,8 +504,8 @@ function M.config()
       desc = "Git Diff File History",
       icon = {
         icon = " ",
-        color = "orange"
-      }
+        color = "orange",
+      },
     },
     {
       "<leader>gl",
