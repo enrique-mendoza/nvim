@@ -12,7 +12,7 @@ function M.config()
     global_keymaps = false,
     -- dev, test, prod, can be anything
     -- see: https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0#environment-files
-    default_env = "dev",
+    default_env = "local",
   }
 end
 
