@@ -81,6 +81,7 @@ function M.config()
     "marksman",
     "pyright",
     "ts_ls",
+    "kulala_ls",
   }
 
   vim.diagnostic.config {
