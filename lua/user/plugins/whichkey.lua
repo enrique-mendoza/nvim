@@ -352,19 +352,21 @@ function M.config()
       mode = { "c" },
     },
     {
-      "<leader>ft",
+      "<leader>fT",
       function()
-        flash.treesitter()
+        snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
       end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
+      desc = "Find TODO/FIX/FIXME",
     },
     {
-      "<leader>fT",
+      "<leader>ft",
+      function()
+        snacks.picker.todo_comments()
+      end,
+      desc = "Find TODO",
+    },
+    {
+      "<leader>fx",
       function()
         flash.treesitter_search()
       end,
@@ -374,6 +376,18 @@ function M.config()
         color = "orange",
       },
       mode = { "o", "x" },
+    },
+    {
+      "<leader>fx",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
     -- Git
     {
