@@ -38,7 +38,7 @@ function M.config()
   require("auto-session").setup {
     log_level = "error",
     suppressed_dirs = { "~/", "~/Downloads", "/" },
-    use_git_branch = false,
+    git_use_branch_name = false,
     root_dir = vim.fn.stdpath "data" .. "/sessions/",
     enable_last_session = false,
     bypass_save_filetypes = { "alpha", "dashboard" },
