@@ -29,6 +29,19 @@ function M.config()
         -- wo = { wrap = true } -- Wrap notifications
       },
     },
+    zen = {
+      enabled = true,
+      toggles = {
+        ufo = true,
+        dim = true,
+        git_signs = false,
+        diagnostics = false,
+        line_number = false,
+        relative_number = false,
+        signcolumn = "no",
+        indent = false,
+      },
+    },
   }
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
@@ -56,6 +69,26 @@ function M.config()
       snacks.toggle.inlay_hints():map "<leader>ui"
       snacks.toggle.indent():map "<leader>ug"
       snacks.toggle.dim():map "<leader>uD"
+      snacks.toggle.new {
+        id = "ufo",
+        name = "Enable/Disable ufo",
+        get = function()
+          return require("ufo").inspect()
+        end,
+        set = function(state)
+          if state == nil then
+            require("noice").enable()
+            require("ufo").enable()
+            vim.o.foldenable = true
+            vim.o.foldcolumn = "1"
+          else
+            require("noice").disable()
+            require("ufo").disable()
+            vim.o.foldenable = false
+            vim.o.foldcolumn = "0"
+          end
+        end,
+      }
     end,
   })
 end
