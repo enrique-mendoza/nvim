@@ -366,7 +366,7 @@ function M.config()
       desc = "Find TODO",
     },
     {
-      "<leader>fx",
+      "<leader>fX",
       function()
         flash.treesitter_search()
       end,
