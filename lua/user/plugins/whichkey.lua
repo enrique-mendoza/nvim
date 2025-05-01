@@ -120,11 +120,11 @@ function M.config()
       "<leader>b",
       group = "Buffers/Tabs",
     },
-    {
-      "<leader>ba",
-      "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-      desc = "Find Tabs",
-    },
+    -- {
+    --   "<leader>ba",
+    --   "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+    --   desc = "Find Tabs",
+    -- },
     {
       "<leader>bd",
       function()
@@ -272,6 +272,22 @@ function M.config()
     {
       "<leader>f",
       group = "Find",
+    },
+    {
+      "<leader>fC",
+      function()
+        snacks.picker.todo_comments {
+          keywords = { "TODO", "FIX", "FIXME" },
+        }
+      end,
+      desc = "TODO/FIX/FIXME",
+    },
+    {
+      "<leader>fc",
+      function()
+        snacks.picker.todo_comments()
+      end,
+      desc = "TODO",
     },
     {
       "<leader>fb",
