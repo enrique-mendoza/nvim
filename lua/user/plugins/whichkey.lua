@@ -50,6 +50,11 @@ function M.config()
   wk.add {
     -- Hidden Commands
     {
+      "<c-n>",
+      "<cmd>MCstart<CR>",
+      hidden = true,
+    },
+    {
       "<leader>h",
       "<cmd>split<CR>",
       desc = "HSplit",
@@ -115,11 +120,11 @@ function M.config()
       "<leader>b",
       group = "Buffers/Tabs",
     },
-    {
-      "<leader>ba",
-      "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-      desc = "Find Tabs",
-    },
+    -- {
+    --   "<leader>ba",
+    --   "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+    --   desc = "Find Tabs",
+    -- },
     {
       "<leader>bd",
       function()
@@ -269,6 +274,22 @@ function M.config()
       group = "Find",
     },
     {
+      "<leader>fC",
+      function()
+        snacks.picker.todo_comments {
+          keywords = { "TODO", "FIX", "FIXME" },
+        }
+      end,
+      desc = "TODO/FIX/FIXME",
+    },
+    {
+      "<leader>fc",
+      function()
+        snacks.picker.todo_comments()
+      end,
+      desc = "TODO",
+    },
+    {
       "<leader>fb",
       function()
         snacks.picker.buffers()
@@ -352,33 +373,7 @@ function M.config()
       mode = { "c" },
     },
     {
-      "<leader>fT",
-      function()
-        snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
-      end,
-      desc = "Find TODO/FIX/FIXME",
-    },
-    {
       "<leader>ft",
-      function()
-        snacks.picker.todo_comments()
-      end,
-      desc = "Find TODO",
-    },
-    {
-      "<leader>fX",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
-      "<leader>fx",
       function()
         flash.treesitter()
       end,
@@ -388,6 +383,18 @@ function M.config()
         color = "orange",
       },
       mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>fT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
     },
     -- Git
     {
