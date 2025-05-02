@@ -114,3 +114,19 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   command = "setlocal expandtab shiftwidth=4 tabstop=4",
 })
+
+local set_hl_for_floating_window = function()
+  vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "CmpPmenu", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "CmpDoc", { link = "Normal" })
+end
+
+set_hl_for_floating_window()
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  desc = 'Avoid overwritten by loading color schemes later',
+  callback = set_hl_for_floating_window,
+})
