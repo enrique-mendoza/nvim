@@ -886,10 +886,6 @@ function M.config()
       mode = { "n", "x" },
     },
     {
-      "<leader>s",
-      group = "Search",
-    },
-    {
       '<leader>s"',
       function()
         snacks.picker.registers()
