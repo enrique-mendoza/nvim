@@ -54,11 +54,11 @@ function M.config()
 
   require("luasnip/loaders/from_vscode").lazy_load()
 
-  -- vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-  -- vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-  -- vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
-  -- vim.api.nvim_set_hl(0, "CmpPmenu", { link = "Normal" })
-  -- vim.api.nvim_set_hl(0, "CmpDoc", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "CmpPmenu", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "CmpDoc", { link = "Normal" })
 
   vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
   vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
