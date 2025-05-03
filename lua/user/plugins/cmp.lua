@@ -123,33 +123,35 @@ function M.config()
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        vim_item.kind = icons.kind[vim_item.kind]
-        vim_item.menu = ({
-          nvim_lsp = "(LSP)",
-          emoji = "(Emoji)",
-          path = "(Path)",
-          calc = "(Calc)",
-          cmp_tabnine = "(Tabnine)",
-          vsnip = "(Snippet)",
-          luasnip = "(Snippet)",
-          buffer = "(Buffer)",
-          tmux = "(TMUX)",
-          copilot = "(Copilot)",
-          treesitter = "(TreeSitter)",
-        })[entry.source.name]
+      format = function(entry, item)
+        item.menu = item.kind
+        item.menu_hl_group = "LineNr"
+        item.kind = icons.kind[item.kind]
+        -- item.menu = ({
+        --   nvim_lsp = "LSP",
+        --   emoji = "Emoji",
+        --   path = "Path",
+        --   calc = "Calc",
+        --   cmp_tabnine = "Tabnine",
+        --   vsnip = "Snippet",
+        --   luasnip = "Snippet",
+        --   buffer = "Buffer",
+        --   tmux = "TMUX",
+        --   copilot = "Copilot",
+        --   treesitter = "TreeSitter",
+        -- })[entry.source.name]
 
         if entry.source.name == "emoji" then
-          vim_item.kind = icons.misc.Smiley
-          vim_item.kind_hl_group = "CmpItemKindEmoji"
+          item.kind = icons.misc.Smiley
+          item.kind_hl_group = "CmpItemKindEmoji"
         end
 
         if entry.source.name == "cmp_tabnine" then
-          vim_item.kind = icons.misc.Robot
-          vim_item.kind_hl_group = "CmpItemKindTabnine"
+          item.kind = icons.misc.Robot
+          item.kind_hl_group = "CmpItemKindTabnine"
         end
 
-        return vim_item
+        return item
       end,
     },
     sources = {
