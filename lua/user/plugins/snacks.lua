@@ -12,7 +12,7 @@ function M.config()
     dashboard = { enabled = true },
     explorer = { enabled = true },
     image = { enabled = true },
-    indent = { enabled = true },
+    indent = { enabled = false },
     input = { enabled = true },
     notifier = {
       enabled = true,
@@ -21,7 +21,7 @@ function M.config()
     picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = true },
     styles = {
