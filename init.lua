@@ -78,6 +78,7 @@ spec "user.plugins.typescript-tools"
 spec "user.plugins.ufo"
 spec "user.plugins.various-textobjs"
 spec "user.plugins.vim-kitty"
+spec "user.plugins.vim-tmux-navigator"
 spec "user.plugins.visual"
 spec "user.plugins.whichkey"
 
