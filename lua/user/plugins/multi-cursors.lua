@@ -1,4 +1,4 @@
--- other option: terryma/vim-multiple-cursors 
+-- other option: terryma/vim-multiple-cursors
 
 local M = {
   "smoka7/multicursors.nvim",
@@ -25,6 +25,10 @@ function M.config()
       },
     },
   }
+
+  vim.api.nvim_set_hl(0, "MultiCursor", { fg = "#ffffff", bg = "none", bold = true })
+  vim.api.nvim_set_hl(0, "MultiCursorMain", { fg = "#ff005f", bg = "none", bold = true })
+  vim.api.nvim_set_hl(0, "MultiCursorVisual", { fg = "#000000", bg = "none", underline = true })
 end
 
 return M
