@@ -4,7 +4,13 @@ local M = {
 }
 
 function M.config()
-  require("flash").setup {}
+  require("flash").setup {
+    modes = {
+      char = {
+        keys = { "f", "F", "t", "T" },
+      },
+    },
+  }
 end
 
 return M
