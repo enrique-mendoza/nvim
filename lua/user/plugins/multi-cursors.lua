@@ -1,3 +1,5 @@
+-- other option: terryma/vim-multiple-cursors 
+
 local M = {
   "smoka7/multicursors.nvim",
   event = "VeryLazy",
