@@ -13,6 +13,10 @@ function M.config()
     -- dev, test, prod, can be anything
     -- see: https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0#environment-files
     default_env = "local",
+    ui = {
+      -- display mode: possible values: "split", "float"
+      display_mode = "float",
+    },
   }
 end
 
