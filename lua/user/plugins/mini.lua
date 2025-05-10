@@ -83,9 +83,6 @@ function M.config()
   keymap({ "n", "x" }, "sj", ":lua MiniSplitjoin.join()<cr>", opts)
   keymap({ "n", "x" }, "sk", ":lua MiniSplitjoin.split()<cr>", opts)
 
-  -- Surround
-  require("mini.surround").setup {}
-
   -- Statusline
   -- require("mini.statusline").setup {}
 end
