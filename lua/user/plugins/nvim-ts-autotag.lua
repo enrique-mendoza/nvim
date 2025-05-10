@@ -1,5 +1,6 @@
 local M = {
   "windwp/nvim-ts-autotag",
+  event = "InsertEnter",
 }
 
 function M.config()
