@@ -12,7 +12,7 @@ function M.config()
     dashboard = { enabled = true },
     explorer = { enabled = true },
     image = { enabled = true },
-    indent = { enabled = true },
+    indent = { enabled = false },
     input = { enabled = true },
     notifier = {
       enabled = true,
