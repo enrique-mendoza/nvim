@@ -8,7 +8,7 @@ M.config = function()
   local Rule = require "nvim-autopairs.rule"
   local conds = require "nvim-autopairs.conds"
 
-  require("nvim-autopairs").setup {
+  npairs.setup {
     map_char = {
       all = "(",
       tex = "{",
