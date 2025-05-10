@@ -116,7 +116,7 @@ function M.config()
       capabilities = M.common_capabilities(),
     }
 
-    local require_ok, settings = pcall(require, "user.lsp." .. server)
+    local require_ok, settings = pcall(require, "user.plugins.lsp." .. server)
 
     if require_ok then
       opts = vim.tbl_deep_extend("force", settings, opts)

@@ -5,6 +5,8 @@ require "user.core.autocmds"
 require "user.core.keymaps"
 require "user.core.options"
 
+require "user.lsp"
+
 -- plugins
 spec "user.plugins.autopairs"
 spec "user.plugins.autosession"
@@ -37,7 +39,6 @@ spec "user.plugins.kulala"
 spec "user.plugins.lab"
 spec "user.plugins.lazydev"
 spec "user.plugins.leetcode"
-spec "user.plugins.lspconfig"
 spec "user.plugins.lualine"
 spec "user.plugins.luarocks"
 spec "user.plugins.markdown-preview"
