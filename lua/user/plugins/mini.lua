@@ -11,9 +11,6 @@ function M.config()
   -- Align
   require("mini.align").setup {}
 
-  -- Autopairs
-  require("mini.pairs").setup {}
-
   -- Files
   require("mini.files").setup {
     -- Customization of shown content
