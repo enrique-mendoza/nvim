@@ -967,6 +967,11 @@ function M.config()
       desc = "Precognition toggle",
     },
     {
+      "<leader>ur",
+      "<cmd>RenderMarkdown toggle<cr>",
+      desc = "Render markdown toggle",
+    },
+    {
       "<leader>uz",
       function()
         snacks.zen()
