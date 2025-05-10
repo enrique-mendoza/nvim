@@ -9,6 +9,7 @@ local M = {
 function M.config()
   require("render-markdown").setup {
     file_types = { "markdown", "vimwiki" },
+    enabled = false,
     latex = { enabled = false },
   }
 end
