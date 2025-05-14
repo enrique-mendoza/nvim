@@ -371,11 +371,6 @@ function M.config()
       end,
       desc = "Git Log File",
     },
-    -- {
-    --   "<leader>gF",
-    --   "<cmd>Fugit2<cr>",
-    --   desc = "Git Fugit2",
-    -- },
     {
       "<leader>gg",
       function()
@@ -406,11 +401,6 @@ function M.config()
       end,
       desc = "Git Log Line",
     },
-    -- {
-    --   "<leader>gn",
-    --   "<cmd>Neogit<CR>",
-    --   desc = "Neogit",
-    -- },
     {
       "<leader>go",
       "<cmd>lua require 'gitsigns'.blame_line()<cr>",
