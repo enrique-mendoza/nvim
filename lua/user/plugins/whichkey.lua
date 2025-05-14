@@ -372,11 +372,6 @@ function M.config()
       desc = "Git Log File",
     },
     {
-      "<leader>gF",
-      "<cmd>Fugit2<cr>",
-      desc = "Git Fugit2",
-    },
-    {
       "<leader>gg",
       function()
         snacks.lazygit()
@@ -384,7 +379,7 @@ function M.config()
       desc = "Lazygit",
     },
     {
-      "<leader>gH",
+      "<leader>gh",
       "<cmd>DiffviewFileHistory<cr>",
       desc = "Git Diff File History",
       icon = {
@@ -405,11 +400,6 @@ function M.config()
         snacks.picker.git_log_line()
       end,
       desc = "Git Log Line",
-    },
-    {
-      "<leader>gn",
-      "<cmd>Neogit<CR>",
-      desc = "Neogit",
     },
     {
       "<leader>go",
