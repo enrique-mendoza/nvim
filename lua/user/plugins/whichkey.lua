@@ -384,7 +384,7 @@ function M.config()
       desc = "Lazygit",
     },
     {
-      "<leader>gH",
+      "<leader>gh",
       "<cmd>DiffviewFileHistory<cr>",
       desc = "Git Diff File History",
       icon = {
