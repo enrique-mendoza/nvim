@@ -366,16 +366,16 @@ function M.config()
     },
     {
       "<leader>gf",
-      "<cmd>Fugit2<cr>",
-      desc = "Git Fugit2",
-    },
-    {
-      "<leader>gF",
       function()
         snacks.picker.git_log_file()
       end,
       desc = "Git Log File",
     },
+    -- {
+    --   "<leader>gF",
+    --   "<cmd>Fugit2<cr>",
+    --   desc = "Git Fugit2",
+    -- },
     {
       "<leader>gg",
       function()
