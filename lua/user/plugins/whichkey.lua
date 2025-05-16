@@ -311,6 +311,30 @@ function M.config()
       desc = "Find Git Files",
     },
     {
+      "<leader>fK",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>fk",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
       "<leader>fp",
       function()
         snacks.picker.projects()
@@ -318,11 +342,47 @@ function M.config()
       desc = "Projects",
     },
     {
+      "<leader>fR",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
+    },
+    {
       "<leader>fr",
       function()
         snacks.picker.recent()
       end,
       desc = "Recent",
+    },
+    {
+      "<leader>fr",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
+      "<leader>ft",
+      function()
+        flash.toggle()
+      end,
+      desc = "Toggle Flash Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "c" },
     },
     -- Git
     {
@@ -540,95 +600,6 @@ function M.config()
       end,
       nowait = true,
       desc = "References",
-    },
-    -- Motions
-    {
-      "<leader>m",
-      group = "Motions",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-    },
-    {
-      "<leader>mF",
-      function()
-        flash.treesitter()
-      end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>mf",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>mm",
-      "<cmd>MCstart<CR>",
-      desc = "Multi Cursors",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = "n",
-    },
-    {
-      "<leader>mm",
-      "<cmd>MCvisual<CR>",
-      desc = "Multi Cursors",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = "v",
-    },
-    {
-      "<leader>mR",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
-      "<leader>mr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>mt",
-      function()
-        flash.toggle()
-      end,
-      desc = "Toggle Flash Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "c" },
     },
     -- Plugins
     {
