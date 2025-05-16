@@ -148,6 +148,9 @@ return {
   },
   lang = {
     Java = "",
+    tools = {
+      Maven = "",
+    },
   },
   statusline = {
     DefaultDividerLeft = "",
@@ -161,7 +164,7 @@ return {
     Mode = "",
     git = {
       Branch = "",
-      LineAdded = " ", --  
+      LineAdded = " ", -- 
       LineModified = " ",
       LineRemoved = " ",
     },
@@ -171,8 +174,8 @@ return {
       Information = "󰋼  ",
       Hint = "󰛩  ",
     },
-    Lsp = "  ", --  
-    Cwd = "󰉋", -- 󰉖 , 󰉋 ,  
+    Lsp = "  ", -- 
+    Cwd = "󰉋", -- 󰉖 , 󰉋 , 
     Location = "",
   },
   misc = {

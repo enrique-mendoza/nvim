@@ -229,11 +229,19 @@ config["on_attach"] = function(client, bufnr)
     },
     {
       "<leader>jm",
+      group = "Maven",
+      icon = {
+        icon = icon.lang.tools.Maven,
+        color = "red",
+      },
+    },
+    {
+      "<leader>jmc",
       "<cmd>Maven<CR>",
       desc = "Maven Command",
     },
     {
-      "<leader>jM",
+      "<leader>jmi",
       "<cmd>MavenExec<CR>",
       desc = "Input Maven Command",
     },
