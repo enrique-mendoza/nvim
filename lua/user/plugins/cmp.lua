@@ -125,7 +125,7 @@ function M.config()
       fields = { "kind", "abbr", "menu" },
       format = function(entry, item)
         item.menu = item.kind
-        item.menu_hl_group = "LineNr"
+        item.menu_hl_group = "comment" -- LineNr
         item.kind = icons.kind[item.kind]
         -- item.menu = ({
         --   nvim_lsp = "LSP",
@@ -202,7 +202,7 @@ function M.config()
     window = {
       completion = {
         border = "rounded",
-        winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
         col_offset = -3,
         side_padding = 1,
         scrollbar = false,
@@ -210,7 +210,7 @@ function M.config()
       },
       documentation = {
         border = "rounded",
-        winhighlight = "Normal:CmpDoc,FloatBorder:FloatBorder,Search:None",
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,Search:None",
       },
     },
     experimental = {
