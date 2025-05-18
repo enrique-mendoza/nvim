@@ -1,4 +1,4 @@
-local M = require "user.themes.astrotheme"
+local M = require "user.plugins.themes.astrotheme"
 
 function M.config()
   require("astrotheme").setup {}
