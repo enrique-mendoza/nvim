@@ -1,4 +1,4 @@
-local M = require "user.themes.catppuccin"
+local M = require "user.plugins.themes.catppuccin"
 
 -- local function syncOs()
 --   local hr = tonumber(os.date("%H", os.time()))
