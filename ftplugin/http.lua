@@ -9,7 +9,7 @@ wk.add {
     group = "Http",
     icon = {
       icon = icon.misc.Rocket,
-      color = "yellow",
+      color = "red",
     },
   },
   {
