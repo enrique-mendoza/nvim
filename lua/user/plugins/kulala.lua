@@ -16,6 +16,7 @@ function M.config()
     ui = {
       -- display mode: possible values: "split", "float"
       display_mode = "float",
+      formatter = true,
     },
   }
 end
