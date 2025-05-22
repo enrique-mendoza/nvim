@@ -15,7 +15,7 @@ wk.add {
       kulala.run_all()
     end,
     desc = "Send Request",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>HC",
@@ -23,7 +23,7 @@ wk.add {
       kulala.from_curl()
     end,
     desc = "Paste From Curl",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hc",
@@ -31,7 +31,7 @@ wk.add {
       kulala.copy()
     end,
     desc = "Copy as cURL",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>He",
@@ -39,7 +39,7 @@ wk.add {
       kulala.set_selected_env()
     end,
     desc = "Select Environment",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hf",
@@ -47,7 +47,7 @@ wk.add {
       kulala.search()
     end,
     desc = "Search Request",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>HO",
@@ -55,7 +55,7 @@ wk.add {
       kulala.ui.show_script_output()
     end,
     desc = "Show Script Output",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Ho",
@@ -63,7 +63,7 @@ wk.add {
       kulala.open()
     end,
     desc = "Open Kulala",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>HS",
@@ -71,7 +71,7 @@ wk.add {
       kulala.show_stats()
     end,
     desc = "Show Stats",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hs",
@@ -79,7 +79,7 @@ wk.add {
       kulala.run()
     end,
     desc = "Send Request",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hr",
@@ -87,7 +87,7 @@ wk.add {
       kulala.replay()
     end,
     desc = "Replay The Last Request",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Ht",
@@ -95,7 +95,7 @@ wk.add {
       kulala.toggle_view()
     end,
     desc = "Toggle headers/body",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hq",
@@ -103,7 +103,7 @@ wk.add {
       kulala.close()
     end,
     desc = "Close Window",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
   {
     "<leader>Hx",
@@ -111,6 +111,6 @@ wk.add {
       kulala.ui.clear_responses_history()
     end,
     desc = "Clear responses history",
-    mode = { "n", "v" },
+    mode = { "n", "x" },
   },
 }
