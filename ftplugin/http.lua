@@ -7,7 +7,10 @@ wk.add {
   {
     "<leader>H",
     group = "Http",
-    icon = icon.misc.Rocket,
+    icon = {
+      icon = icon.misc.Rocket,
+      color = "yellow",
+    },
   },
   {
     "<leader>HC",
