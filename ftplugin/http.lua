@@ -10,14 +10,6 @@ wk.add {
     icon = icon.misc.Rocket,
   },
   {
-    "<leader>Ha",
-    function()
-      kulala.run_all()
-    end,
-    desc = "Send Request",
-    mode = { "n", "x" },
-  },
-  {
     "<leader>HC",
     function()
       kulala.from_curl()
@@ -34,6 +26,14 @@ wk.add {
     mode = { "n", "x" },
   },
   {
+    "<leader>Hd",
+    function()
+      kulala.ui.clear_responses_history()
+    end,
+    desc = "Clear responses history",
+    mode = { "n", "x" },
+  },
+  {
     "<leader>He",
     function()
       kulala.set_selected_env()
@@ -47,6 +47,14 @@ wk.add {
       kulala.search()
     end,
     desc = "Search Request",
+    mode = { "n", "x" },
+  },
+  {
+    "<leader>Hl",
+    function()
+      kulala.replay()
+    end,
+    desc = "Replay The Last Request",
     mode = { "n", "x" },
   },
   {
@@ -76,17 +84,25 @@ wk.add {
   {
     "<leader>Hs",
     function()
-      kulala.run()
+      kulala.scratchpad()
     end,
-    desc = "Send Request",
+    desc = "Open Scratchpad",
+    mode = { "n", "x" },
+  },
+  {
+    "<leader>HR",
+    function()
+      kulala.run_all()
+    end,
+    desc = "Send All Requests",
     mode = { "n", "x" },
   },
   {
     "<leader>Hr",
     function()
-      kulala.replay()
+      kulala.run()
     end,
-    desc = "Replay The Last Request",
+    desc = "Send Request",
     mode = { "n", "x" },
   },
   {
@@ -103,14 +119,6 @@ wk.add {
       kulala.close()
     end,
     desc = "Close Window",
-    mode = { "n", "x" },
-  },
-  {
-    "<leader>Hx",
-    function()
-      kulala.ui.clear_responses_history()
-    end,
-    desc = "Clear responses history",
     mode = { "n", "x" },
   },
 }
