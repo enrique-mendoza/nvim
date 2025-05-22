@@ -74,6 +74,14 @@ wk.add {
     mode = { "n", "x" },
   },
   {
+    "<leader>Hq",
+    function()
+      kulala.close()
+    end,
+    desc = "Close Window",
+    mode = { "n", "x" },
+  },
+  {
     "<leader>HS",
     function()
       kulala.show_stats()
@@ -111,14 +119,6 @@ wk.add {
       kulala.toggle_view()
     end,
     desc = "Toggle headers/body",
-    mode = { "n", "x" },
-  },
-  {
-    "<leader>Hq",
-    function()
-      kulala.close()
-    end,
-    desc = "Close Window",
     mode = { "n", "x" },
   },
 }
