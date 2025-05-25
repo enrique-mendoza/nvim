@@ -6,6 +6,7 @@ local M = {
 function M.config()
   local flash = require "flash"
   local icon = require "user.extras.icons"
+  local grug = require "grug-far"
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"
@@ -318,30 +319,6 @@ function M.config()
       desc = "Find Git Files",
     },
     {
-      "<leader>fK",
-      function()
-        flash.treesitter()
-      end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>fk",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
       "<leader>fp",
       function()
         snacks.picker.projects()
@@ -349,47 +326,11 @@ function M.config()
       desc = "Projects",
     },
     {
-      "<leader>fR",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
       "<leader>fr",
       function()
         snacks.picker.recent()
       end,
       desc = "Recent",
-    },
-    {
-      "<leader>fr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>ft",
-      function()
-        flash.toggle()
-      end,
-      desc = "Toggle Flash Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "c" },
     },
     -- Git
     {
@@ -657,48 +598,97 @@ function M.config()
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
-    -- Sessions & Quit
     {
       "<leader>q",
-      group = "Sessions/Quit",
+      group = "QOF",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
     },
     {
-      "<leader>qd",
-      "<cmd>Autosession delete<CR>",
-      desc = "Delete Session",
+      "<leader>qc",
+      function()
+        grug.open { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "GrugFar in Current File",
+      mode = { "n", "x" },
     },
     {
       "<leader>qf",
       function()
-        persistence.select()
+        flash.jump()
       end,
-      desc = "Select Session",
+      desc = "Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>qg",
+      function()
+        grug.open { transient = true }
+      end,
+      desc = "GrugFar",
+      mode = { "n", "x" },
     },
     {
       "<leader>qr",
       function()
-        persistence.load()
+        flash.remote()
       end,
-      desc = "Restore Session",
+      desc = "Remote Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
     },
     {
-      "<leader>qR",
+      "<leader>qt",
       function()
-        persistence.load { last = true }
+        flash.treesitter()
       end,
-      desc = "Restore Last Session",
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
     {
-      "<leader>qs",
+      "<leader>qT",
       function()
-        persistence.stop()
+        flash.treesitter_search()
       end,
-      desc = "Don't Save Current Session",
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
+    },
+    {
+      "<leader>qv",
+      function()
+        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "GrugFar With The Current Visual Selection",
+      mode = { "n", "x" },
     },
     {
       "<leader>qq",
-      "<cmd>confirm q<CR>",
-      desc = "Quit",
+      function()
+        flash.toggle()
+      end,
+      desc = "Toggle Flash Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "c" },
     },
     -- Search
     {
@@ -952,6 +942,44 @@ function M.config()
         snacks.zen.zoom()
       end,
       desc = "Toggle Zoom",
+    },
+    -- Sessions
+    {
+      "<leader>w",
+      group = "Sessions",
+    },
+    {
+      "<leader>wd",
+      "<cmd>Autosession delete<CR>",
+      desc = "Delete Session",
+    },
+    {
+      "<leader>wf",
+      function()
+        persistence.select()
+      end,
+      desc = "Select Session",
+    },
+    {
+      "<leader>wl",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
+    },
+    {
+      "<leader>wr",
+      function()
+        persistence.load()
+      end,
+      desc = "Restore Session",
+    },
+    {
+      "<leader>ws",
+      function()
+        persistence.stop()
+      end,
+      desc = "Don't Save Current Session",
     },
   }
 end
