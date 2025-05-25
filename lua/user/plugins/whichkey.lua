@@ -532,6 +532,15 @@ function M.config()
       desc = "Format",
     },
     {
+      "<leader>lg",
+      function()
+        local grug = require "grug-far"
+        grug.open { transient = true }
+      end,
+      desc = "GrugFar",
+      mode = { "n", "x" },
+    },
+    {
       "<leader>li",
       function()
         snacks.picker.lsp_implementations()
