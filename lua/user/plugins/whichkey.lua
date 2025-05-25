@@ -937,18 +937,18 @@ function M.config()
       desc = "Select Session",
     },
     {
+      "<leader>wl",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
+    },
+    {
       "<leader>wr",
       function()
         persistence.load()
       end,
       desc = "Restore Session",
-    },
-    {
-      "<leader>wR",
-      function()
-        persistence.load { last = true }
-      end,
-      desc = "Restore Last Session",
     },
     {
       "<leader>ws",
