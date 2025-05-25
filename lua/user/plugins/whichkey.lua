@@ -666,49 +666,6 @@ function M.config()
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
-    -- Sessions & Quit
-    {
-      "<leader>q",
-      group = "Sessions/Quit",
-    },
-    {
-      "<leader>qd",
-      "<cmd>Autosession delete<CR>",
-      desc = "Delete Session",
-    },
-    {
-      "<leader>qf",
-      function()
-        persistence.select()
-      end,
-      desc = "Select Session",
-    },
-    {
-      "<leader>qr",
-      function()
-        persistence.load()
-      end,
-      desc = "Restore Session",
-    },
-    {
-      "<leader>qR",
-      function()
-        persistence.load { last = true }
-      end,
-      desc = "Restore Last Session",
-    },
-    {
-      "<leader>qs",
-      function()
-        persistence.stop()
-      end,
-      desc = "Don't Save Current Session",
-    },
-    {
-      "<leader>qq",
-      "<cmd>confirm q<CR>",
-      desc = "Quit",
-    },
     -- Search
     {
       "<leader>s",
@@ -961,6 +918,44 @@ function M.config()
         snacks.zen.zoom()
       end,
       desc = "Toggle Zoom",
+    },
+    -- Sessions
+    {
+      "<leader>w",
+      group = "Sessions",
+    },
+    {
+      "<leader>wd",
+      "<cmd>Autosession delete<CR>",
+      desc = "Delete Session",
+    },
+    {
+      "<leader>wf",
+      function()
+        persistence.select()
+      end,
+      desc = "Select Session",
+    },
+    {
+      "<leader>wr",
+      function()
+        persistence.load()
+      end,
+      desc = "Restore Session",
+    },
+    {
+      "<leader>wR",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
+    },
+    {
+      "<leader>ws",
+      function()
+        persistence.stop()
+      end,
+      desc = "Don't Save Current Session",
     },
   }
 end
