@@ -6,6 +6,7 @@ local M = {
 function M.config()
   local flash = require "flash"
   local icon = require "user.extras.icons"
+  local grug = require "grug-far"
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"
@@ -608,7 +609,6 @@ function M.config()
     {
       "<leader>qc",
       function()
-        local grug = require "grug-far"
         grug.open { prefills = { paths = vim.fn.expand "%" } }
       end,
       desc = "GrugFar in Current File",
@@ -629,7 +629,6 @@ function M.config()
     {
       "<leader>qg",
       function()
-        local grug = require "grug-far"
         grug.open { transient = true }
       end,
       desc = "GrugFar",
@@ -674,7 +673,6 @@ function M.config()
     {
       "<leader>qv",
       function()
-        local grug = require "grug-far"
         grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
       end,
       desc = "GrugFar With The Current Visual Selection",
