@@ -318,30 +318,6 @@ function M.config()
       desc = "Find Git Files",
     },
     {
-      "<leader>fK",
-      function()
-        flash.treesitter()
-      end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>fk",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
       "<leader>fp",
       function()
         snacks.picker.projects()
@@ -349,47 +325,11 @@ function M.config()
       desc = "Projects",
     },
     {
-      "<leader>fR",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
       "<leader>fr",
       function()
         snacks.picker.recent()
       end,
       desc = "Recent",
-    },
-    {
-      "<leader>fr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>ft",
-      function()
-        flash.toggle()
-      end,
-      desc = "Toggle Flash Search",
-      icon = {
-        icon = icon.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "c" },
     },
     -- Git
     {
@@ -532,15 +472,6 @@ function M.config()
       desc = "Format",
     },
     {
-      "<leader>lg",
-      function()
-        local grug = require "grug-far"
-        grug.open { transient = true }
-      end,
-      desc = "GrugFar",
-      mode = { "n", "x" },
-    },
-    {
       "<leader>li",
       function()
         snacks.picker.lsp_implementations()
@@ -665,6 +596,101 @@ function M.config()
       "<leader>pu",
       "<cmd>Lazy update<cr>",
       desc = "Update",
+    },
+    {
+      "<leader>q",
+      group = "QOF",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+    },
+    {
+      "<leader>qc",
+      function()
+        local grug = require "grug-far"
+        grug.open { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "GrugFar in Current File",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>qf",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>qg",
+      function()
+        local grug = require "grug-far"
+        grug.open { transient = true }
+      end,
+      desc = "GrugFar",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>qr",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
+      "<leader>qt",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>qT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
+    },
+    {
+      "<leader>qv",
+      function()
+        local grug = require "grug-far"
+        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "GrugFar With The Current Visual Selection",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>qq",
+      function()
+        flash.toggle()
+      end,
+      desc = "Toggle Flash Search",
+      icon = {
+        icon = icon.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "c" },
     },
     -- Search
     {
@@ -961,3 +987,4 @@ function M.config()
 end
 
 return M
+
