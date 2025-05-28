@@ -23,7 +23,10 @@ function M.config()
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = false },
-    words = { enabled = true },
+    words = {
+      enabled = true,
+      debounce = 0,
+    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
@@ -63,8 +66,8 @@ function M.config()
       snacks.toggle.diagnostics():map "<leader>ud"
       snacks.toggle.line_number():map "<leader>ul"
       snacks.toggle
-          .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-          :map "<leader>uC"
+        .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+        :map "<leader>uC"
       snacks.toggle.treesitter():map "<leader>uT"
       snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>ub"
       snacks.toggle.inlay_hints():map "<leader>ui"
