@@ -468,7 +468,8 @@ function M.config()
     },
     {
       "<leader>lf",
-      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
+      -- "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
+      "<cmd>lua require('conform').format({ async = true, filter = function(client) return client.name ~= 'typescript-tools' end })<cr>",
       desc = "Format",
     },
     {
@@ -987,4 +988,3 @@ function M.config()
 end
 
 return M
-
