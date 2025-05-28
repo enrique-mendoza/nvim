@@ -172,7 +172,7 @@ config["on_attach"] = function(client, bufnr)
   -- Allow yourself/register to run JdtShell as a Vim command
   vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-  local icon = require "user.extras.icons"
+  local icon = require "showtime.utils.icons"
   local springboot = require "springboot-nvim"
 
   require("which-key").add {
