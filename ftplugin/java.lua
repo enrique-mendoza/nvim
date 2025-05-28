@@ -64,7 +64,7 @@ local config = {
   settings = {
     java = {
       -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-      home = "/Users/kike/.sdkman/candidates/java/21.0.6-tem/",
+      home = "/usr/lib/jvm/java-21-amazon-corretto/",
       eclipse = {
         downloadSources = true,
       },
@@ -78,19 +78,19 @@ local config = {
           -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
           {
             name = "JavaSE-1.8",
-            path = "/Users/kike/.sdkman/candidates/java/8.0.412-tem/",
+            path = "/usr/lib/jvm/java-8-amazon-corretto/",
           },
           {
             name = "JavaSE-11",
-            path = "/Users/kike/.sdkman/candidates/java/11.0.22-tem/",
+            path = "/usr/lib/jvm/java-11-amazon-corretto/",
           },
           {
             name = "JavaSE-17",
-            path = "/Users/kike/.sdkman/candidates/java/17.0.12-tem/",
+            path = "/usr/lib/jvm/java-17-amazon-corretto/",
           },
           {
             name = "JavaSE-21",
-            path = "/Users/kike/.sdkman/candidates/java/21.0.6-tem/",
+            path = "/usr/lib/jvm/java-21-amazon-corretto/",
           },
         },
       },
@@ -172,7 +172,7 @@ config["on_attach"] = function(client, bufnr)
   -- Allow yourself/register to run JdtShell as a Vim command
   vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-  local icon = require "user.extras.icons"
+  local icon = require "showtime.utils.icons"
   local springboot = require "springboot-nvim"
 
   require("which-key").add {
