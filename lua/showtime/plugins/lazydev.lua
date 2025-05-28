@@ -14,7 +14,7 @@ function M.config()
         -- always load the LazyVim library
         "LazyVim",
         -- Only load the lazyvim library when the `LazyVim` global is found
-        { path = "LazyVim", words = { "LazyVim" } },
+        { path = "LazyVim",            words = { "LazyVim" } },
         { path = "nvim-dap-ui" },
       },
     },

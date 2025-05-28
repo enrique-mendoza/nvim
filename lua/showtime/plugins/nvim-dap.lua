@@ -73,20 +73,6 @@ function M.config()
   require("nvim-dap-virtual-text").setup {
     enabled_commands = true,
   }
-
-  require("which-key").add {
-    {
-      "<leader>de",
-      "<cmd>lua require'dapui'.eval()<cr>",
-      desc = "Evaluate Expression",
-      mode = { "v" },
-    },
-    {
-      "<leader>df",
-      "<cmd>lua require'dapui'.float_element()<cr>",
-      desc = "Display Floating Element",
-    }
-  }
 end
 
 return M

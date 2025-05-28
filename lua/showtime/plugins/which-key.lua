@@ -5,7 +5,7 @@ local M = {
 
 function M.config()
   local flash = require "flash"
-  local icon = require "showtime.utils.icons"
+  local icons = require "showtime.utils.icons"
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"
@@ -214,6 +214,17 @@ function M.config()
       desc = "Disconnect",
     },
     {
+      "<leader>de",
+      "<cmd>lua require'dapui'.eval()<cr>",
+      desc = "Evaluate Expression",
+      mode = { "x" },
+    },
+    {
+      "<leader>df",
+      "<cmd>lua require'dapui'.float_element()<cr>",
+      desc = "Display Floating Element",
+    },
+    {
       "<leader>dg",
       "<cmd>lua require'dap'.session()<cr>",
       desc = "Get Session",
@@ -271,7 +282,7 @@ function M.config()
       end,
       desc = "File Explorer",
       icon = {
-        icon = icon.ui.Tree,
+        icon = icons.ui.Tree,
         color = "green",
       },
     },
@@ -437,7 +448,7 @@ function M.config()
       "<leader>l",
       group = "LSP",
       icon = {
-        icon = icon.ui.Code,
+        icon = icons.ui.Code,
         color = "blue",
       },
     },
@@ -499,7 +510,7 @@ function M.config()
       "<cmd>Navbuddy<cr>",
       desc = "Nav",
       icon = {
-        icon = icon.misc.CircuitBoard,
+        icon = icons.misc.CircuitBoard,
         color = "blue",
       },
     },
@@ -602,7 +613,7 @@ function M.config()
       "<leader>q",
       group = "QOF",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
     },
@@ -622,7 +633,7 @@ function M.config()
       end,
       desc = "Flash",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
       mode = { "n", "x", "o" },
@@ -643,7 +654,7 @@ function M.config()
       end,
       desc = "Remote Flash",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
       mode = "o",
@@ -655,7 +666,7 @@ function M.config()
       end,
       desc = "Flash Treesitter",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
       mode = { "n", "x", "o" },
@@ -667,7 +678,7 @@ function M.config()
       end,
       desc = "Treesitter Search",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
       mode = { "o", "x" },
@@ -688,7 +699,7 @@ function M.config()
       end,
       desc = "Toggle Flash Search",
       icon = {
-        icon = icon.misc.Lightning,
+        icon = icons.misc.Lightning,
         color = "orange",
       },
       mode = { "c" },

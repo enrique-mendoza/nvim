@@ -27,7 +27,7 @@ function M.config()
     mygroup = {
       augend.constant.new {
         elements = { "and", "or" },
-        word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+        word = true,   -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
         cyclic = true, -- "or" is incremented into "and".
       },
       augend.constant.new {
@@ -51,7 +51,7 @@ function M.config()
         cyclic = true,
       },
       augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
-      augend.constant.alias.bool, -- boolean value (true <-> false)
+      augend.constant.alias.bool,    -- boolean value (true <-> false)
       augend.integer.alias.decimal,
       augend.integer.alias.hex,
       augend.semver.alias.semver,

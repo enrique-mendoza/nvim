@@ -75,7 +75,6 @@ function M.config()
     "cssls",
     "eslint",
     "html",
-    -- "jdtls",
     "jsonls",
     "lua_ls",
     "marksman",

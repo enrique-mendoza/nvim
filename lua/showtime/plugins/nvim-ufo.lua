@@ -13,10 +13,8 @@ function M.config()
     setopt = true,
     relculright = true,
     segments = {
-
       { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa", hl = "Comment" },
-
-      { text = { "%s" }, click = "v:lua.ScSa" },
+      { text = { "%s" },                  click = "v:lua.ScSa" },
       { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
     },
   }
@@ -24,7 +22,7 @@ function M.config()
   require("statuscol").setup(cfg)
 
   vim.o.foldcolumn = "1" -- '0' is not bad
-  vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+  vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
   vim.o.foldlevelstart = 99
   vim.o.foldenable = true
   vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -39,6 +37,7 @@ function M.config()
     local sufWidth = vim.fn.strdisplaywidth(suffix)
     local targetWidth = width - sufWidth
     local curWidth = 0
+
     for _, chunk in ipairs(virtText) do
       local chunkText = chunk[1]
       local chunkWidth = vim.fn.strdisplaywidth(chunkText)
@@ -57,7 +56,9 @@ function M.config()
       end
       curWidth = curWidth + chunkWidth
     end
+
     table.insert(newVirtText, { suffix, "MoreMsg" })
+
     return newVirtText
   end
 

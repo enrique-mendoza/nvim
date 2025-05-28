@@ -13,6 +13,7 @@ function M.config()
     harpoon:list():add()
     vim.notify "󱡅 Marked file"
   end, opts)
+
   keymap("n", "<TAB>", function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
   end, opts)
