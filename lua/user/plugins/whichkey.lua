@@ -281,22 +281,6 @@ function M.config()
       group = "Find",
     },
     {
-      "<leader>fC",
-      function()
-        snacks.picker.todo_comments {
-          keywords = { "TODO", "FIX", "FIXME" },
-        }
-      end,
-      desc = "TODO/FIX/FIXME",
-    },
-    {
-      "<leader>fc",
-      function()
-        snacks.picker.todo_comments()
-      end,
-      desc = "TODO",
-    },
-    {
       "<leader>fb",
       function()
         snacks.picker.buffers()
@@ -330,6 +314,22 @@ function M.config()
         snacks.picker.recent()
       end,
       desc = "Recent",
+    },
+    {
+      "<leader>fT",
+      function()
+        snacks.picker.todo_comments {
+          keywords = { "TODO", "FIX", "FIXME" },
+        }
+      end,
+      desc = "TODO/FIX/FIXME",
+    },
+    {
+      "<leader>ft",
+      function()
+        snacks.picker.todo_comments()
+      end,
+      desc = "TODO",
     },
     -- Git
     {
