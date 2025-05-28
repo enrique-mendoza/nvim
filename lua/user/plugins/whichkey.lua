@@ -860,6 +860,44 @@ function M.config()
       end,
       desc = "Search History",
     },
+    -- Sessions
+    {
+      "<leader>S",
+      group = "Sessions",
+    },
+    {
+      "<leader>Sd",
+      "<cmd>Autosession delete<CR>",
+      desc = "Delete Session",
+    },
+    {
+      "<leader>Sf",
+      function()
+        persistence.select()
+      end,
+      desc = "Select Session",
+    },
+    {
+      "<leader>Sl",
+      function()
+        persistence.load { last = true }
+      end,
+      desc = "Restore Last Session",
+    },
+    {
+      "<leader>Sr",
+      function()
+        persistence.load()
+      end,
+      desc = "Restore Session",
+    },
+    {
+      "<leader>Ss",
+      function()
+        persistence.stop()
+      end,
+      desc = "Don't Save Current Session",
+    },
     -- Tests
     {
       "<leader>t",
@@ -945,44 +983,6 @@ function M.config()
         snacks.zen.zoom()
       end,
       desc = "Toggle Zoom",
-    },
-    -- Sessions
-    {
-      "<leader>w",
-      group = "Sessions",
-    },
-    {
-      "<leader>wd",
-      "<cmd>Autosession delete<CR>",
-      desc = "Delete Session",
-    },
-    {
-      "<leader>wf",
-      function()
-        persistence.select()
-      end,
-      desc = "Select Session",
-    },
-    {
-      "<leader>wl",
-      function()
-        persistence.load { last = true }
-      end,
-      desc = "Restore Last Session",
-    },
-    {
-      "<leader>wr",
-      function()
-        persistence.load()
-      end,
-      desc = "Restore Session",
-    },
-    {
-      "<leader>ws",
-      function()
-        persistence.stop()
-      end,
-      desc = "Don't Save Current Session",
     },
   }
 end
