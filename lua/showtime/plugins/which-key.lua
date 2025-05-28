@@ -5,7 +5,7 @@ local M = {
 
 function M.config()
   local flash = require "flash"
-  local icon = require "user.extras.icons"
+  local icon = require "showtime.utils.icons"
   local persistence = require "persistence"
   local snacks = require "snacks"
   local wk = require "which-key"

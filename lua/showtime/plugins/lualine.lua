@@ -6,7 +6,7 @@ local M = {
 }
 
 function M.config()
-  local icons = require "user.extras.icons"
+  local icons = require "showtime.utils.icons"
 
   -- Custom Lualine component to show attached language server
   local clients_lsp = function()

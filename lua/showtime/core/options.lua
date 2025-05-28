@@ -9,7 +9,7 @@ vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
   stl = " ",
 }
--- vim.opt.fileencoding = "utf-8" -- the encoding written to a file
+vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.guifont = "Monolisa:h17" -- the font used in graphical neovim applications
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern

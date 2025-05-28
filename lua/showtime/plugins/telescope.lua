@@ -16,7 +16,7 @@ function M.config()
     end,
   })
 
-  local icons = require "user.extras.icons"
+  local icons = require "showtime.utils.icons"
   local actions = require "telescope.actions"
 
   local function filenameFirst(_, path)

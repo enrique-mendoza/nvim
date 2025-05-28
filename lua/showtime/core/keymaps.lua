@@ -1,11 +1,9 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
--- local discipline = require("user.plugins.discipline")
 
 keymap("n", "<Space>", "", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
--- escape and clear hlsearch
 keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
 
 keymap("n", "<m-h>", "<C-w>h", opts)
@@ -31,9 +29,6 @@ keymap("v", ">", ">gv", opts)
 
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
-
--- keymap("n", "n", "nzzzv", opts)
--- keymap("n", "N", "Nzzzv", opts)
 
 keymap("n", "d", '"_d', opts)
 keymap("v", "d", '"_d', opts)
@@ -86,5 +81,3 @@ keymap("n", "k", function()
   end
   return "k"
 end, { expr = true })
-
--- discipline.cowboy()

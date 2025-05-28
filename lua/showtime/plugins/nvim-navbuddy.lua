@@ -13,7 +13,7 @@ function M.config()
     window = {
       border = "rounded",
     },
-    icons = require("user.extras.icons").kind,
+    icons = require("showtime.utils.icons").kind,
     lsp = { auto_attach = true },
   }
 

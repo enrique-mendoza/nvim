@@ -4,7 +4,7 @@ local M = {
 }
 
 function M.config()
-  local icons = require "user.extras.icons"
+  local icons = require "showtime.utils.icons"
 
   require("neogit").setup {
     disable_signs = false,
