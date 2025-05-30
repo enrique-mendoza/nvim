@@ -640,74 +640,6 @@ function M.config()
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
-    {
-      "<leader>q",
-      group = "QOF",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-    },
-    {
-      "<leader>qf",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>qr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>qt",
-      function()
-        flash.treesitter()
-      end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>qT",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
-      "<leader>qq",
-      function()
-        flash.toggle()
-      end,
-      desc = "Toggle Flash Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "c" },
-    },
     -- Search
     {
       "<leader>s",
@@ -761,6 +693,18 @@ function M.config()
         snacks.picker.diagnostics_buffer()
       end,
       desc = "Buffer Diagnostics",
+    },
+    {
+      "<leader>sf",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
     {
       "<leader>sg",
@@ -840,11 +784,47 @@ function M.config()
       desc = "Quickfix List",
     },
     {
+      "<leader>sr",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
       "<leader>sR",
       function()
         snacks.picker.resume()
       end,
       desc = "Resume",
+    },
+    {
+      "<leader>st",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>sT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
     },
     {
       "<leader>su",
