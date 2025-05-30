@@ -1,4 +1,4 @@
-local M = require "showtime.plugins.themes.catppuccin"
+local M = require "showtime.plugins.colorschemes.catppuccin"
 
 -- local function syncOs()
 --   local hr = tonumber(os.date("%H", os.time()))
