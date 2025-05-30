@@ -484,6 +484,37 @@ function M.config()
       desc = "Format",
     },
     {
+      "<leader>lg",
+      group = "Search/Replace",
+    },
+    {
+      "<leader>lgc",
+      function()
+        local grug = require "grug-far"
+        grug.open { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "In Current File",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>lgg",
+      function()
+        local grug = require "grug-far"
+        grug.open { transient = true }
+      end,
+      desc = "Globally",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>lgv",
+      function()
+        local grug = require "grug-far"
+        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "With The Current Visual Selection",
+      mode = { "n", "x" },
+    },
+    {
       "<leader>li",
       function()
         snacks.picker.lsp_implementations()
@@ -618,15 +649,6 @@ function M.config()
       },
     },
     {
-      "<leader>qc",
-      function()
-        local grug = require "grug-far"
-        grug.open { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "GrugFar in Current File",
-      mode = { "n", "x" },
-    },
-    {
       "<leader>qf",
       function()
         flash.jump()
@@ -637,15 +659,6 @@ function M.config()
         color = "orange",
       },
       mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>qg",
-      function()
-        local grug = require "grug-far"
-        grug.open { transient = true }
-      end,
-      desc = "GrugFar",
-      mode = { "n", "x" },
     },
     {
       "<leader>qr",
@@ -682,15 +695,6 @@ function M.config()
         color = "orange",
       },
       mode = { "o", "x" },
-    },
-    {
-      "<leader>qv",
-      function()
-        local grug = require "grug-far"
-        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "GrugFar With The Current Visual Selection",
-      mode = { "n", "x" },
     },
     {
       "<leader>qq",
