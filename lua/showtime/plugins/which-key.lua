@@ -485,7 +485,7 @@ function M.config()
     },
     {
       "<leader>lg",
-      group = "GrugFar Search/Replace",
+      group = "GrugFar",
     },
     {
       "<leader>lgc",
