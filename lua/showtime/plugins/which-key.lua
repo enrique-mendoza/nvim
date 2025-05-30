@@ -5,7 +5,6 @@ local M = {
 
 function M.config()
   local flash = require "flash"
-  local grug = require "grug-far"
   local icons = require "showtime.utils.icons"
   local persistence = require "persistence"
   local snacks = require "snacks"
@@ -485,6 +484,37 @@ function M.config()
       desc = "Format",
     },
     {
+      "<leader>lg",
+      group = "GrugFar",
+    },
+    {
+      "<leader>lgc",
+      function()
+        local grug = require "grug-far"
+        grug.open { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "In Current File",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>lgg",
+      function()
+        local grug = require "grug-far"
+        grug.open { transient = true }
+      end,
+      desc = "Globally",
+      mode = { "n", "x" },
+    },
+    {
+      "<leader>lgv",
+      function()
+        local grug = require "grug-far"
+        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
+      end,
+      desc = "With The Current Visual Selection",
+      mode = { "n", "x" },
+    },
+    {
       "<leader>li",
       function()
         snacks.picker.lsp_implementations()
@@ -610,98 +640,6 @@ function M.config()
       "<cmd>Lazy update<cr>",
       desc = "Update",
     },
-    {
-      "<leader>q",
-      group = "QOF",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-    },
-    {
-      "<leader>qc",
-      function()
-        grug.open { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "GrugFar in Current File",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>qf",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>qg",
-      function()
-        grug.open { transient = true }
-      end,
-      desc = "GrugFar",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>qr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>qt",
-      function()
-        flash.treesitter()
-      end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>qT",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
-    },
-    {
-      "<leader>qv",
-      function()
-        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "GrugFar With The Current Visual Selection",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>qq",
-      function()
-        flash.toggle()
-      end,
-      desc = "Toggle Flash Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "c" },
-    },
     -- Search
     {
       "<leader>s",
@@ -755,6 +693,18 @@ function M.config()
         snacks.picker.diagnostics_buffer()
       end,
       desc = "Buffer Diagnostics",
+    },
+    {
+      "<leader>sf",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
     },
     {
       "<leader>sg",
@@ -834,11 +784,47 @@ function M.config()
       desc = "Quickfix List",
     },
     {
+      "<leader>sr",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
       "<leader>sR",
       function()
         snacks.picker.resume()
       end,
       desc = "Resume",
+    },
+    {
+      "<leader>st",
+      function()
+        flash.treesitter()
+      end,
+      desc = "Flash Treesitter",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>sT",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "o", "x" },
     },
     {
       "<leader>su",
