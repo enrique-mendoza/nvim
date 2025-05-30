@@ -707,9 +707,24 @@ function M.config()
       mode = { "n", "x", "o" },
     },
     {
+      "<leader>sF",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
       "<leader>sg",
       function()
-        snacks.picker.grep()
+        snacks.picker.grep {
+          -- include files ignored by .gitignore
+          args = { "--no-ignore" },
+        }
       end,
       desc = "Grep",
     },
@@ -805,26 +820,9 @@ function M.config()
     {
       "<leader>st",
       function()
-        flash.treesitter()
+        snacks.picker.treesitter()
       end,
-      desc = "Flash Treesitter",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>sT",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "o", "x" },
+      desc = "Treesitter",
     },
     {
       "<leader>su",
@@ -840,6 +838,13 @@ function M.config()
       end,
       desc = "Visual selection or word",
       mode = { "n", "x" },
+    },
+    {
+      "<leader>sz",
+      function()
+        snacks.picker.zoxide()
+      end,
+      desc = "Zoxide",
     },
     {
       '<leader>s"',
