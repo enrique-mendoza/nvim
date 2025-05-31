@@ -20,7 +20,7 @@ function M.config()
     },
     picker = {
       enabled = true,
-      layout = "ivy",
+      layout = "ivy_split",
     },
     quickfile = { enabled = true },
     scope = { enabled = true },
