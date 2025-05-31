@@ -425,11 +425,6 @@ function M.config()
       desc = "Blame",
     },
     {
-      "<leader>gO",
-      "<cmd>GitLink!<cr>",
-      desc = "Git Link",
-    },
-    {
       "<leader>gs",
       function()
         snacks.picker.git_status()
