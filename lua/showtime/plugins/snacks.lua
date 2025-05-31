@@ -18,7 +18,10 @@ function M.config()
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layout = "ivy",
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
