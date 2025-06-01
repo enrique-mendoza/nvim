@@ -142,15 +142,6 @@ function M.config()
         color = "blue",
       },
     },
-    {
-      "<leader>ln",
-      "<cmd>Navbuddy<cr>",
-      desc = "Nav",
-      icon = {
-        icon = icons.misc.CircuitBoard,
-        color = "blue",
-      },
-    },
     -- Plugins
     {
       "<leader>p",
@@ -212,31 +203,6 @@ function M.config()
     {
       "<leader>t",
       group = "Test",
-    },
-    {
-      "<leader>ta",
-      "<cmd>lua require('neotest').run.attach()<cr>",
-      desc = "Attach Test",
-    },
-    {
-      "<leader>td",
-      "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
-      desc = "Debug Test",
-    },
-    {
-      "<leader>tf",
-      "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
-      desc = "Test File",
-    },
-    {
-      "<leader>ts",
-      "<cmd>lua require('neotest').run.stop()<cr>",
-      desc = "Test Stop",
-    },
-    {
-      "<leader>tt",
-      "<cmd>lua require'neotest'.run.run()<cr>",
-      desc = "Test Nearest",
     },
     -- UI
     {

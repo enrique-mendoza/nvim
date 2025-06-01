@@ -17,8 +17,10 @@ local M = {
 }
 
 function M.config()
+  local neotest = require "neotest"
+
   ---@diagnostic disable: missing-fields
-  require("neotest").setup {
+  neotest.setup {
     adapters = {
       require "neotest-python" {
         dap = { justMyCode = false },
@@ -28,6 +30,44 @@ function M.config()
       require "neotest-rust",
       require "neotest-vim-test" {
         ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
+      },
+    },
+
+    require("which-key").add {
+      {
+        "<leader>ta",
+        function()
+          neotest.run.attach()
+        end,
+        desc = "Attach Test",
+      },
+      {
+        "<leader>td",
+        function()
+          neotest.run.run { strategy = "dap" }
+        end,
+        desc = "Debug Test",
+      },
+      {
+        "<leader>tf",
+        function()
+          neotest.run.run(vim.fn.expand "%")
+        end,
+        desc = "Test File",
+      },
+      {
+        "<leader>ts",
+        function()
+          neotest.run.stop()
+        end,
+        desc = "Test Stop",
+      },
+      {
+        "<leader>tt",
+        function()
+          neotest.run.run()
+        end,
+        desc = "Test Nearest",
       },
     },
   }
