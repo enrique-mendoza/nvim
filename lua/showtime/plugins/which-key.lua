@@ -7,7 +7,6 @@ function M.config()
   local flash = require "flash"
   local icons = require "showtime.config.icons"
   local persistence = require "persistence"
-  local snacks = require "snacks"
   local wk = require "which-key"
 
   -- Setup
@@ -80,36 +79,6 @@ function M.config()
       hidden = true,
     },
     {
-      "]]",
-      function()
-        snacks.words.jump(vim.v.count1)
-      end,
-      desc = "Next Reference",
-      mode = { "n", "t" },
-    },
-    {
-      "[[",
-      function()
-        snacks.words.jump(-vim.v.count1)
-      end,
-      desc = "Prev Reference",
-      mode = { "n", "t" },
-    },
-    {
-      "<c-/>",
-      function()
-        snacks.terminal()
-      end,
-      desc = "Toggle Terminal",
-    },
-    {
-      "<c-_>",
-      function()
-        snacks.terminal()
-      end,
-      desc = "which_key_ignore",
-    },
-    {
       "<leader>w",
       "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
       desc = "Wrap",
@@ -119,25 +88,6 @@ function M.config()
     {
       "<leader>b",
       group = "Buffers/Tabs",
-    },
-    -- {
-    --   "<leader>ba",
-    --   "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-    --   desc = "Find Tabs",
-    -- },
-    {
-      "<leader>bD",
-      function()
-        snacks.bufdelete.other()
-      end,
-      desc = "Delete Other Buffers",
-    },
-    {
-      "<leader>bd",
-      function()
-        snacks.bufdelete()
-      end,
-      desc = "Delete Buffer",
     },
     {
       "<leader>bh",
@@ -163,20 +113,6 @@ function M.config()
       "<leader>bp",
       "<cmd>:tabp<CR>",
       desc = "Previous Tab",
-    },
-    {
-      "<leader>bs",
-      function()
-        snacks.scratch()
-      end,
-      desc = "Toggle Scratch Buffer",
-    },
-    {
-      "<leader>bS",
-      function()
-        snacks.scratch.select()
-      end,
-      desc = "Select Scratch Buffer",
     },
     {
       "<leader>bt",
@@ -274,93 +210,15 @@ function M.config()
       "<cmd>lua require'dapui'.toggle({reset = true})<cr>",
       desc = "Toggle UI",
     },
-    -- File Explorer
-    {
-      "<leader>e",
-      function()
-        snacks.explorer()
-      end,
-      desc = "File Explorer",
-      icon = {
-        icon = icons.ui.Tree,
-        color = "green",
-      },
-    },
     -- Find
     {
       "<leader>f",
       group = "Find",
     },
-    {
-      "<leader>fb",
-      function()
-        snacks.picker.buffers()
-      end,
-      desc = "Buffers",
-    },
-    {
-      "<leader>ff",
-      function()
-        snacks.picker.files()
-      end,
-      desc = "Find Files",
-    },
-    {
-      "<leader>fg",
-      function()
-        snacks.picker.git_files()
-      end,
-      desc = "Find Git Files",
-    },
-    {
-      "<leader>fp",
-      function()
-        snacks.picker.projects()
-      end,
-      desc = "Projects",
-    },
-    {
-      "<leader>fr",
-      function()
-        snacks.picker.recent()
-      end,
-      desc = "Recent",
-    },
-    {
-      "<leader>fT",
-      function()
-        snacks.picker.todo_comments {
-          keywords = { "TODO", "FIX", "FIXME" },
-        }
-      end,
-      desc = "TODO/FIX/FIXME",
-    },
-    {
-      "<leader>ft",
-      function()
-        snacks.picker.todo_comments()
-      end,
-      desc = "TODO",
-    },
     -- Git
     {
       "<leader>g",
       group = "Git",
-    },
-    {
-      "<leader>gb",
-      function()
-        snacks.picker.git_branches()
-      end,
-      desc = "Git Branches",
-    },
-    {
-      "<leader>gB",
-      function()
-        snacks.gitbrowse()
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
     },
     {
       "<leader>gd",
@@ -372,31 +230,6 @@ function M.config()
       },
     },
     {
-      "<leader>gD",
-      function()
-        snacks.picker.git_diff()
-      end,
-      desc = "Git Diff (Hunks)",
-      icon = {
-        icon = " ",
-        color = "orange",
-      },
-    },
-    {
-      "<leader>gf",
-      function()
-        snacks.picker.git_log_file()
-      end,
-      desc = "Git Log File",
-    },
-    {
-      "<leader>gg",
-      function()
-        snacks.lazygit()
-      end,
-      desc = "Lazygit",
-    },
-    {
       "<leader>gh",
       "<cmd>DiffviewFileHistory<cr>",
       desc = "Git Diff File History",
@@ -406,37 +239,9 @@ function M.config()
       },
     },
     {
-      "<leader>gl",
-      function()
-        snacks.picker.git_log()
-      end,
-      desc = "Git Log",
-    },
-    {
-      "<leader>gL",
-      function()
-        snacks.picker.git_log_line()
-      end,
-      desc = "Git Log Line",
-    },
-    {
       "<leader>go",
       "<cmd>lua require 'gitsigns'.blame_line()<cr>",
       desc = "Blame",
-    },
-    {
-      "<leader>gs",
-      function()
-        snacks.picker.git_status()
-      end,
-      desc = "Git Status",
-    },
-    {
-      "<leader>gS",
-      function()
-        snacks.picker.git_stash()
-      end,
-      desc = "Git Stash",
     },
     -- LSP
     {
@@ -459,23 +264,8 @@ function M.config()
       mode = { "v" },
     },
     {
-      "<leader>ld",
-      function()
-        snacks.picker.lsp_definitions()
-      end,
-      desc = "Goto Definition",
-    },
-    {
-      "<leader>lD",
-      function()
-        snacks.picker.lsp_declarations()
-      end,
-      desc = "Goto Declaration",
-    },
-    {
       "<leader>lf",
       "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-      -- "<cmd>lua require('conform').format({ async = true, filter = function(client) return client.name ~= 'typescript-tools' end })<cr>",
       desc = "Format",
     },
     {
@@ -510,13 +300,6 @@ function M.config()
       mode = { "n", "x" },
     },
     {
-      "<leader>li",
-      function()
-        snacks.picker.lsp_implementations()
-      end,
-      desc = "Goto Implementation",
-    },
-    {
       "<leader>lI",
       "<cmd>LspInfo<cr>",
       desc = "LSP Info",
@@ -549,42 +332,6 @@ function M.config()
       "<leader>lr",
       "<cmd>lua vim.lsp.buf.rename()<cr>",
       desc = "Rename",
-    },
-    {
-      "<leader>lR",
-      function()
-        snacks.rename.rename_file()
-      end,
-      desc = "Rename File",
-    },
-    {
-      "<leader>ls",
-      function()
-        snacks.picker.lsp_symbols()
-      end,
-      desc = "LSP Symbols",
-    },
-    {
-      "<leader>lS",
-      function()
-        snacks.picker.lsp_workspace_symbols()
-      end,
-      desc = "LSP Workspace Symbols",
-    },
-    {
-      "<leader>lt",
-      function()
-        snacks.picker.lsp_type_definitions()
-      end,
-      desc = "Goto Type Definition",
-    },
-    {
-      "<leader>lu",
-      function()
-        snacks.picker.lsp_references()
-      end,
-      nowait = true,
-      desc = "References",
     },
     -- Plugins
     {
@@ -641,55 +388,6 @@ function M.config()
       group = "Search",
     },
     {
-      "<leader>sa",
-      function()
-        snacks.picker.autocmds()
-      end,
-      desc = "Autocmds",
-    },
-    {
-      "<leader>sb",
-      function()
-        snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
-    },
-    {
-      "<leader>sB",
-      function()
-        snacks.picker.grep_buffers()
-      end,
-      desc = "Grep Open Buffers",
-    },
-    {
-      "<leader>sc",
-      function()
-        snacks.picker.command_history()
-      end,
-      desc = "Command History",
-    },
-    {
-      "<leader>sC",
-      function()
-        snacks.picker.commands()
-      end,
-      desc = "Commands",
-    },
-    {
-      "<leader>sd",
-      function()
-        snacks.picker.diagnostics()
-      end,
-      desc = "Diagnostics",
-    },
-    {
-      "<leader>sD",
-      function()
-        snacks.picker.diagnostics_buffer()
-      end,
-      desc = "Buffer Diagnostics",
-    },
-    {
       "<leader>sf",
       function()
         flash.jump()
@@ -714,86 +412,6 @@ function M.config()
       mode = "o",
     },
     {
-      "<leader>sg",
-      function()
-        snacks.picker.grep {
-          -- include files ignored by .gitignore
-          args = { "--no-ignore" },
-        }
-      end,
-      desc = "Grep",
-    },
-    {
-      "<leader>sh",
-      function()
-        snacks.picker.help()
-      end,
-      desc = "Help Pages",
-    },
-    {
-      "<leader>sH",
-      function()
-        snacks.picker.highlights()
-      end,
-      desc = "Highlights",
-    },
-    {
-      "<leader>si",
-      function()
-        snacks.picker.icons()
-      end,
-      desc = "Icons",
-    },
-    {
-      "<leader>sj",
-      function()
-        snacks.picker.jumps()
-      end,
-      desc = "Jumps",
-    },
-    {
-      "<leader>sk",
-      function()
-        snacks.picker.keymaps()
-      end,
-      desc = "Keymaps",
-    },
-    {
-      "<leader>sl",
-      function()
-        snacks.picker.loclist()
-      end,
-      desc = "Location List",
-    },
-    {
-      "<leader>sm",
-      function()
-        snacks.picker.marks()
-      end,
-      desc = "Marks",
-    },
-    {
-      "<leader>sM",
-      function()
-        snacks.picker.man()
-      end,
-      desc = "Man Pages",
-    },
-    {
-      "<leader>sp",
-      function()
-        snacks.picker.lazy()
-      end,
-      desc = "Search for Plugin Spec",
-    },
-    {
-      "<leader>sq",
-      function()
-        snacks.picker.qflist()
-      end,
-      desc = "Quickfix List",
-    },
-    {
       "<leader>sr",
       function()
         flash.remote()
@@ -804,56 +422,6 @@ function M.config()
         color = "orange",
       },
       mode = "o",
-    },
-    {
-      "<leader>sR",
-      function()
-        snacks.picker.resume()
-      end,
-      desc = "Resume",
-    },
-    {
-      "<leader>st",
-      function()
-        snacks.picker.treesitter()
-      end,
-      desc = "Treesitter",
-    },
-    {
-      "<leader>su",
-      function()
-        snacks.picker.undo()
-      end,
-      desc = "Undo History",
-    },
-    {
-      "<leader>sw",
-      function()
-        snacks.picker.grep_word()
-      end,
-      desc = "Visual selection or word",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>sz",
-      function()
-        snacks.picker.zoxide()
-      end,
-      desc = "Zoxide",
-    },
-    {
-      '<leader>s"',
-      function()
-        snacks.picker.registers()
-      end,
-      desc = "Registers",
-    },
-    {
-      "<leader>s/",
-      function()
-        snacks.picker.search_history()
-      end,
-      desc = "Search History",
     },
     -- Sessions
     {
@@ -929,31 +497,10 @@ function M.config()
       group = "UI",
     },
     {
-      "<leader>uc",
-      function()
-        snacks.picker.colorschemes()
-      end,
-      desc = "Colorschemes",
-    },
-    {
-      "<leader>uh",
-      function()
-        snacks.notifier.show_history()
-      end,
-      desc = "Notification History",
-    },
-    {
       "<leader>uk",
       -- "<cmd>Screenkey toggle<cr>"
       "<cmd>ShowkeysToggle<cr>",
       desc = "Screenkey toggle",
-    },
-    {
-      "<leader>un",
-      function()
-        snacks.notifier.hide()
-      end,
-      desc = "Dismiss All Notifications",
     },
     {
       "<leader>up",
@@ -964,20 +511,6 @@ function M.config()
       "<leader>ur",
       "<cmd>RenderMarkdown toggle<cr>",
       desc = "Render markdown toggle",
-    },
-    {
-      "<leader>uz",
-      function()
-        snacks.zen()
-      end,
-      desc = "Toggle Zen Mode",
-    },
-    {
-      "<leader>uZ",
-      function()
-        snacks.zen.zoom()
-      end,
-      desc = "Toggle Zoom",
     },
   }
 end
