@@ -39,6 +39,14 @@ function M.config()
   require("mason-nvim-dap").setup {
     ensure_installed = M.dap_execs,
   }
+
+  require("which-key").add {
+    {
+      "<leader>lM",
+      "<cmd>Mason<cr>",
+      desc = "Mason Info",
+    },
+  }
 end
 
 return M

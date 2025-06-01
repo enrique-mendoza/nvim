@@ -143,42 +143,6 @@ function M.config()
       },
     },
     {
-      "<leader>lg",
-      group = "GrugFar",
-    },
-    {
-      "<leader>lgc",
-      function()
-        local grug = require "grug-far"
-        grug.open { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "In Current File",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>lgg",
-      function()
-        local grug = require "grug-far"
-        grug.open { transient = true }
-      end,
-      desc = "Globally",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>lgv",
-      function()
-        local grug = require "grug-far"
-        grug.with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
-      end,
-      desc = "With The Current Visual Selection",
-      mode = { "n", "x" },
-    },
-    {
-      "<leader>lM",
-      "<cmd>Mason<cr>",
-      desc = "Mason Info",
-    },
-    {
       "<leader>ln",
       "<cmd>Navbuddy<cr>",
       desc = "Nav",
@@ -235,6 +199,11 @@ function M.config()
       "<leader>pu",
       "<cmd>Lazy update<cr>",
       desc = "Update",
+    },
+    -- Search/Replace
+    {
+      "<leader>r",
+      group = "Search/Replace",
     },
     -- Search
     {
