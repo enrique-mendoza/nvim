@@ -255,7 +255,7 @@ function M.config()
       end,
       desc = "Git Diff (Hunks)",
       icon = {
-        icon = " ",
+        icon = icons.git.Diff,
         color = "orange",
       },
     },

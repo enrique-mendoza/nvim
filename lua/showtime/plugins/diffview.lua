@@ -11,6 +11,7 @@ local M = {
 }
 
 function M.config()
+  local icons = require "showtime.config.icons"
   local wk = require "which-key"
 
   wk.add {
@@ -19,7 +20,7 @@ function M.config()
       "<cmd>DiffviewOpen<cr>",
       desc = "Git Diff",
       icon = {
-        icon = " ",
+        icon = icons.git.Diff,
         color = "orange",
       },
     },
@@ -28,7 +29,7 @@ function M.config()
       "<cmd>DiffviewFileHistory<cr>",
       desc = "Git Diff File History",
       icon = {
-        icon = " ",
+        icon = icons.git.Diff,
         color = "orange",
       },
     },
