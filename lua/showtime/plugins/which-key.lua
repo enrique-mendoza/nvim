@@ -4,7 +4,6 @@ local M = {
 }
 
 function M.config()
-  local flash = require "flash"
   local icons = require "showtime.config.icons"
   local persistence = require "persistence"
   local wk = require "which-key"
@@ -386,42 +385,6 @@ function M.config()
     {
       "<leader>s",
       group = "Search",
-    },
-    {
-      "<leader>sf",
-      function()
-        flash.jump()
-      end,
-      desc = "Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>sF",
-      function()
-        flash.treesitter_search()
-      end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
-    },
-    {
-      "<leader>sr",
-      function()
-        flash.remote()
-      end,
-      desc = "Remote Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
     },
     -- Sessions
     {

@@ -4,7 +4,11 @@ local M = {
 }
 
 function M.config()
-  require("flash").setup {
+  local flash = require "flash"
+  local icons = require "showtime.config.icons"
+  local wk = require "which-key"
+
+  flash.setup {
     jump = { nohlsearch = true },
     prompt = {
       win_config = {
@@ -31,6 +35,45 @@ function M.config()
       char = {
         jump_labels = true,
       },
+    },
+  }
+
+  wk.add {
+    {
+      "<leader>sf",
+      function()
+        flash.jump()
+      end,
+      desc = "Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = { "n", "x", "o" },
+    },
+    {
+      "<leader>sF",
+      function()
+        flash.treesitter_search()
+      end,
+      desc = "Treesitter Search",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
+    },
+    {
+      "<leader>sr",
+      function()
+        flash.remote()
+      end,
+      desc = "Remote Flash",
+      icon = {
+        icon = icons.misc.Lightning,
+        color = "orange",
+      },
+      mode = "o",
     },
   }
 end
