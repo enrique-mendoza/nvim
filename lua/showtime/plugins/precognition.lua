@@ -4,6 +4,14 @@ local M = {
 
 function M.config()
   require("precognition").setup {}
+
+  require("which-key").add {
+    {
+      "<leader>up",
+      "<cmd>Precognition toggle<cr>",
+      desc = "Precognition toggle",
+    },
+  }
 end
 
 return M

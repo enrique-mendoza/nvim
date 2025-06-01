@@ -209,22 +209,6 @@ function M.config()
       "<leader>u",
       group = "UI",
     },
-    {
-      "<leader>uk",
-      -- "<cmd>Screenkey toggle<cr>"
-      "<cmd>ShowkeysToggle<cr>",
-      desc = "Screenkey toggle",
-    },
-    {
-      "<leader>up",
-      "<cmd>Precognition toggle<cr>",
-      desc = "Precognition toggle",
-    },
-    {
-      "<leader>ur",
-      "<cmd>RenderMarkdown toggle<cr>",
-      desc = "Render markdown toggle",
-    },
   }
 end
 

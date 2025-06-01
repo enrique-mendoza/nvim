@@ -12,6 +12,14 @@ function M.config()
     enabled = false,
     latex = { enabled = false },
   }
+
+  require("which-key").add {
+    {
+      "<leader>ur",
+      "<cmd>RenderMarkdown toggle<cr>",
+      desc = "Render markdown toggle",
+    },
+  }
 end
 
 return M
