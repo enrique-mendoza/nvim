@@ -67,7 +67,7 @@ end
 
 function M.config()
   local lspconfig = require "lspconfig"
-  local icons = require "showtime.utils.icons"
+  local icons = require "showtime.config.icons"
   local servers = {
     "astro",
     "bashls",

@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  local icons = require "showtime.utils.icons"
+  local icons = require "showtime.config.icons"
 
   require("gitsigns").setup {
     signs = {

@@ -1,9 +1,9 @@
 require "showtime.core.launch"
 
 -- user config
-require "showtime.core.autocmds"
-require "showtime.core.keymaps"
-require "showtime.core.options"
+require "showtime.config.autocmds"
+require "showtime.config.keymaps"
+require "showtime.config.options"
 
 -- plugins
 spec "showtime.plugins.auto-session"
