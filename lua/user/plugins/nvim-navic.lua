@@ -41,7 +41,7 @@ function M.config()
     Variable = " ",
   }
 
-  local icons = require "showtime.config.icons"
+  local icons = require "user.config.icons"
 
   require("nvim-navic").setup {
     icons = kinds,

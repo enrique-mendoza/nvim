@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  local lspconfig = require "showtime.plugins.nvim-lspconfig"
+  local lspconfig = require "user.plugins.nvim-lspconfig"
 
   require("typescript-tools").setup {
     on_attach = function(client, bufnr)

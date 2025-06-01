@@ -63,7 +63,7 @@ function M.config()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
   end
 
-  local icons = require "showtime.config.icons"
+  local icons = require "user.config.icons"
 
   cmp.setup {
     snippet = {

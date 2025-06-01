@@ -5,7 +5,7 @@ local M = {
 
 function M.config()
   local flash = require "flash"
-  local icons = require "showtime.config.icons"
+  local icons = require "user.config.icons"
 
   flash.setup {
     jump = { nohlsearch = true },

@@ -1,4 +1,4 @@
-local M = require "showtime.plugins.colorschemes.onedarkpro"
+local M = require "user.plugins.colorschemes.onedarkpro"
 
 function M.config()
   require("onedarkpro").setup {}

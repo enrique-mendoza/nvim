@@ -3,7 +3,7 @@ local M = {
 }
 
 function M.config()
-  local icons = require "showtime.config.icons"
+  local icons = require "user.config.icons"
 
   require("ibl").setup {
     indent = {

@@ -100,7 +100,7 @@ function M.common_capabilities()
 end
 
 function M.config()
-  local icons = require "showtime.config.icons"
+  local icons = require "user.config.icons"
   local lspconfig = require "lspconfig"
   local servers = {
     "astro",
@@ -167,7 +167,7 @@ function M.config()
       capabilities = M.common_capabilities(),
     }
 
-    local require_ok, settings = pcall(require, "showtime.plugins.lspsettings." .. server)
+    local require_ok, settings = pcall(require, "user.plugins.lspsettings." .. server)
 
     if require_ok then
       opts = vim.tbl_deep_extend("force", settings, opts)
