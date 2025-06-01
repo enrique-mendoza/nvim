@@ -1,8 +1,7 @@
 local icon = require "user.extras.icons"
 local kulala = require "kulala"
-local wk = require "which-key"
 
-wk.add {
+require("which-key").add {
   -- Http
   {
     "<leader>H",
