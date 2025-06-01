@@ -42,6 +42,7 @@ function M.config()
       filetypes = { "TelescopePrompt" },
     },
   }
+
   -- Keys
   -- Icon colors: azure, blue, cyan, green, grey, orange, purple, red, yellow
   wk.add {

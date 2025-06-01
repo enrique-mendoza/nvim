@@ -1,6 +1,7 @@
 local M = {
   "MagicDuck/grug-far.nvim",
   cmd = "GrugFar",
+  event = "VeryLazy",
 }
 
 function M.config()
