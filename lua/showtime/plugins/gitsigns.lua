@@ -6,8 +6,10 @@ local M = {
 
 function M.config()
   local icons = require "showtime.config.icons"
+  local gitsigns = require "gitsigns"
+  local wk = require "which-key"
 
-  require("gitsigns").setup {
+  gitsigns.setup {
     signs = {
       add = {
         -- hl = "GitSignsAdd",
@@ -54,6 +56,16 @@ function M.config()
       relative = "cursor",
       row = 0,
       col = 1,
+    },
+  }
+
+  wk.add {
+    {
+      "<leader>go",
+      function()
+        gitsigns.blame_line()
+      end,
+      desc = "Blame",
     },
   }
 end

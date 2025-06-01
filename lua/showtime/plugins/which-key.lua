@@ -133,11 +133,6 @@ function M.config()
       "<leader>g",
       group = "Git",
     },
-    {
-      "<leader>go",
-      "<cmd>lua require 'gitsigns'.blame_line()<cr>",
-      desc = "Blame",
-    },
     -- LSP
     {
       "<leader>l",
