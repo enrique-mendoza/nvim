@@ -9,6 +9,8 @@ local M = {
 }
 
 function M.config()
+  local wk = require "which-key"
+
   require("multicursors").setup {
     hint_config = {
       float_opts = {
@@ -33,6 +35,14 @@ function M.config()
   )
   vim.api.nvim_set_hl(0, "MultiCursorMain", { fg = "#ffffff", bg = "none", bold = true })
   vim.api.nvim_set_hl(0, "MultiCursorVisual", { fg = "#000000", bg = "none", underline = true })
+
+  wk.add {
+    {
+      "<c-n>",
+      "<cmd>MCstart<CR>",
+      hidden = true,
+    },
+  }
 end
 
 return M

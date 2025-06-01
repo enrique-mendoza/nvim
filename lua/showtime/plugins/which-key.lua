@@ -48,11 +48,6 @@ function M.config()
   wk.add {
     -- Hidden Commands
     {
-      "<c-n>",
-      "<cmd>MCstart<CR>",
-      hidden = true,
-    },
-    {
       "<leader>h",
       "<cmd>split<CR>",
       desc = "HSplit",
