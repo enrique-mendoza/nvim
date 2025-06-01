@@ -100,8 +100,8 @@ function M.common_capabilities()
 end
 
 function M.config()
-  local lspconfig = require "lspconfig"
   local icons = require "showtime.config.icons"
+  local lspconfig = require "lspconfig"
   local servers = {
     "astro",
     "bashls",
@@ -116,6 +116,7 @@ function M.config()
     "ts_ls",
     "kulala_ls",
   }
+  local wk = require "which-key"
 
   vim.diagnostic.config {
     signs = {
@@ -179,6 +180,62 @@ function M.config()
       require("lspconfig").nginx_language_server.setup(opts)
     end
   end
+
+  wk.add {
+    {
+      "<leader>la",
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      desc = "Code Action",
+    },
+    {
+      "<leader>la",
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      desc = "Code Action",
+      mode = { "v" },
+    },
+    {
+      "<leader>lf",
+      function()
+        vim.lsp.buf.format {
+          async = true,
+          filter = function(client)
+            return client.name ~= "typescript-tools"
+          end,
+        }
+      end,
+      desc = "Format",
+    },
+    {
+      "<leader>lI",
+      "<cmd>LspInfo<cr>",
+      desc = "LSP Info",
+    },
+    {
+      "<leader>ll",
+      function()
+        vim.lsp.codelens.run()
+      end,
+      desc = "CodeLens Action",
+    },
+    {
+      "<leader>lq",
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      desc = "Quickfix",
+    },
+    {
+      "<leader>lr",
+      function()
+        vim.lsp.buf.rename()
+      end,
+      desc = "Rename",
+    },
+  }
 end
 
 return M

@@ -143,22 +143,6 @@ function M.config()
       },
     },
     {
-      "<leader>la",
-      "<cmd>lua vim.lsp.buf.code_action()<cr>",
-      desc = "Code Action",
-    },
-    {
-      "<leader>la",
-      "<cmd>lua vim.lsp.buf.code_action()<cr>",
-      desc = "Code Action",
-      mode = { "v" },
-    },
-    {
-      "<leader>lf",
-      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-      desc = "Format",
-    },
-    {
       "<leader>lg",
       group = "GrugFar",
     },
@@ -190,16 +174,6 @@ function M.config()
       mode = { "n", "x" },
     },
     {
-      "<leader>lI",
-      "<cmd>LspInfo<cr>",
-      desc = "LSP Info",
-    },
-    {
-      "<leader>ll",
-      "<cmd>lua vim.lsp.codelens.run()<cr>",
-      desc = "CodeLens Action",
-    },
-    {
       "<leader>lM",
       "<cmd>Mason<cr>",
       desc = "Mason Info",
@@ -212,16 +186,6 @@ function M.config()
         icon = icons.misc.CircuitBoard,
         color = "blue",
       },
-    },
-    {
-      "<leader>lq",
-      "<cmd>lua vim.diagnostic.setloclist()<cr>",
-      desc = "Quickfix",
-    },
-    {
-      "<leader>lr",
-      "<cmd>lua vim.lsp.buf.rename()<cr>",
-      desc = "Rename",
     },
     -- Plugins
     {
