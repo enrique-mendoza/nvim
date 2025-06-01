@@ -134,24 +134,6 @@ function M.config()
       group = "Git",
     },
     {
-      "<leader>gd",
-      "<cmd>DiffviewOpen<cr>",
-      desc = "Git Diff",
-      icon = {
-        icon = " ",
-        color = "orange",
-      },
-    },
-    {
-      "<leader>gh",
-      "<cmd>DiffviewFileHistory<cr>",
-      desc = "Git Diff File History",
-      icon = {
-        icon = " ",
-        color = "orange",
-      },
-    },
-    {
       "<leader>go",
       "<cmd>lua require 'gitsigns'.blame_line()<cr>",
       desc = "Blame",
