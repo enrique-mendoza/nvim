@@ -166,39 +166,6 @@ function M.config()
       "<leader>S",
       group = "Sessions",
     },
-    {
-      "<leader>Sd",
-      "<cmd>Autosession delete<CR>",
-      desc = "Delete Session",
-    },
-    {
-      "<leader>Sf",
-      function()
-        persistence.select()
-      end,
-      desc = "Select Session",
-    },
-    {
-      "<leader>Sl",
-      function()
-        persistence.load { last = true }
-      end,
-      desc = "Restore Last Session",
-    },
-    {
-      "<leader>Sr",
-      function()
-        persistence.load()
-      end,
-      desc = "Restore Session",
-    },
-    {
-      "<leader>Ss",
-      function()
-        persistence.stop()
-      end,
-      desc = "Don't Save Current Session",
-    },
     -- Tests
     {
       "<leader>t",

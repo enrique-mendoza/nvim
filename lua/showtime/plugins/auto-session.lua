@@ -59,6 +59,14 @@ function M.config()
   -- vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
   --   noremap = true,
   -- })
+
+  require("which-key").add {
+    {
+      "<leader>Sd",
+      "<cmd>Autosession delete<CR>",
+      desc = "Delete Session",
+    },
+  }
 end
 
 return M
