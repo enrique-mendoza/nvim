@@ -5,7 +5,6 @@ local M = {
 
 function M.config()
   local icons = require "showtime.config.icons"
-  local persistence = require "persistence"
   local wk = require "which-key"
 
   -- Setup
@@ -70,12 +69,6 @@ function M.config()
       "<Plug>(comment_toggle_linewise_visual)",
       mode = "v",
       desc = "Comment",
-      hidden = true,
-    },
-    {
-      "<leader>w",
-      "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
-      desc = "Wrap",
       hidden = true,
     },
     -- Buffers & Tabs
