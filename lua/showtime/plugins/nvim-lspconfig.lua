@@ -9,23 +9,57 @@ local M = {
 }
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
+  local function keymap(lhs, rhs, desc, mode)
+    mode = mode or "n"
+    vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+  end
 
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "<CR>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  keymap("gD", function()
+    vim.lsp.buf.declaration()
+  end, "Go to Declaration")
 
-  vim.keymap.set("n", "K", function()
+  keymap("gd", function()
+    vim.lsp.buf.definition()
+  end, "Go to Definition")
+
+  keymap("<CR>", function()
+    vim.lsp.buf.signature_help()
+  end, "Signature Help")
+
+  keymap("K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
       vim.lsp.buf.hover()
     end
-  end)
+  end, "n")
 
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  keymap("gI", function()
+    vim.lsp.buf.implementation()
+  end, "Go to Implementation")
+
+  keymap("gr", function()
+    vim.lsp.buf.references()
+  end, "Go to References")
+
+  keymap("gl", function()
+    vim.diagnostic.open_float()
+  end, "Open Float Diagnostics")
+
+  keymap("[d", function()
+    vim.diagnostic.jump { count = -1 }
+  end, "Previous diagnostic")
+
+  keymap("]d", function()
+    vim.diagnostic.jump { count = 1 }
+  end, "Next diagnostic")
+
+  keymap("[e", function()
+    vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR }
+  end, "Previous error")
+
+  keymap("]e", function()
+    vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR }
+  end, "Next error")
 end
 
 M.on_attach = function(client, bufnr)
@@ -104,8 +138,26 @@ function M.config()
       prefix = "",
     },
   }
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+  local hover = vim.lsp.buf.hover
+  ---@diagnostic disable-next-line: duplicate-set-field
+  vim.lsp.buf.hover = function()
+    return hover {
+      border = "rounded",
+      max_height = math.floor(vim.o.lines * 0.5),
+      max_width = math.floor(vim.o.columns * 0.4),
+    }
+  end
+
+  local signature_help = vim.lsp.buf.signature_help
+  ---@diagnostic disable-next-line: duplicate-set-field
+  vim.lsp.buf.signature_help = function()
+    return signature_help {
+      border = "rounded",
+      max_height = math.floor(vim.o.lines * 0.5),
+      max_width = math.floor(vim.o.columns * 0.4),
+    }
+  end
 
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
