@@ -12,9 +12,8 @@ local M = {
 
 function M.config()
   local icons = require "showtime.config.icons"
-  local wk = require "which-key"
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>gd",
       "<cmd>DiffviewOpen<cr>",

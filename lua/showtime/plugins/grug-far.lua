@@ -5,7 +5,6 @@ local M = {
 
 function M.config()
   local grug = require "grug-far"
-  local wk = require "which-key"
 
   grug.setup {}
 
@@ -17,7 +16,7 @@ function M.config()
     end,
   })
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>rc",
       function()

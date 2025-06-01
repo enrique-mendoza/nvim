@@ -14,7 +14,6 @@ local M = {
 function M.config()
   local dap = require "dap"
   local dapui = require "dapui"
-  local wk = require "which-key"
 
   dapui.setup {
     layouts = {
@@ -75,7 +74,7 @@ function M.config()
     enabled_commands = true,
   }
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>db",
       function()

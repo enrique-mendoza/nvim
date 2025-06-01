@@ -116,7 +116,6 @@ function M.config()
     "ts_ls",
     "kulala_ls",
   }
-  local wk = require "which-key"
 
   vim.diagnostic.config {
     signs = {
@@ -181,7 +180,7 @@ function M.config()
     end
   end
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>la",
       function()

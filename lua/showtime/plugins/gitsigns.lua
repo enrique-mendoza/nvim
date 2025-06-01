@@ -7,7 +7,6 @@ local M = {
 function M.config()
   local icons = require "showtime.config.icons"
   local gitsigns = require "gitsigns"
-  local wk = require "which-key"
 
   gitsigns.setup {
     signs = {
@@ -59,7 +58,7 @@ function M.config()
     },
   }
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>go",
       function()

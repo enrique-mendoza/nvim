@@ -7,7 +7,6 @@ local M = {
 function M.config()
   local icons = require "showtime.config.icons"
   local snacks = require "snacks"
-  local wk = require "which-key"
 
   snacks.setup {
     bigfile = { enabled = true },
@@ -101,7 +100,7 @@ function M.config()
     end,
   })
 
-  wk.add {
+  require("which-key").add {
     {
       "]]",
       function()

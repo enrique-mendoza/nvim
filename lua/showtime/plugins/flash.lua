@@ -6,7 +6,6 @@ local M = {
 function M.config()
   local flash = require "flash"
   local icons = require "showtime.config.icons"
-  local wk = require "which-key"
 
   flash.setup {
     jump = { nohlsearch = true },
@@ -38,7 +37,7 @@ function M.config()
     },
   }
 
-  wk.add {
+  require("which-key").add {
     {
       "<leader>sf",
       function()
