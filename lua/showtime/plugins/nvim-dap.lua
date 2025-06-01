@@ -14,6 +14,7 @@ local M = {
 function M.config()
   local dap = require "dap"
   local dapui = require "dapui"
+  local wk = require "which-key"
 
   dapui.setup {
     layouts = {
@@ -72,6 +73,122 @@ function M.config()
 
   require("nvim-dap-virtual-text").setup {
     enabled_commands = true,
+  }
+
+  wk.add {
+    {
+      "<leader>db",
+      function()
+        dap.step_back()
+      end,
+      desc = "Step Back",
+    },
+    {
+      "<leader>dc",
+      function()
+        dap.continue()
+      end,
+      desc = "Continue",
+    },
+    {
+      "<leader>dC",
+      function()
+        dap.run_to_cursor()
+      end,
+      desc = "Run To Cursor",
+    },
+    {
+      "<leader>dd",
+      function()
+        dap.disconnect()
+      end,
+      desc = "Disconnect",
+    },
+    {
+      "<leader>de",
+      function()
+        dapui.eval()
+      end,
+      desc = "Evaluate Expression",
+      mode = { "x" },
+    },
+    {
+      "<leader>df",
+      function()
+        dapui.float_element()
+      end,
+      desc = "Display Floating Element",
+    },
+    {
+      "<leader>dg",
+      function()
+        dap.session()
+      end,
+      desc = "Get Session",
+    },
+    {
+      "<leader>di",
+      function()
+        dap.step_into()
+      end,
+      desc = "Step Into",
+    },
+    {
+      "<leader>do",
+      function()
+        dap.step_over()
+      end,
+      desc = "Step Over",
+    },
+    {
+      "<leader>dp",
+      function()
+        dap.pause()
+      end,
+      desc = "Pause",
+    },
+    {
+      "<leader>dq",
+      function()
+        dap.close()
+      end,
+      desc = "Quit",
+    },
+    {
+      "<leader>dr",
+      function()
+        dap.repl.toggle()
+      end,
+      desc = "Toggle Repl",
+    },
+    {
+      "<leader>ds",
+      function()
+        dap.continue()
+      end,
+      desc = "Start",
+    },
+    {
+      "<leader>dt",
+      function()
+        dap.toggle_breakpoint()
+      end,
+      desc = "Toggle Breakpoint",
+    },
+    {
+      "<leader>du",
+      function()
+        dap.step_out()
+      end,
+      desc = "Step Out",
+    },
+    {
+      "<leader>dU",
+      function()
+        dapui.toggle { reset = true }
+      end,
+      desc = "Toggle UI",
+    },
   }
 end
 
