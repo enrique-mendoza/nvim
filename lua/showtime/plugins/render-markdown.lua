@@ -17,7 +17,7 @@ function M.config()
     {
       "<leader>ur",
       "<cmd>RenderMarkdown toggle<cr>",
-      desc = "Render markdown toggle",
+      desc = "Toggle Render Markdown",
     },
   }
 end
