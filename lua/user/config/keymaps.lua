@@ -65,6 +65,9 @@ keymap({ "i", "c" }, "<C-l>", "<C-o>A", opts)
 -- Duplicate line and comment the first line
 keymap("n", "ycc", "yygccp", { remap = true })
 
+-- 'g.' after the ciw and then I can press dot dot to replace all words.
+("n", "g.", '/\\V\\C<C-r>"<CR>cgn<C-a><Esc>')
+
 -- Put your cursor to same position while yanking
 -- keymap("n", "p", function()
 --   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
