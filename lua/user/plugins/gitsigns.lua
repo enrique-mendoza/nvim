@@ -58,13 +58,102 @@ function M.config()
     },
   }
 
+  -- Text object
+  vim.keymap.set({ "o", "x" }, "ih", gitsigns.select_hunk)
+
   require("which-key").add {
     {
-      "<leader>go",
+      "<leader>ga",
       function()
-        gitsigns.blame_line()
+        gitsigns.stage_hunk()
       end,
-      desc = "Blame",
+      desc = "Stage Hunk",
+    },
+    {
+      "<leader>ga",
+      function()
+        gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+      end,
+      desc = "Stage Hunk",
+      mode = "v",
+    },
+    {
+      "<leader>gB",
+      function()
+        gitsigns.blame()
+      end,
+      desc = "Git Blame",
+    },
+    {
+      "<leader>gj",
+      function()
+        gitsigns.nav_hunk("next", { navigation_message = false })
+      end,
+      desc = "Next Hunk",
+    },
+    {
+      "<leader>gk",
+      function()
+        gitsigns.nav_hunk("prev", { navigation_message = false })
+      end,
+      desc = "Previous Hunk",
+    },
+    {
+      "<leader>gr",
+      function()
+        gitsigns.reset_hunk()
+      end,
+      desc = "Reset Hunk",
+    },
+    {
+      "<leader>gr",
+      function()
+        gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+      end,
+      desc = "Reset Hunk",
+      mode = "v",
+    },
+    {
+      "<leader>gR",
+      function()
+        gitsigns.reset_buffer()
+      end,
+      desc = "Reset Buffer",
+    },
+    {
+      "<leader>gp",
+      function()
+        gitsigns.preview_hunk()
+      end,
+      desc = "Preview Hunk",
+    },
+    {
+      "<leader>gP",
+      function()
+        gitsigns.preview_hunk_inline()
+      end,
+      desc = "Preview Hunk Inline",
+    },
+    {
+      "<leader>gq",
+      function()
+        gitsigns.setqflist "all"
+      end,
+      desc = "Quickfix List",
+    },
+    {
+      "<leader>gQ",
+      function()
+        gitsigns.setqflist()
+      end,
+      desc = "Quickfix List In Current File",
+    },
+    {
+      "<leader>gu",
+      function()
+        gitsigns.undo_stage_hunk()
+      end,
+      desc = "Undo Stage Hunk",
     },
   }
 end
