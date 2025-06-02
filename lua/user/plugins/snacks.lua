@@ -240,14 +240,6 @@ function M.config()
       desc = "Git Branches",
     },
     {
-      "<leader>gB",
-      function()
-        snacks.gitbrowse()
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
-    },
-    {
       "<leader>gD",
       function()
         snacks.picker.git_diff()
@@ -285,6 +277,14 @@ function M.config()
         snacks.picker.git_log_line()
       end,
       desc = "Git Log Line",
+    },
+    {
+      "<leader>go",
+      function()
+        snacks.gitbrowse()
+      end,
+      desc = "Git Browse",
+      mode = { "n", "v" },
     },
     {
       "<leader>gs",
