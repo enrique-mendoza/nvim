@@ -72,7 +72,7 @@ spec "user.plugins.typescript-tools"
 spec "user.plugins.vim-kitty"
 spec "user.plugins.vim-matchup"
 spec "user.plugins.vim-sleuth"
-spec "user.plugins.vim-tmux-navigator"
+spec "user.plugins.nvim-tmux-navigator"
 spec "user.plugins.visual"
 spec "user.plugins.which-key"
 
