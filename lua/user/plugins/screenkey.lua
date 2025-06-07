@@ -71,14 +71,6 @@ function M.config()
 
   -- Run screenkey off rip
   vim.cmd "Screenkey"
-
-  require("which-key").add {
-    {
-      "<leader>uk",
-      "<cmd>ShowkeysToggle<cr>",
-      desc = "Screenkey toggle",
-    },
-  }
 end
 
 return M

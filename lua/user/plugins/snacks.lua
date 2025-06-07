@@ -133,25 +133,18 @@ function M.config()
     },
     -- Buffers
     {
-      "<leader>bD",
-      function()
-        snacks.bufdelete.other()
-      end,
-      desc = "Delete Other Buffers",
-    },
-    {
-      "<leader>bD",
-      function()
-        snacks.bufdelete.other()
-      end,
-      desc = "Delete Other Buffers",
-    },
-    {
       "<leader>bd",
       function()
         snacks.bufdelete()
       end,
       desc = "Delete Buffer",
+    },
+    {
+      "<leader>bD",
+      function()
+        snacks.bufdelete.other()
+      end,
+      desc = "Delete Other Buffers",
     },
     {
       "<leader>bs",
