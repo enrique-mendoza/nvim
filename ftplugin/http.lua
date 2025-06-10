@@ -1,4 +1,4 @@
-local icon = require "user.extras.icons"
+local icon = require "user.config.icons"
 local kulala = require "kulala"
 
 require("which-key").add {
