@@ -7,7 +7,14 @@ local M = {
 function M.config()
   local grug = require "grug-far"
 
-  grug.setup {}
+  grug.setup {
+    helpLine = {
+      enabled = false,
+    },
+    showCompactInputs = true,
+    showInputsTopPadding = false,
+    showInputsBottomPadding = false,
+  }
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "grug-far",
