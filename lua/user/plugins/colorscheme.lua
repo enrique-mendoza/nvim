@@ -1,9 +1,9 @@
-local M = require "user.plugins.colorschemes.onedarkpro"
+local M = require "user.plugins.colorschemes.astrotheme"
 
 function M.config()
-  require("onedarkpro").setup {}
+  require("astrotheme").setup {}
 
-  vim.cmd.colorscheme "onedark"
+  vim.cmd.colorscheme "astrodark"
 end
 
 return M
