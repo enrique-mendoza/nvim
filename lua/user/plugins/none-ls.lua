@@ -23,9 +23,9 @@ function M.config()
         -- which uses 4 spaces per indentation level instead of the default 2 spaces.
         extra_args = { "--aosp" },
       },
-      formatting.clang_format.with {
-        disabled_filetypes = { "java" },
-      },
+      -- formatting.clang_format.with {
+      --   disabled_filetypes = { "java" },
+      -- },
 
       -- diagnostics.shellcheck,
 

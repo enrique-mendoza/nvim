@@ -4,11 +4,6 @@ local M = {
 
 function M.config()
   require("fidget").setup {
-    integration = {
-      ["nvim-tree"] = {
-        enable = true,
-      },
-    },
     notification = {
       window = {
         normal_hl = "CursorLineNr", -- Base highlight group in the notification window
@@ -21,6 +16,9 @@ function M.config()
         y_padding = 0,              -- Padding from bottom edge of window boundary
         align = "bottom",           -- How to align the notification window
         relative = "editor",        -- What the notification window position is relative to
+        avoid = {
+          "NvimTree"
+        }
       },
     },
   }
