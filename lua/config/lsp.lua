@@ -21,6 +21,7 @@ vim.lsp.enable {
   "taplo",
   "yamlls",
   "jdtls",
+  "angularls",
 }
 
 -- Configure diagnostic display with custom signs
