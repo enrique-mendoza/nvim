@@ -61,7 +61,7 @@ function M.config()
         icon = icons.misc.Lightning,
         color = "orange",
       },
-      mode = { "n", "x", "o" },
+      mode = { "n", "x" },
     },
     {
       "<leader>sr",
