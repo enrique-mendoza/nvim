@@ -147,7 +147,7 @@ local config = {
     },
   },
   -- Needed for auto-completion with method signatures and placeholders
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  capabilities = require("blink.cmp").get_lsp_capabilities(nil, true),
   flags = {
     allow_incremental_sync = true,
   },
@@ -172,22 +172,12 @@ config["on_attach"] = function(client, bufnr)
   -- Allow yourself/register to run JdtShell as a Vim command
   vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-  local icon = require "user.config.icons"
-  local springboot = require "springboot-nvim"
+  local icon = require "utils.icons"
 
   require("which-key").add {
     {
       "<leader>j",
       group = "Java",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>jc",
-      springboot.generate_class,
-      desc = "Generate Class",
       icon = {
         icon = icon.lang.Java,
         color = "red",
@@ -208,42 +198,6 @@ config["on_attach"] = function(client, bufnr)
       end,
       desc = "Extract Constant",
       mode = "v",
-    },
-    {
-      "<leader>je",
-      springboot.generate_enum,
-      desc = "Generate Enum",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>ji",
-      springboot.generate_interface,
-      desc = "Generate Interface",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
-    },
-    {
-      "<leader>jm",
-      group = "Maven",
-      icon = {
-        icon = icon.lang.tools.Maven,
-        color = "red",
-      },
-    },
-    {
-      "<leader>jmc",
-      "<cmd>Maven<CR>",
-      desc = "Maven Command",
-    },
-    {
-      "<leader>jmi",
-      "<cmd>MavenExec<CR>",
-      desc = "Input Maven Command",
     },
     {
       "<leader>jn",
@@ -267,15 +221,6 @@ config["on_attach"] = function(client, bufnr)
         jdtls.organize_imports()
       end,
       desc = "Organize Imports",
-    },
-    {
-      "<leader>js",
-      springboot.boot_run,
-      desc = "Run Spring Boot",
-      icon = {
-        icon = icon.lang.Java,
-        color = "red",
-      },
     },
     {
       "<leader>jt",
