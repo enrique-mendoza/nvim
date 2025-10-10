@@ -41,13 +41,17 @@ function M.config()
       },
       disabled_filetypes = { "alpha", "Outline" },
       ignore_focus = { "NvimTree" },
-      theme = "auto",
+      theme = "catppuccin",
     },
     sections = {
       lualine_a = {
         {
           "mode",
           icon = icons.statusline.Mode,
+          separator = {
+            left = "",
+            right = "",
+          },
         },
       },
       lualine_b = {
@@ -65,6 +69,10 @@ function M.config()
             left = 0,
             right = 1,
           },
+          separator = {
+            left = "",
+            right = "",
+          },
         },
       },
       lualine_c = {
@@ -72,7 +80,7 @@ function M.config()
           "branch",
           icon = icons.statusline.git.Branch,
           padding = {
-            left = 2,
+            left = 1,
             right = 0,
           },
         },
