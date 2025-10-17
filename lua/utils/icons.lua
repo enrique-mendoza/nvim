@@ -132,6 +132,17 @@ return {
     TriangleShortArrowRight = "",
     TriangleShortArrowUp = "",
   },
+  debug = {
+    Start = "",
+    Pause = "",
+    Continue = "",
+    Stop = "",
+    Disconnect = "",
+    StepBack = "",
+    StepInto = "",
+    StepOut = "",
+    StepOver = "",
+  },
   diagnostics = {
     BoldError = "",
     Error = "",

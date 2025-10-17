@@ -14,6 +14,7 @@ local M = {
 function M.config()
   local dap = require "dap"
   local dapui = require "dapui"
+  local icons = require "utils.icons"
 
   dapui.setup {
     layouts = {
@@ -81,6 +82,7 @@ function M.config()
         dap.step_back()
       end,
       desc = "Step Back",
+      icon = icons.debug.StepBack,
     },
     {
       "<leader>dc",
@@ -88,6 +90,7 @@ function M.config()
         dap.continue()
       end,
       desc = "Continue",
+      icon = icons.debug.Continue,
     },
     {
       "<leader>dC",
@@ -102,6 +105,7 @@ function M.config()
         dap.disconnect()
       end,
       desc = "Disconnect",
+      icon = icons.debug.Disconnect,
     },
     {
       "<leader>de",
@@ -131,6 +135,7 @@ function M.config()
         dap.step_into()
       end,
       desc = "Step Into",
+      icon = icons.debug.StepInto,
     },
     {
       "<leader>do",
@@ -138,6 +143,7 @@ function M.config()
         dap.step_over()
       end,
       desc = "Step Over",
+      icon = icons.debug.StepOver,
     },
     {
       "<leader>dp",
@@ -145,13 +151,15 @@ function M.config()
         dap.pause()
       end,
       desc = "Pause",
+      icon = icons.debug.Pause,
     },
     {
       "<leader>dq",
       function()
         dap.close()
       end,
-      desc = "Quit",
+      desc = "Stop",
+      icon = icons.debug.Stop,
     },
     {
       "<leader>dr",
@@ -166,6 +174,7 @@ function M.config()
         dap.continue()
       end,
       desc = "Start",
+      icon = icons.debug.Start,
     },
     {
       "<leader>dt",
@@ -180,6 +189,7 @@ function M.config()
         dap.step_out()
       end,
       desc = "Step Out",
+      icon = icons.debug.StepOut,
     },
     {
       "<leader>dU",
