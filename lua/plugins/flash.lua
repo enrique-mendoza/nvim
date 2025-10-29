@@ -44,7 +44,7 @@ function M.config()
 
   require("which-key").add {
     {
-      "<leader>ss",
+      "<leader>sf",
       function()
         flash.jump()
       end,
@@ -56,7 +56,7 @@ function M.config()
       mode = { "n", "x", "o" },
     },
     {
-      "<leader>sS",
+      "<leader>sF",
       function()
         flash.treesitter()
       end,
@@ -82,7 +82,7 @@ function M.config()
     {
       "<leader>sR",
       function()
-        flash.treesitter_search()()
+        flash.treesitter_search()
       end,
       desc = "Treesitter Search",
       icon = {
