@@ -1,14 +1,8 @@
 -- Navigation with jump motions.
-local M = {
+return {
   "folke/flash.nvim",
   event = "VeryLazy",
-}
-
-function M.config()
-  local flash = require "flash"
-  local icons = require "utils.icons"
-
-  flash.setup {
+  opts = {
     jump = { nohlsearch = true },
     prompt = {
       win_config = {
@@ -40,46 +34,39 @@ function M.config()
         enabled = true,
       },
     },
-  }
-
-  require("which-key").add {
+  },
+  keys = {
     {
-      "<leader>sf",
+      "s",
+      mode = { "n", "x", "o" },
       function()
-        flash.jump()
+        require("flash").jump()
       end,
       desc = "Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
+    },
+    {
+      "S",
       mode = { "n", "x", "o" },
-    },
-    {
-      "<leader>sF",
       function()
-        flash.treesitter_search()
+        require("flash").treesitter()
       end,
-      desc = "Treesitter Search",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = { "n", "x" },
+      desc = "Flash Treesitter",
     },
     {
-      "<leader>sr",
+      "r",
+      mode = "o",
       function()
-        flash.remote()
+        require("flash").remote()
       end,
       desc = "Remote Flash",
-      icon = {
-        icon = icons.misc.Lightning,
-        color = "orange",
-      },
-      mode = "o",
     },
-  }
-end
-
-return M
+    {
+      "R",
+      mode = { "o", "x" },
+      function()
+        require("flash").treesitter_search()
+      end,
+      desc = "Treesitter Search",
+    },
+  },
+}
