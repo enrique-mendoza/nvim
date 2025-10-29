@@ -30,10 +30,14 @@ function M.config()
           return not vim.api.nvim_win_get_config(win).focusable
         end,
       },
+      wrap = true,
     },
     modes = {
       char = {
         jump_labels = true,
+      },
+      search = {
+        enabled = true,
       },
     },
   }
