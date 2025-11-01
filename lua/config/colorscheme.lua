@@ -1,7 +1,8 @@
 -- Colorscheme configuration
-local colorscheme = "catppuccin"
+-- local colorscheme = "catppuccin"
 -- local colorscheme = "kanagawa-wave" -- wave, dragon, lotus
 -- local colorscheme = "tokyonight-night" -- night, storm, day, moon
+local colorscheme = "cyberdream"
 
 -- Function to safely set colorscheme
 local function set_colorscheme(name)

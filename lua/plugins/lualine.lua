@@ -41,7 +41,7 @@ function M.config()
       },
       disabled_filetypes = { "alpha", "Outline" },
       ignore_focus = { "NvimTree" },
-      theme = "catppuccin",
+      theme = "auto",
     },
     sections = {
       lualine_a = {

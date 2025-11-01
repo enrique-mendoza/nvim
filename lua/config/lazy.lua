@@ -17,7 +17,7 @@ require("lazy").setup("plugins", {
   ui = { border = "rounded" },
   dev = { path = vim.g.projects_dir },
   install = {
-    colorscheme = { "catppuccin" },
+    colorscheme = { "auto" },
     missing = true,
   },
   change_detection = { notify = false },
