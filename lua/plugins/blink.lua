@@ -23,7 +23,9 @@ return {
         },
         documentation = {
           auto_show = true,
-          border = "rounded",
+          window = {
+            border = "rounded",
+          },
         },
         menu = {
           border = "rounded",
