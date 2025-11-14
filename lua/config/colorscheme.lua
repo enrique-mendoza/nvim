@@ -1,5 +1,5 @@
 -- Colorscheme configuration
-local colorscheme = "catppuccin"
+local colorscheme = "catppuccin-latte" -- latte, frappe, macchiato, mocha
 -- local colorscheme = "kanagawa-wave" -- wave, dragon, lotus
 -- local colorscheme = "tokyonight-night" -- night, storm, day, moon
 
