@@ -12,7 +12,6 @@ vim.lsp.enable {
   "bashls",
   "css_variables",
   "cssmodules_ls",
-  "dockerls",
   "grammarly",
   "jsonls",
   "lemminx",
@@ -22,6 +21,7 @@ vim.lsp.enable {
   "yamlls",
   "jdtls",
   "angularls",
+  "docker_language_server",
 }
 
 -- Configure diagnostic display with custom signs
@@ -50,7 +50,7 @@ vim.diagnostic.config {
 }
 
 -- Enable inlay hints
-vim.lsp.inlay_hint.enable(false)
+vim.lsp.inlay_hint.enable(true)
 
 -- Create default capabilities without cmp
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
