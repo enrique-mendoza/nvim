@@ -80,12 +80,12 @@ function M.config()
     {
       "<leader>bh",
       "<cmd>-tabmove<cr>",
-      desc = "Move Left",
+      desc = "Move Tab To Left",
     },
     {
       "<leader>bl",
       "<cmd>+tabmove<cr>",
-      desc = "Move Right",
+      desc = "Move Tab To Right",
     },
     {
       "<leader>bn",

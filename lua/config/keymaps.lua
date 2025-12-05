@@ -6,6 +6,9 @@ keymap("n", "<Space>", "", opts)
 
 keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
 
+-- Select all
+keymap("n", "<C-a>", "gg<S-v>G")
+
 -- Remap for dealing with word wrap and adding jumps to the jumplist.
 keymap("n", "j", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']], { expr = true })
 keymap("n", "k", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
@@ -22,10 +25,10 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 keymap("n", "<m-tab>", "<c-6>", opts)
 
 -- Resize windows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<m-Up>", ":resize -2<CR>", opts)
+keymap("n", "<m-Down>", ":resize +2<CR>", opts)
+keymap("n", "<m-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<m-Right>", ":vertical resize +2<CR>", opts)
 
 -- Keeping the cursor centered.
 keymap("n", "<C-d>", "<C-d>zz", opts)
