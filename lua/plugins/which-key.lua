@@ -74,43 +74,8 @@ function M.config()
     },
     -- Buffers & Tabs
     {
-      "<leader>b",
+      "<leader>e",
       group = "Buffers/Tabs",
-    },
-    {
-      "<leader>bh",
-      "<cmd>-tabmove<cr>",
-      desc = "Move Tab To Left",
-    },
-    {
-      "<leader>bl",
-      "<cmd>+tabmove<cr>",
-      desc = "Move Tab To Right",
-    },
-    {
-      "<leader>bn",
-      "<cmd>:tabn<CR>",
-      desc = "Next Tab",
-    },
-    {
-      "<leader>bo",
-      "<cmd>tabonly<cr>",
-      desc = "Only",
-    },
-    {
-      "<leader>bp",
-      "<cmd>:tabp<CR>",
-      desc = "Previous Tab",
-    },
-    {
-      "<leader>bt",
-      "<cmd>tabnew %<cr>",
-      desc = "New Tab",
-    },
-    {
-      "<leader>bT",
-      "<cmd>$tabnew<cr>",
-      desc = "New Empty Tab",
     },
     -- Debug
     {

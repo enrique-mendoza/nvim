@@ -133,44 +133,32 @@ function M.config()
     },
     -- Buffers
     {
-      "<leader>bd",
+      "<leader>ed",
       function()
         snacks.bufdelete()
       end,
       desc = "Delete Buffer",
     },
     {
-      "<leader>bD",
+      "<leader>eD",
       function()
         snacks.bufdelete.other()
       end,
       desc = "Delete Other Buffers",
     },
     {
-      "<leader>bs",
+      "<leader>es",
       function()
         snacks.scratch()
       end,
       desc = "Toggle Scratch Buffer",
     },
     {
-      "<leader>bS",
+      "<leader>eS",
       function()
         snacks.scratch.select()
       end,
       desc = "Select Scratch Buffer",
-    },
-    -- File Explorer
-    {
-      "<leader>e",
-      function()
-        snacks.explorer()
-      end,
-      desc = "File Explorer",
-      icon = {
-        icon = icons.ui.Tree,
-        color = "green",
-      },
     },
     -- Find
     {

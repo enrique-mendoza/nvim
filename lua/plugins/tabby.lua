@@ -112,5 +112,63 @@ return {
         mode = "unique",
       },
     })
+
+    require("which-key").add {
+      {
+        "<leader>ea",
+        "<cmd>tabnew %<cr>",
+        desc = "New Tab",
+      },
+      {
+        "<leader>ee",
+        "<cmd>$tabnew<cr>",
+        desc = "New Empty Tab",
+      },
+      {
+        "<leader>eh",
+        "<C-w>H",
+        desc = "Move Buffer To Left",
+      },
+      {
+        "<leader>eH",
+        "<cmd>-tabmove<cr>",
+        desc = "Move Tab To Left",
+      },
+      {
+        "<leader>ej",
+        "<C-w>J",
+        desc = "Move Buffer Down",
+      },
+      {
+        "<leader>ek",
+        "<C-w>K",
+        desc = "Move Buffer Up",
+      },
+      {
+        "<leader>el",
+        "<C-w>L",
+        desc = "Move Buffer To Left",
+      },
+      {
+        "<leader>eL",
+        "<cmd>+tabmove<cr>",
+        desc = "Move Tab To Right",
+      },
+      {
+        "<leader>en",
+        "<cmd>:tabn<CR>",
+        desc = "Next Tab",
+      },
+      {
+        "<leader>eo",
+        "<cmd>tabonly<cr>",
+        desc = "Only",
+      },
+      {
+        "<leader>ep",
+        "<cmd>:tabp<CR>",
+        desc = "Previous Tab",
+      },
+    }
   end,
 }
