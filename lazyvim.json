@@ -2,6 +2,8 @@
   "extras": [
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.fzf",
+    "lazyvim.plugins.extras.lang.tailwind",
+    "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.test.core"
   ],
   "install_version": 8,
