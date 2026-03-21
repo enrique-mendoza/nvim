@@ -5,7 +5,11 @@ return {
     -- Description: A vim-vinegar like file explorer that
     -- lets you edit your filesystem like a normal Neovim buffer.
     "stevearc/oil.nvim",
-    opts = {},
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
     dependencies = {
       { "nvim-mini/mini.icons", opts = {} },
     },
