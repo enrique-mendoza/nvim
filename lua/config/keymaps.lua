@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local nvim_tmux_nav = require("nvim-tmux-navigation")
 
 -- Move a chunk of text and it will automatically indent
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
@@ -31,8 +32,6 @@ map({ "n", "o", "x" }, "<s-h>", "^", opts)
 map({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- Tmux Navigation
-local nvim_tmux_nav = require("nvim-tmux-navigation")
-
 map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
 map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
 map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
