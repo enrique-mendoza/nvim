@@ -42,11 +42,3 @@ map("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 
 -- Oil
 map("n", "_", "<cmd>Oil<cr>", { desc = "Open Oil (parent dir)" })
-
--- Multicursors
-map(
-  { "n", "v" },
-  "<c-n>",
-  "<cmd>MCstart<cr>",
-  { desc = "Create a selection for selected text or word under the cursor" }
-)

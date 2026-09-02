@@ -11,6 +11,14 @@ return {
     },
     opts = {},
     cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "n", "v" },
+        "<c-n>",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
     config = function()
       require("multicursors").setup({
         hint_config = {
