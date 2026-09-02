@@ -8,6 +8,17 @@ local opts = { noremap = true, silent = true }
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+-- Keep cursor centered on half-page scroll.
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+-- Join lines without moving cursor off its spot.
+map("n", "J", "mzJ`z")
+
+-- Keep cursor centered when jumping between search matches.
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
 -- Indent while remaining in visual mode
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
