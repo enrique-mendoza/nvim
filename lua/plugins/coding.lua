@@ -58,7 +58,10 @@ return {
     event = "VeryLazy",
     config = function()
       require("mini.splitjoin").setup({
-        mappings = { toggle = "" }, -- Disable default mapping
+        mappings = {
+          split = "sk",
+          join = "sj",
+        },
       })
     end,
   },

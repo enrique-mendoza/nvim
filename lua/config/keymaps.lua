@@ -50,7 +50,3 @@ map(
   "<cmd>MCstart<cr>",
   { desc = "Create a selection for selected text or word under the cursor" }
 )
-
--- Mini: splitjoin
-map({ "n", "x" }, "sj", ":lua MiniSplitjoin.join()<cr>", opts)
-map({ "n", "x" }, "sk", ":lua MiniSplitjoin.split()<cr>", opts)
