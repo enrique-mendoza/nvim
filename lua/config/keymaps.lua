@@ -38,6 +38,3 @@ map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
 map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
 map("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
 map("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-
--- Oil
-map("n", "-", "<cmd>Oil<cr>", { desc = "Open Oil (parent dir)" })
